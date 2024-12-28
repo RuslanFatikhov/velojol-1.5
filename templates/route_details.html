@@ -1,0 +1,23 @@
+
+
+{% block content %}
+<div class="route-details">
+    <h2>{{ route.name }}</h2>
+    <p><strong>Описание:</strong> {{ route.description }}</p>
+    <p><strong>Расстояние:</strong> {{ route.distance }} км</p>
+    <p><strong>Сложность:</strong> {{ route.difficulty }}</p>
+    <p><strong>Рейтинг:</strong> {{ route.rating }}</p>
+
+    <!-- Карта маршрута -->
+    <div id="map"></div>
+
+    <a class="button" href="/{{ city_id }}_routes">Вернуться к списку маршрутов</a>
+
+</div>
+
+<script>
+    var routeCoordinates = {{ route.coordinates | tojson }};
+</script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+<script src="{{ url_for('static', filename='js/maproutes.js') }}"></script>
+{% endblock %}

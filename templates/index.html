@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>VELOJOL</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    
+    <!-- Фавиконы и мета-данные -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    
+    <!-- Open Graph мета-данные -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/meta.jpg">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cities.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    
+    <!-- Подключение тем -->
+    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
+
+</head>
+<body>
+    <!-- header -->
+    {% include 'header.html' %} 
+
+    <!--Cover-->
+    <div class="cover" id="cover">
+            
+        <!--Service-->
+        <div class="service">
+            <span class="bgprime300 row gap48">
+
+                <a href="/cities">
+                    <img src="static/img/landing/service_img1.png" alt="Phone icon">
+                    <h6 class="dark-prime-invert-200 center">Города</h6>
+
+                </a>
+
+                <a href="/routes">
+                    <img src="static/img/landing/service_img1.png" alt="Phone icon">
+                    <h6 class="dark-prime-invert-200 center">Маршруты</h6>
+
+                </a>
+
+                <a href="/course">
+                    <img src="static/img/landing/service_img1.png" alt="Phone icon">
+                    <h6 class="dark-prime-invert-200 center">Курс</h6>
+
+                </a>
+
+                <a href="/bazar">
+                    <img src="static/img/landing/service_img1.png" alt="Phone icon">
+                    <h6 class="dark-prime-invert-200 center">Базар</h6>
+                </a>
+
+            </span>
+        </div>
+        
+    </div>
+
+    <main>
+
+        <!--Block-Cities-->
+        <div class="block">
+
+            <!--BlockHeading-->
+            <div class="blockheading column w100 gap8">
+                <h4>Показываем велодорожки в городах</h4>
+                <p>С описанием, фото и видео</p>
+            </div>
+            
+            <span class="heading row sb mb16 aic">
+                <h5 class="dark-prime-invert-200">Велодорожки в городах</h5>
+                <a class="button ghost" href="/cities">
+                    <p class="p2 dark-prime-invert-200">Все города</p>
+                    <img id="light-desktop" src="static/img/icon/arrow-right-black.svg">
+                    <img id="dark-desktop" src="static/img/icon/arrow-right-white.svg"></a>
+            </span>
+
+
+            <span class="row gap16 w100">
+                <!-- Тут список городов -->
+                <span class="row gap16 w100">
+                    <ul class="landgrid">
+                        {% for city in cities %}
+                            <li>
+                                <a class="citycard" href="{{ url_for('city_details', city_id=city['id']) }}">
+                                    <img class="citycover" src="{{ url_for('static', filename='img/city/' + city.cover) }}" alt="Cover of {{ city.city }}">
+                                    <span class="badge bgstate500"><p class="p3 dark-prime-200">{{ city.rating }}</p></span>
+                                    <img class="citycoat" src="{{ url_for('static', filename='img/city/' + city.coat) }}" alt="Coat of {{ city.city }}">
+                                    <span class="mb16 column gap4 citycardbody">
+                                        <h6 class="dark-prime-invert-100">{{ city.city }}</h6>
+                                        <span class="row gap8">
+                                            <p class="dark-prime-invert-50">{{ city.distance }} км</p>
+                                            <p class="dark-prime-invert-50">•</p>
+                                            <p class="dark-prime-invert-50">{{ city.country }}</p>
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </span>
+                
+
+                <!-- Баннер -->
+                <div class="landbanner bgprimeinvert300">
+                    <h4 class="dark-prime-200">Показываем велодорожки в гордадах</h4>
+                    <p class="dark-prime-200">С описанием, фото и видео</p>
+                </div>
+            </span>
+
+        </div>
+
+
+        <!--Block Bazar desktop-->
+        <div class="block w100 mb100 bgaccent300 row gap24 desktop">
+
+            <!--Leftside-->
+            <div class="sb column row " style="max-width: 290px;">
+                <span class="column gap8 w100">
+                <h4 class="staticwhite100">Лучшие веломагазины</h4>
+                <p class="staticwhite100">Для новичков и профи</p>
+                </span>
+
+                <a class="row gap4 button dark-prime-100 bgprimveinvert100" href="/bazar">
+                <p class="p2 dark-prime-100">Все магазины</p>
+                <img src="static/img/icon/arrow-right-black.svg">
+                </a>
+            </div>
+
+
+            <!--RightSide-->
+            <div class="categories w100">
+
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+                  <img src="static/img/category/category.png">
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+                  <img src="static/img/category/category.png">
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+                  <img src="static/img/category/category.png">
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+                  <img src="static/img/category/category.png">
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+                  <img src="static/img/category/category.png">
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+                  <img src="static/img/category/category.png">
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+                  <img src="static/img/category/category.png">
+                </a>
+              
+            </div>
+              
+                
+
+        </div>
+        
+        <!--Block bazar mobile-->
+        <div class="w100 mb24 bgaccent300 column gap32 mobile" style="border-radius: 16px; padding-top: 16px; padding-bottom: 16px;">
+
+            <!--TOP-->
+            <div class="gap16 w100 column heading" style="padding-top: 0px !important;">
+                <span class="column gap8 w100">
+                <h2 class="staticwhite100">Лучшие веломагазины</h2>
+                <p class="staticwhite100">Для новичков и профи</p>
+                </span>
+
+                <a class="row gap4 button dark-prime-100 bgprimveinvert100" href="/bazar">
+                <p class="p2 dark-prime-100">Все магазины</p>
+                <img src="static/img/icon/arrow-right-black.svg">
+                </a>
+            </div>
+
+            <!--Grid-->
+            <div class="categories w100">
+
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+
+                </a>
+              
+                <a href="" class="categorycard" id="categorycard1">
+                  <h6 class="dark-prime-100">Велосипеды</h6>
+
+                </a>
+              
+            </div>
+
+        </div>
+
+        <!--Banners-->
+        <div class="w100 row gap16 banners">
+            <!--Banner-->
+            
+            <a class="w100 banner bgaccent300" href="">
+                <p class="staticwhite100 mobile">Подписывайтесь<br>на телеграм-канал</p>
+                <h3 class="staticwhite100 desktop">Подписывайтесь<br>на телеграм-канал</h3>
+            </a>
+
+            <a class="s100 banner bgaccent300" href="">
+                <p class="staticwhite100 mobile">Нам нужны<br>споттеры</p>
+                <h3 class="staticwhite100 desktop">Нам нужны<br>споттеры</h3>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Tapbar -->
+    <div class="tapbar bgprime300">
+        <a href="#cover" class="tapbar__item active" id="tab-index">
+            <img src="static/img/tapbar/menu_inactive.svg" class="icon icon-inactive">
+            <img src="static/img/tapbar/menu_active.svg" class="icon icon-active">
+            <p class="p3 dark-prime-invert-300">Главная</p>
+        </a>    
+        <a href="/routes" class="tapbar__item" id="tab-routes">
+            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
+            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маршруты</p>
+        </a>
+        <a href="/bazar" class="tapbar__item" id="tab-bazar">
+            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
+            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Базар</p>
+        </a>
+        <button class="tapbar__item" id="tab-menu" onclick="openMenuPopup()">
+            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
+            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Меню</p>
+        </button>
+    </div>
+    <!-- footer -->
+    {% include 'footer.html' %}
+
+    <!--Scripts-->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

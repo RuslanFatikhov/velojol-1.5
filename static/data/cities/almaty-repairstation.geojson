@@ -1,0 +1,181 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-12-25T14:27:59Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9791551333",
+        "amenity": "bicycle_repair_station",
+        "service:bicycle:pump": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9443862,
+          43.2424906
+        ]
+      },
+      "id": "node/9791551333"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11014279935",
+        "amenity": "bicycle_repair_station",
+        "fee": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9093908,
+          43.2258837
+        ]
+      },
+      "id": "node/11014279935"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11126830805",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9830849,
+          43.3413492
+        ]
+      },
+      "id": "node/11126830805"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11518354606",
+        "amenity": "bicycle_repair_station",
+        "service:bicycle:pump": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.919345,
+          43.2444493
+        ]
+      },
+      "id": "node/11518354606"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11520647369",
+        "amenity": "bicycle_repair_station",
+        "fee": "no",
+        "opening_hours": "24/7",
+        "operator": "Urbo Coffee",
+        "service:bicycle:pump": "yes",
+        "service:bicycle:repair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9445933,
+          43.2600086
+        ]
+      },
+      "id": "node/11520647369"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11539115525",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9318909,
+          43.262839
+        ]
+      },
+      "id": "node/11539115525"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12136917933",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9498659,
+          43.2585937
+        ]
+      },
+      "id": "node/12136917933"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12196241003",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.0156387,
+          43.1742616
+        ]
+      },
+      "id": "node/12196241003"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12428785819",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9248275,
+          43.2623791
+        ]
+      },
+      "id": "node/12428785819"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12431292228",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9282342,
+          43.2173907
+        ]
+      },
+      "id": "node/12431292228"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12438188409",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          76.9284064,
+          43.262691
+        ]
+      },
+      "id": "node/12438188409"
+    }
+  ]
+}

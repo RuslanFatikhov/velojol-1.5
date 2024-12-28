@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Добавить новый город</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="id" class="form-label">ID города</label>
+                <input type="text" class="form-control" id="id" name="id" placeholder="Уникальный ID города" required>
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">Название города</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Название города" required>
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Страна</label>
+                <input type="text" class="form-control" id="country" name="country" placeholder="Страна" required>
+            </div>
+            <div class="mb-3">
+                <label for="coat" class="form-label">Файл герба</label>
+                <input type="text" class="form-control" id="coat" name="coat" placeholder="Файл герба (напр. city_coat.png)" required>
+            </div>
+            <div class="mb-3">
+                <label for="cover" class="form-label">Файл обложки</label>
+                <input type="text" class="form-control" id="cover" name="cover" placeholder="Файл обложки (напр. city_cover.jpg)" required>
+            </div>
+            <div class="mb-3">
+                <label for="distance" class="form-label">Дистанция</label>
+                <input type="number" step="0.01" class="form-control" id="distance" name="distance" placeholder="Дистанция (км)" required>
+            </div>
+            <div class="mb-3">
+                <label for="zoom" class="form-label">Уровень масштаба (zoom)</label>
+                <input type="number" class="form-control" id="zoom" name="zoom" placeholder="Уровень масштаба" required>
+            </div>
+            <div class="mb-3">
+                <label for="coordinates" class="form-label">Координаты</label>
+                <div class="row">
+                    <div class="col">
+                        <input type="number" step="0.00000001" class="form-control" id="longitude" name="longitude" placeholder="Долгота" required>
+                    </div>
+                    <div class="col">
+                        <input type="number" step="0.00000001" class="form-control" id="latitude" name="latitude" placeholder="Широта" required>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label">Рейтинг</label>
+                <input type="number" step="0.01" class="form-control" id="rating" name="rating" placeholder="Рейтинг (0-5)" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a href="/admin/cities" class="btn btn-secondary">Отмена</a>
+        </form>
+    </div>
+</body>
+</html>
+

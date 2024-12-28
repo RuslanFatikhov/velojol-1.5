@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ВелоМаршруты</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head> 
+    <body>
+
+
+        {% block content %}
+<div class="routes-page">
+    <h2>Маршруты города {{ city_id }}</h2>
+
+    <ul class="routes-list">
+        {% if routes %}
+            {% for route in routes %}
+                <li class="route-item">
+                    <h4>{{ route.name }}</h4>
+                    <p><strong>Расстояние:</strong> {{ route.distance }} км</p>
+                    <p><strong>Сложность:</strong> {{ route.difficulty }}</p>
+                    <a href="/route/{{ route.id }}">Подробнее</a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>Маршруты для этого города не найдены.</li>
+        {% endif %}
+    </ul>
+
+    <a class="button" href="/{{ city_id }}">Вернуться к информации о городе</a>
+</div>
+{% endblock %}
+
+
+
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <script src="{{ url_for('static', filename='js/maproutes.js') }}"></script>
+
+    </body>
+</html>

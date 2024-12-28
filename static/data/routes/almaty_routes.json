@@ -1,0 +1,16 @@
+[
+    {
+        "id": "route1",
+        "name": "Горный маршрут",
+        "distance": 25.6,
+        "difficulty": "средний",
+        "description": "Прекрасный маршрут по горам Алматы."
+    },
+    {
+        "id": "route3",
+        "name": "Макатаева",
+        "distance": 15,
+        "difficulty": "Легко",
+        "description": " Описаание"
+    }
+]

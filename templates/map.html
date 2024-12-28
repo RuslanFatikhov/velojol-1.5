@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ city.city }}</title>
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/img/fav/apple-touch-icon.png ">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/fav/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="../static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/meta.jpg">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/imageview.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+
+    <!-- Подключение тем -->
+    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
+
+
+    <!-- Lottie Web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    
+   
+    
+    
+</head>
+<body>
+
+    <!--Loading-->
+    <div id="loading">
+        <div id="lottie-container" style="width: 100%; height: 100%; max-width: 320px; max-height: 320px;"></div>
+    </div>
+
+    <div class="tapbar row gap8">
+        <button class="size_m bgprime400" onclick="goToCityDetails()">
+            <img src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+        </button>
+
+        <span class="row w100 bgprime400">
+            <button id="tabMap" class=" button active gap8 w100">
+                <img src="../static/img/icon/map.svg" alt="map">
+                <p class="dark-prime-invert-200">Карта</p>
+            </button>
+            <button id="tabList" class=" button gap8 w100">
+                <img src="../static/img/icon/list-white.svg" alt="list">
+                <p class="dark-prime-invert-200">Список</p>
+            </button>
+        </span>
+    </div>
+
+    <main>
+
+        <!--Filters-->
+        <div id="mapFilters" class="filter-container">
+            <button id="bikeParkingsBtn" class="filter-button active" title="Велопарковки">
+                <img src="../static/img/icon/bike-parking.svg" alt="Велопарковки">
+            </button>
+            <button id="bikeStationsBtn" class="filter-button active" title="Велостанции">
+                <img src="../static/img/icon/bike-station.svg" alt="Велостанции">
+            </button>
+        </div>
+        
+        
+        
+        <div class="bottomright">
+            <ul class="gap8">
+                <a href="https://tally.so/r/mKx66k" target="_blank" class="button border bgprime300 dark-prime-invert-200 gap8">
+                    <img src="../static/img/icon/warning.svg" alt="warning">
+                    <p >Есть ошибка</p>
+                </a>
+
+                <a href="https://tally.so/r/w7dV16" target="_blank" class="button border bgprime300 dark-prime-invert-200 gap8">
+                    <img src="../static/img/icon/plus1.svg" alt="plus icon">
+                    <p>Добавить велодорожку</p>
+                </a>
+
+            </ul>
+
+            
+            <div class="chips bgprime400">
+                <button class="button_icon" id="zoomIn">
+                    <img src="../static/img/icon/plus1.svg" alt="plus icon">
+                </button>
+
+
+                <button class="button_icon" id="zoomOut">
+                    <img src="../static/img/icon/minus.svg" alt="minus icon">
+                </button>
+            </div>
+
+
+            <a href="https://fatikhov.notion.site/Velojol-e83a5c646a8d4648a366d5b8e60f8a05?pvs=4" target="_blank" class="button border bgprime300 dark-prime-invert-200 gap8">
+                <img src="../static/img/icon/question.svg" alt="question">
+                <p class="hide540">Что это</p>
+            </a>
+        </div>
+
+        <div id="imageModal" class="modal">
+            <span class="size_s close"><img src="../static/img/icon/close.svg"></span>
+            <img class="modal-image">
+            <!-- Кнопки навигации -->
+            <a class="prev size_s"><img src="../static/img/icon/arrow-left-white.svg"></a>
+            <a class="next size_s"><img src="../static/img/icon/arrow-right-white.svg"></a>
+            <!-- Порядковый номер фото -->
+            <div class="image-counter">1 / 1</div>
+        </div>
+        
+        <div id="customPopup" class="bgprime300"></div>
+
+        <div class="block bgprime300" id="bikelist">
+
+            <div class="navhead">
+                <button class="size_s desktop" onclick="goToCityDetails()">
+                    <img src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+                </button>
+
+                <h6 class="dark-prime-invert-200">{{ city.city }}</h6>
+            <span class="h34"></span>
+            </div>
+
+            <div id="bikeLanesList">
+                <!-- Здесь будет динамически сгенерированный список велодорожек -->
+            </div>
+        </div>
+            
+        <div id='map'></div>
+
+
+        
+    </main>
+
+    
+    <!--API-->
+    <script>
+        var cityCoordinates = {{ city.coordinates | tojson }};
+        var cityName = {{ city.city | tojson }}; // Название города
+        var cityId = {{ city.id | tojson }}; // id города
+        var cityZoom = {{ city.zoom | tojson }}; // Уровень масштабирования
+    </script>
+
+    
+    <!--Назад-->
+    <script>
+        function goToCityDetails() {
+            window.location.href = "/{{ city.id }}";
+        }
+    </script>
+
+    <!--Mapbox-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+
+    <!--static js-->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/bikeparkings.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/imageview.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tabs.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/filter.js') }}"></script>
+    
+
+  
+
+    <!--Loading-->
+    <script>
+        window.onload = function() {
+    // Задержка перед началом анимации исчезновения
+    setTimeout(function() {
+        var loadingElement = document.getElementById('loading');
+        loadingElement.style.opacity = 0;
+
+        // Дополнительная задержка для скрытия после анимации
+        setTimeout(function() {
+            loadingElement.style.display = 'none';
+        }, 1500); // Длительность анимации исчезновения
+    }, 1500); // Задержка перед началом анимации
+    };
+
+    </script>
+    <script>
+          // Инициализация Lottie анимации
+          lottie.loadAnimation({
+              container: document.getElementById('lottie-container'), // HTML элемент для анимации
+              renderer: 'svg',
+              loop: true,
+              autoplay: true,
+              path: '/static/json/loading.json' // Путь к JSON файлу анимации
+          });
+    </script>  
+
+    <!--Onboarding-->
+    <div class="onboarding">
+
+        <!--Container-->
+        <div class="onboarding-container">
+
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <span class="column gap32">
+                
+                <h2 class="dark-prime-invert-100 tal">Добро пожаловать<br>на Velojol!</h2>
+                <p class="dark-prime-invert-100 tal">Откройте для себя лучшие велосипедные дорожки в городе, проверьте их состояние, посмотрите фотографии и спланируйте идеальную поездку на велосипеде</p>
+                <div id="lottie-container-1" class="lottie-container"></div>
+            </span>
+            
+            <span class="w100" style="padding: 16px;">
+                <button style="margin-top: 0px !important;" class="next-btn button w100 bgprimveinvert100"><p class="bold dark-prime-100">Далее</p></button>
+            </span>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <span class="column gap32">
+                
+                <h2 class="dark-prime-invert-100 tal">Изучите карту велодорожек</h2>
+                <p class="dark-prime-invert-100 tal">Нажмите на любую дорожку, чтобы просмотреть подробное описание, фотографии и ключевые особенности для вашей поездки.</p>
+                <div id="lottie-container-2" class="lottie-container"></div>
+            </span>
+            
+            <span class="w100" style="padding: 16px;">
+                <button style="margin-top: 0px !important;" class="next-btn button w100 bgprimveinvert100"><p class="bold dark-prime-100">Далее</p></button>
+            </span>
+        </div>
+
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <span class="column gap32" style="position: absolute; bottom:60px;z-index: 10000;">
+                
+                <h2 class="dark-prime-invert-100 tal">Помогайте развивать Velojol!</h2>
+                <p class="dark-prime-invert-100 tal">Добавляйте новые велосипедные дорожки, обновляйте информацию, делитесь фотографиями и оставляйте комментарии, чтобы поддержать сообщество велосипедистов</p>
+                
+            </span>
+
+            <div id="lottie-container-3" class="lottie-container"></div>
+            
+            <span class="w100" style="padding: 16px; position: absolute; bottom:20px;z-index: 10000;">
+                <button style="margin-top: 0px !important;" class="next-btn button w100 bgprimveinvert100"><p class="bold dark-prime-100">Далее</p></button>
+            </span>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <span class="column gap32">
+                
+                <h2 class="dark-prime-invert-100 tal">Давайте кататься!</h2>
+                <p class="dark-prime-invert-100 tal">Изучите карту, найдите свой следующий любимый маршрут и поделитесь Velojol со своими друзьями</p>
+                <div id="lottie-container-4" class="lottie-container"></div>
+            </span>
+            
+            <span class="w100" style="padding: 16px;">
+                <button style="margin-top: 0px !important;" class="finish-btn button w100 bgaccent100"><p class="bold dark-accent-200">Отлично!</p></button>
+            </span>
+        </div>
+
+        </div>
+
+        <!-- Области для тапов -->
+        <div class="navigation-area left"></div>
+        <div class="navigation-area right"></div>
+
+        <!-- Индикаторы -->
+        <div class="pagination">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        </div>
+    </div>
+
+
+    <!--Onboarding script-->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const leftArea = document.querySelector('.navigation-area.left');
+            const rightArea = document.querySelector('.navigation-area.right');
+            const nextButtons = document.querySelectorAll('.next-btn');
+            const finishButton = document.querySelector('.finish-btn');
+            const dots = document.querySelectorAll('.dot');
+            let currentSlide = 0;
+
+            // Пути к JSON-файлам для Lottie анимаций
+            const lottiePaths = [
+                '/static/json/onb/onb1.json',
+                '/static/json/onb/onb2.json',
+                '/static/json/onb/onb3.json',
+                '/static/json/onb/onb4.json',
+            ];
+
+            let lottieInstances = []; // Массив для хранения Lottie инстансов
+
+            function loadLottieAnimations() {
+                slides.forEach((slide, index) => {
+                    const lottieContainer = slide.querySelector('.lottie-container');
+                    if (lottieContainer) {
+                        const animation = lottie.loadAnimation({
+                            container: lottieContainer,
+                            renderer: 'svg',
+                            loop: false,
+                            autoplay: index === 0,
+                            path: lottiePaths[index],
+                        });
+                        lottieInstances.push(animation);
+                    } else {
+                        console.warn(`Lottie container not found for slide ${index}`);
+                    }
+                });
+            }
+
+            function updateSlides() {
+                slides.forEach((slide, index) => {
+                    slide.classList.remove('active', 'previous', 'next');
+
+                    if (index === currentSlide) {
+                        slide.classList.add('active'); // Текущий слайд
+                        lottieInstances[index]?.play(); // Запускаем анимацию, если она есть
+                    } else {
+                        slide.classList.add(index < currentSlide ? 'previous' : 'next');
+                        lottieInstances[index]?.stop(); // Останавливаем анимацию на неактивных слайдах
+                    }
+                });
+
+                // Обновляем индикаторы
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+
+                console.log(`Switched to slide: ${currentSlide}`);
+            }
+
+            function goToNextSlide() {
+                if (currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    updateSlides();
+                }
+            }
+
+            function goToPreviousSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlides();
+                }
+            }
+
+            function finishOnboarding() {
+                localStorage.setItem('onboardingCompleted', 'true'); // Сохраняем флаг
+                document.querySelector('.onboarding').style.display = 'none'; // Скрываем онбординг
+                console.log('Onboarding completed');
+            }
+
+            // Проверяем, запускать ли онбординг
+            if (localStorage.getItem('onboardingCompleted') === 'true') {
+                document.querySelector('.onboarding').style.display = 'none';
+                console.log('Onboarding already completed, skipping');
+                return;
+            }
+
+            // Проверяем наличие всех элементов
+            if (!slides.length || !dots.length || !finishButton) {
+                console.error('One or more required elements are missing');
+                return;
+            }
+
+            // Добавляем обработчики
+            nextButtons.forEach(button => button.addEventListener('click', goToNextSlide));
+            finishButton.addEventListener('click', finishOnboarding);
+
+            rightArea.addEventListener('click', goToNextSlide);
+            leftArea.addEventListener('click', goToPreviousSlide);
+
+            // Загружаем Lottie анимации и обновляем слайды
+            loadLottieAnimations();
+            updateSlides();
+        });
+    </script>
+
+
+</body>
+</html>

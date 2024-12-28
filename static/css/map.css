@@ -1,0 +1,545 @@
+body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+main{
+    box-sizing: border-box;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#map{
+    display: block;
+    box-sizing: border-box;
+
+    margin: 16px;
+    width: calc(100vw - 32px);
+    height: calc(100vh - 38px);
+
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.block{
+    padding: 16px;
+
+    width: 100%;
+    max-width: 390px;
+    padding: 16px;
+    margin: 16px 0px 16px 16px;
+    overflow-y: hidden;
+
+    height: calc(100vh - 40px);
+    border-radius: 16px;
+}
+
+#bikeLanesList{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 100px;
+    padding-top: 16px;
+}
+
+.bike-lane-item{
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
+    position: relative;
+    color: var(--dark-prime-invert-200);
+    transition: 0.15s ease-in-out;
+}
+
+.bike-lane-item:hover{
+    background-color: var(--dark-prime-400);
+    transition: 0.15s ease-in-out;
+}
+
+
+.bike-lane-item img{
+    min-width: 48px;
+    min-height: 48px;
+    max-width: 48px;
+    max-height: 48px;
+    overflow: hidden;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.bike-lane-item span{
+    width: 100%;
+}
+
+#customPopup{
+    display: none;
+    padding: 16px;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    position: absolute;
+    left: 16px;
+    top: 16px;
+
+    width: 100%;
+    max-width: 390px;
+    z-index: 99;
+    height: calc(100vh - 30px);
+    border-radius: 16px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    align-items: flex-start;
+
+    position: relative;
+}
+
+.info h4{
+    margin-top: 30px;
+}
+
+.photogrid img{
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.label{
+    padding: 2px 6px;
+    border-radius: 4px;;
+}
+
+.absolute_rt{
+    position: absolute;
+    top: -4px;
+    right: -4px;
+}
+
+.photogrid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 8px;
+}
+
+.photogrid img{
+    width: 100%;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    width: 114px;
+    height: 120px;
+}
+
+.photogrid img:hover{
+    transform: scale(0.98);
+    transition: 0.15s ease-in-out;
+}
+
+.navhead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+#loading{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+    background-color: var(--dark-prime-200);
+}
+
+.bottomright{
+    position: absolute;
+    right: 0;
+    padding: 24px;
+    padding-bottom: 32px;
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+}
+
+.bottomright ul{
+    display: flex;
+    flex-direction: row;
+}
+
+.bottomright a{
+    pointer-events: auto;
+}
+
+.chips{
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.distance{
+    padding: 2px 4px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+.tapbar{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    gap:12px;
+    padding: 0px 16px 0px 16px;
+    width: 100%;
+    position: absolute;
+    bottom: 16px;
+    left: 0px;
+    height: 50px;
+    z-index: 100000;
+}
+
+.tapbar span{
+    padding: 8px;
+    border-radius: 16px;
+    max-height: 50px;
+    align-items: center;
+}
+
+.search-container{
+    width: 100%;
+    height: 44px;
+    position: relative;
+}
+
+.search-container input{
+    background-color: var(--dark-prime-200);
+    border: var(--dark-prime-invert-25) 1px solid;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    padding-left: 42px;
+    padding-right: 16px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+.search-container::before {
+    content: url('../images/icon/search.svg');
+    position: absolute;
+    top: 13px;
+    left: 16px;
+}
+
+.idtext{
+    text-transform: uppercase;
+}
+
+#loading{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+
+
+input[type="text" i] {
+    color: var(--dark-prime-invert-200);
+}
+
+/* Onboarding */
+.onboarding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--dark-prime-200);
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100000;
+  }
+  
+  .onboarding-container {
+    width: 390px;
+    height: calc(100vh - 100px);
+    max-height: 840px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Все слайды изначально справа */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    background-color: var(--dark-prime-400);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0; /* Все слайды изначально невидимы */
+  }
+
+  .slide span{
+    padding-left: 16px;
+    padding-right: 16px;
+    color: var(--dark-prime-100);
+
+    padding-bottom: 40px;
+  }
+  
+  .slide.active {
+    transform: translateX(-390px);
+    opacity: 1;
+  }
+  
+  .slide.previous {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
+  .slide.next {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  
+  .lottie-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+  
+  .navigation-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30%;
+    cursor: pointer;
+  }
+  
+  .navigation-area.left {
+    left: 0;
+  }
+  
+  .navigation-area.right {
+    right: 0;
+  }
+  
+
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap:12px;
+    margin-top: 16px;
+    align-items: center;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--dark-prime-invert-25);
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: var(--dark-prime-invert-50);
+    width: 12px;
+    height: 12px;
+  }
+  
+  
+
+
+@media screen and (max-width: 768px) {
+
+    .tapbar{
+        display: flex;
+    }
+
+    .block{
+        max-width: 100%;
+        margin:16px;
+        height: calc(100vh - 100px);
+    }
+
+    #faq{
+        display: none;
+    }
+
+    #list{
+        display: none;
+    }
+
+    #zoom{
+        position: absolute;
+        right: 20px;
+        top: calc(100vh - 60%);
+    }
+
+    .bottomright{
+        
+    }
+
+    #customPopup{
+        height: calc(100vh - 100px);
+        left: 0;
+        top: 0;
+        margin: 16px;
+    }
+
+    .photogrid img{
+        width: 100%;
+    }
+
+    #home{
+        display: none;
+    }
+    
+    .navhead h6{
+        width: 100%;
+        text-align: center;
+    }
+
+    .h34{
+        display: none;
+    }
+}
+
+.mapboxgl-ctrl-attrib-inner{
+    position: relative;
+    bottom: 48px;
+    left: 16px;
+    color: var(--dark-prime-invert-200);
+}
+
+.mapboxgl-ctrl-attrib-inner a{
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--dark-prime-invert-200);
+    opacity: 0.25;
+    transition: ease-in-out 0.25s;
+}
+
+.mapboxgl-ctrl-attrib-inner a:hover{
+    opacity: 1;
+    transition: ease-in-out 0.25s;
+}
+
+@media screen and (max-width: 920px) {
+    main{
+        flex-direction: column-reverse;
+    }
+
+    .block{
+        max-width: calc(100vw - 32px);
+    }
+
+    #customPopup{
+        max-width: calc(100vw - 32px);
+    }
+
+    .chips{
+        position: absolute;
+        right: 24px;
+        top: 68px;
+    }
+
+    #map{
+        height: calc(100vh - 100px);
+    }
+
+    .bike-lane-item{
+        padding: 12px 0px 12px 0px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .onboarding{
+        justify-content:flex-start;
+        margin-top: 16px;
+    }
+}
+
+
+#map.hidden,
+#bikelist.hidden {
+    display: none;
+}
+
+.tapbar button.active {
+    background-color: var(--dark-prime-invert-25);
+}
+
+.filter-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: flex;
+    padding: 8px;
+    z-index: 1000;
+}
+
+.filter-button {
+    background: none;
+    border: none;
+    margin: 0 4px;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.filter-button.active {
+    background-color: #007BFF; /* Цвет активной кнопки */
+}
+
+.filter-button:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+

@@ -1,0 +1,211 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-12-25T14:35:00Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3758252129",
+        "amenity": "bicycle_repair_station",
+        "name": "Веломастерская"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.4337573,
+          55.7638801
+        ]
+      },
+      "id": "node/3758252129"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5028885409",
+        "amenity": "bicycle_repair_station",
+        "level": "-1",
+        "name": "veloshoper.ru"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5318696,
+          55.8028642
+        ]
+      },
+      "id": "node/5028885409"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6550775985",
+        "amenity": "bicycle_repair_station",
+        "email": "info@velomatrix.ru",
+        "internet_access": "wlan",
+        "name": "Веломатрикс",
+        "name:en": "Velomatrix",
+        "opening_hours": "Mo-Su 10:00-20:00",
+        "phone": "+7 495 2460245",
+        "shop": "bicycle",
+        "website": "https://velomatrix.ru/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6966646,
+          55.8015312
+        ]
+      },
+      "id": "node/6550775985"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8356818519",
+        "amenity": "bicycle_repair_station",
+        "contact:website": "https://www.velostok.ru",
+        "name": "Велосток",
+        "service:bicycle:repair": "yes",
+        "service:bicycle:retail": "no",
+        "shop": "bicycle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.4984939,
+          55.8007679
+        ]
+      },
+      "id": "node/8356818519"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8590456438",
+        "amenity": "bicycle_repair_station",
+        "contact:phone": "+7-499-4551105; +7-800-2226553",
+        "contact:website": "https://www.mj-sport.ru/",
+        "name": "MJsport",
+        "shop": "bicycle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5581078,
+          55.7805048
+        ]
+      },
+      "id": "node/8590456438"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8628615826",
+        "amenity": "bicycle_repair_station",
+        "name": "Крути Педали",
+        "network": "Крути Педали",
+        "opening_hours": "Mo-Fr 14:00-22:00; Sa,Su 11:00-22:00",
+        "phone": "+7 985 6421942",
+        "website": "https://www.kruti-pedali.ru/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6728326,
+          55.7933888
+        ]
+      },
+      "id": "node/8628615826"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9213332681",
+        "amenity": "bicycle_repair_station",
+        "fixme": "resurvey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.7531983,
+          55.7941947
+        ]
+      },
+      "id": "node/9213332681"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9434947952",
+        "amenity": "bicycle_repair_station",
+        "opening_hours": "24/7",
+        "service:bicycle:tools": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6692485,
+          55.7529164
+        ]
+      },
+      "id": "node/9434947952"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11970540595",
+        "amenity": "bicycle_repair_station",
+        "description": "Мы работаем по предварительной записи",
+        "name": "BikeKraft"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.280165,
+          55.423208
+        ]
+      },
+      "id": "node/11970540595"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12059207558",
+        "amenity": "bicycle_repair_station",
+        "contact:email": "info@bike-centre.ru",
+        "contact:phone": "+7 495 8592042;+7 800 5000320",
+        "contact:website": "https://bike-centre.ru/servis/remont-velosipedov",
+        "opening_hours": "Mo-Su 10:00-21:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.7609619,
+          55.6566054
+        ]
+      },
+      "id": "node/12059207558"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12059207559",
+        "amenity": "bicycle_repair_station",
+        "contact:email": "info@bike-centre.ru",
+        "contact:phone": "+7 495 8592042;+7 800 5000320",
+        "contact:website": "https://bike-centre.ru/servis/remont-velosipedov",
+        "opening_hours": "Mo-Su 10:00-21:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6232975,
+          55.8133035
+        ]
+      },
+      "id": "node/12059207559"
+    }
+  ]
+}

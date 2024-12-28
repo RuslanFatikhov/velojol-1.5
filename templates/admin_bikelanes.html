@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Велодорожки для города {{ city_id }}</h2>
+        <button class="btn btn-success mb-3" onclick="addNewBikelane()">Добавить велодорожку</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Дистанция (м)</th>
+                    <th>Уровень безопасности</th>
+                    <th>Описание</th>
+                    <th>Координаты</th>
+                    <th>Фото</th>
+                    <th>Источник</th>
+                    <th>Дата</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lane in bikelanes %}
+                <tr>
+                    <td><input type="text" class="form-control" name="id_{{ loop.index }}" value="{{ lane.id }}" readonly></td>
+                    <td><input type="text" class="form-control" name="name_{{ loop.index }}" value="{{ lane.name }}"></td>
+                    <td><input type="number" step="0.01" class="form-control" name="distance_{{ loop.index }}" value="{{ lane.distance }}"></td>
+                    <td><input type="number" min="1" max="5" class="form-control" name="safetyLevel_{{ loop.index }}" value="{{ lane.safetyLevel }}"></td>
+                    <td><textarea class="form-control" name="description_{{ loop.index }}">{{ lane.description }}</textarea></td>
+                    <td><textarea class="form-control" name="coordinates_{{ loop.index }}" placeholder="Введите массив координат...">{{ lane.coordinates }}</textarea></td>
+                    <td><textarea class="form-control" name="photos_{{ loop.index }}" placeholder="Введите ссылки на фото через запятую...">{{ lane.photos | join(", ") }}</textarea></td>
+                    <td><input type="text" class="form-control" name="source_{{ loop.index }}" value="{{ lane.source }}" placeholder="Источник"></td>
+                    <td><input type="text" class="form-control" name="date_{{ loop.index }}" value="{{ lane.date }}" placeholder="Введите дату (например, 04.10.23)"></td>
+                    <td>
+                        <button class="btn btn-danger" onclick="deleteBikelane(this)">Удалить</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+            
+        </table>
+        <button class="btn btn-primary" onclick="saveBikelanes()">Сохранить</button>
+        <a href="/admin" class="btn btn-secondary">Вернуться в админ-панель</a>
+    </div>
+    
+    <script>
+    function addNewBikelane() {
+        const tableBody = document.querySelector("table tbody");
+        const newRow = document.createElement("tr");
+    
+        newRow.innerHTML = `
+            <td><input type="text" class="form-control" name="id_new" value="" placeholder="ID велодорожки" required></td>
+            <td><input type="text" class="form-control" name="name_new" value="" placeholder="Название" required></td>
+            <td><input type="number" step="0.01" class="form-control" name="distance_new" value="" placeholder="Дистанция (м)" required></td>
+            <td><input type="number" min="1" max="5" class="form-control" name="safetyLevel_new" value="" placeholder="Уровень безопасности" required></td>
+            <td><textarea class="form-control" name="description_new" placeholder="Описание"></textarea></td>
+            <td><button class="btn btn-danger" onclick="deleteBikelane(this)">Удалить</button></td>
+        `;
+    
+        tableBody.appendChild(newRow);
+    }
+    
+    function deleteBikelane(row) {
+        const tableRow = row.closest("tr");
+        tableRow.remove();
+    }
+    
+    function saveBikelanes() {
+        const tableRows = document.querySelectorAll("table tbody tr");
+        const bikelanes = [];
+
+        tableRows.forEach((row) => {
+            const id = row.querySelector('input[name^="id"]').value;
+            const name = row.querySelector('input[name^="name"]').value;
+            const distance = parseFloat(row.querySelector('input[name^="distance"]').value) || 0;
+            const safetyLevel = parseInt(row.querySelector('input[name^="safetyLevel"]').value) || 0;
+            const description = row.querySelector('textarea[name^="description"]').value;
+            const coordinates = JSON.parse(row.querySelector('textarea[name^="coordinates"]').value || "[]");
+            const photos = row.querySelector('textarea[name^="photos"]').value.split(",").map(photo => photo.trim());
+            const source = row.querySelector('input[name^="source"]').value;
+            const date = row.querySelector('input[name^="date"]').value;
+
+            if (id && name) { // Проверяем, что ID и имя заполнены
+                bikelanes.push({ id, name, distance, safetyLevel, description, coordinates, photos, source, date });
+            }
+        });
+
+        fetch(`/admin/city/{{ city_id }}/bikelanes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(bikelanes),
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Велодорожки успешно сохранены!");
+                location.reload();
+            } else {
+                alert("Произошла ошибка при сохранении велодорожек.");
+            }
+        })
+        .catch(error => console.error("Ошибка:", error));
+    }
+   
+    </script>
+</body>
+</html>
+

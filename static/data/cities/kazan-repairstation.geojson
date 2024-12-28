@@ -1,0 +1,115 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2024-12-25T14:34:00Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5117047077",
+        "addr:city": "Казань",
+        "addr:housenumber": "15",
+        "addr:street": "улица Адоратского",
+        "amenity": "bicycle_repair_station",
+        "email": "kazan@2-keys.ru",
+        "name": "Два ключа",
+        "name:ru": "Два ключа",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "phone": "+7 987 2604060;+7 905 0252454",
+        "service:bicycle:repair": "yes",
+        "website": "https://2-keys.ru/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.1466823,
+          55.8289036
+        ]
+      },
+      "id": "node/5117047077"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6579177327",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.2175706,
+          55.7665992
+        ]
+      },
+      "id": "node/6579177327"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10204534014",
+        "amenity": "bicycle_repair_station",
+        "fee": "no",
+        "service:bicycle:pump": "yes",
+        "service:bicycle:repair": "yes",
+        "service:bicycle:tools": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.2125635,
+          55.7797951
+        ]
+      },
+      "id": "node/10204534014"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11911404982",
+        "amenity": "bicycle_repair_station",
+        "opening_hours": "24/7",
+        "service:bicycle:pump": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.1030517,
+          55.8119522
+        ]
+      },
+      "id": "node/11911404982"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12007039469",
+        "amenity": "bicycle_repair_station",
+        "service:bicycle:pump": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.1031385,
+          55.8118651
+        ]
+      },
+      "id": "node/12007039469"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12030526569",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.1159013,
+          55.7819759
+        ]
+      },
+      "id": "node/12030526569"
+    }
+  ]
+}

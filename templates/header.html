@@ -1,0 +1,85 @@
+<!--Header-->
+<header>
+    <span class="headercontent row sb">
+        <!-- Logo -->
+        <a href="/">
+            <img class="headerlogo" id="dark-desktop" src="{{ url_for('static', filename='img/landing/white-logo.svg') }}" alt="Dark Logo">
+            <img class="headerlogo" id="light-desktop" src="{{ url_for('static', filename='img/landing/black-logo.svg') }}" alt="Light Logo">
+        </a>
+
+        <!-- Middle -->
+        <span class="hstack gap8 desktop">
+            <!-- Дорожки -->
+            <div class="menu-item">
+                <a href="/cities" class="button ghost">
+                    <p class="dark-prime-invert-100">Дорожки</p>
+                </a>
+                <div class="submenu">
+                    <a href="/cities/city1">Город 1</a>
+                    <a href="/cities/city2">Город 2</a>
+                    <a href="/cities/city3">Город 3</a>
+                </div>
+            </div>
+
+            <!-- Маршруты -->
+            <div class="menu-item">
+                <a href="/cities" class="button ghost">
+                    <p class="dark-prime-invert-100">Маршруты</p>
+                </a>
+                <div class="submenu">
+                    <a href="/routes/route1">Маршрут 1</a>
+                    <a href="/routes/route2">Маршрут 2</a>
+                    <a href="/routes/route3">Маршрут 3</a>
+                </div>
+            </div>
+
+            <!-- Маркет -->
+            <a href="/bazar" class="button ghost">
+                <p class="dark-prime-invert-100">Маркет</p>
+            </a>
+        </span>
+
+        <!-- Right -->
+        <span id="headingright" class="desktop gap8 row">
+            <a href="/about" class="button ghost">
+                <p class="dark-prime-invert-100">О проекте</p>
+            </a>
+
+            <!-- Theme toggle button -->
+            <button class="button ghost" id="theme-toggle-desktop" style="width: 134px;">
+                <span class="row gap8 aic" id="light-desktop">
+                    <img src="{{ url_for('static', filename='img/icon/sun.svg') }}" alt="sun">
+                    <p class="dark-prime-invert-100">Светлая</p>
+                </span>
+                <span class="row gap8 aic" id="dark-desktop">
+                    <img src="{{ url_for('static', filename='img/icon/moon.svg') }}" alt="moon">
+                    <p class="dark-prime-invert-100">Темная</p>
+                </span>
+            </button>
+        </span>
+    </span>
+</header>
+
+
+ 
+<!-- Popup Menu -->
+<div id="popup-menu" class="popup-menu bgprime100">
+    <button id="close-popup" class="close-button">Закрыть</button>
+    <div class="popup-content">
+        <a href="/about" class="button ghost">
+            <p class="dark-prime-invert-100">О проекте</p>
+        </a>
+        <a href="/cities" class="button ghost">
+            <p class="dark-prime-invert-100">Дорожки</p>
+        </a>
+        <a href="/cities" class="button ghost">
+            <p class="dark-prime-invert-100">Маршруты</p>
+        </a>
+        <a href="/bazar" class="button ghost">
+            <p class="dark-prime-invert-100">Маркет</p>
+        </a>
+    </div>
+</div>
+
+
+

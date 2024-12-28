@@ -1,0 +1,158 @@
+[
+    {
+        "id": "almaty",
+        "city": "Алматы",
+        "country": "Казахстан",
+        "coat": "almaty.png",
+        "cover": "almaty.jpg",
+        "distance": 87.36,
+        "zoom": 11,
+        "coordinates": [
+            76.94574641542022,
+            43.236338918420984
+        ],
+        "rating": 3.95
+    },
+    {
+        "id": "astana",
+        "city": "Астана",
+        "country": "Казахстан",
+        "coat": "astana.png",
+        "cover": "astana.jpg",
+        "zoom": 10,
+        "distance": 18.89,
+        "coordinates": [
+            71.43051329105131,
+            51.1282839046317
+        ],
+        "rating": 0
+    },
+    {
+        "id": "innopolis",
+        "city": "Иннополис",
+        "country": "Россия",
+        "coat": "inno.png",
+        "cover": "inno.jpg",
+        "zoom": 14,
+        "distance": 9.31,
+        "coordinates": [
+            48.74556,
+            55.751158
+        ],
+        "rating": 0
+    },
+    {
+        "id": "kazan",
+        "city": "Казань",
+        "country": "Россия",
+        "coat": "kazan.png",
+        "cover": "kazan.jpg",
+        "distance": 26.95,
+        "zoom": 11,
+        "coordinates": [
+            49.12422777616422,
+            55.78235028276288
+        ],
+        "rating": 2.76,
+        "url": "Kazan"
+    },
+    {
+        "id": "moscow",
+        "city": "Москва",
+        "country": "Россия",
+        "coat": "moscow.png",
+        "cover": "moscow.jpg",
+        "zoom": 10,
+        "distance": 45.96,
+        "coordinates": [
+            37.62029733191338,
+            55.75411381726224
+        ],
+        "rating": 0
+    },
+    {
+        "id": "pavlodar",
+        "city": "Павлодар",
+        "country": "Казахстан",
+        "coat": "pavlodar.png",
+        "cover": "pavlodar.jpg",
+        "distance": 10.84,
+        "zoom": 12,
+        "coordinates": [
+            76.95968925438177,
+            52.275521803599815
+        ],
+        "rating": 0,
+        "url": "Pavlodar"
+    },
+    {
+        "id": "shymkent",
+        "city": "Шымкент",
+        "country": "Казахстан",
+        "coat": "shimkent.png",
+        "cover": "shimkent.jpg",
+        "distance": 18.55,
+        "zoom": 12,
+        "coordinates": [
+            69.58832219962483,
+            42.314688628509856
+        ],
+        "rating": 0
+    },
+    {
+        "id": "tumen",
+        "city": "Тюмень",
+        "country": "Россия",
+        "coat": "tumen.png",
+        "cover": "tumen.jpg",
+        "distance": 30.61,
+        "zoom": 12,
+        "coordinates": [
+            65.54212086273839,
+            57.15341521265273
+        ],
+        "rating": 0
+    },
+    {
+        "id": "saintpetersburg",
+        "city": "Санкт-Петербург",
+        "country": "Россия",
+        "coat": "saint-petersburg.png",
+        "cover": "saint-petersburg.jpg",
+        "distance": 41.43,
+        "zoom": 10,
+        "coordinates": [
+            30.316230813390973,
+            59.93872534983453
+        ],
+        "rating": 0
+    },
+    {
+        "id": "almetevsk",
+        "city": "Альметьевск",
+        "country": "Россия",
+        "coat": "almetevsk.png",
+        "cover": "almetevsk.jpg",
+        "distance": 20.0,
+        "zoom": 12,
+        "coordinates": [
+            52.296806252495315,
+            54.90127384383425
+        ],
+        "rating": 0.0
+    },
+    {
+        "id": "aktau",
+        "city": "Актау",
+        "country": "Казахстан",
+        "coat": "aktau.png",
+        "cover": "aktau.jgg",
+        "distance": 100.0,
+        "zoom": 10,
+        "coordinates": [
+            75.0,
+            56.0
+        ],
+        "rating": 5.0
+    }
+]

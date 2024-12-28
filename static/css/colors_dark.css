@@ -1,0 +1,114 @@
+:root {
+  --dark-prime-invert-5: rgba(26, 26, 26, 0.05);
+    --dark-prime-invert-25: #FFFFFF40;
+    --dark-prime-invert-50: #FFFFFF80;
+    --dark-prime-invert-100: #fff;
+    --dark-prime-invert-200: #F2F2F2;
+    --dark-prime-invert-300: #d2d2d2;
+
+    --static-white: #fff;
+  
+    --dark-prime-25: #1A1A1A40;
+    --dark-prime-50: #1A1A1A80;
+    --dark-prime-100: #000000;
+    --dark-prime-200: #1A1A1A;
+    --dark-prime-300: #262626;
+    --dark-prime-400: #333333;
+  
+    --dark-accent-100: #66FF80;
+    --dark-accent-200: #02324A;
+    --dark-accent-300: #6C0DF2;
+
+    --bgstate500: #64C750;
+}
+
+.staticwhite100{
+  color: var(--static-white);
+}
+
+.bgstate500{
+  background-color: var(--bgstate500);
+}
+
+.dark-prime-100{
+  color: var(--dark-prime-100) !important;
+}
+
+
+.dark-prime-200{
+  color: var(--dark-prime-200) !important;
+}
+
+.dark-prime-300{
+  color: var(--dark-prime-300);
+}
+
+.dark-accent-200{
+  color: var(--dark-accent-200);
+}
+
+
+
+.dark-prime-invert-25{
+  color: var(--dark-prime-invert-25);
+}
+
+.dark-prime-invert-50{
+  color: var(--dark-prime-invert-50);
+}
+
+.dark-prime-invert-100{
+  color: var(--dark-prime-invert-100);
+}
+
+.dark-prime-invert-200{
+  color: var(--dark-prime-invert-200) !important;
+}
+
+.dark-prime-invert-300{
+  color: var(--dark-prime-invert-300);
+}
+
+.dark-accent-100{
+  color: var(--dark-accent-100);
+}
+
+.bgaccent100{
+  background-color: var(--dark-accent-100);
+}
+
+.bgaccent200{
+  background-color: var(--dark-accent-200);
+}
+
+.bgaccent300{
+  background-color: var(--dark-accent-300);
+}
+
+.bgprimveinvert100{
+  background-color: var(--dark-prime-invert-100);
+  }
+  
+.bgprimveinvert200{
+  background-color: var(--dark-prime-invert-200);
+}
+  
+.bgprimveinvert300{
+    background-color: var(--dark-prime-invert-300);
+}
+
+.bgprime100{
+  background-color: var(--dark-prime-100);
+}
+
+.bgprime300{
+   background-color: var(--dark-prime-300);
+}
+
+.bgprime400{
+  background-color: var(--dark-prime-400);
+}
+
+.bgprimeinvert300{
+  background-color: var(--dark-prime-invert-300);
+}

@@ -1,0 +1,339 @@
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--dark-prime-200);
+}
+
+button{
+    border: none;
+    cursor: pointer;
+}
+
+.badge_m{
+    padding: 2px 6px;
+    border-radius: 4px;
+
+}
+
+
+a{
+    text-decoration: none;
+}
+
+.block{
+    padding: 16px;
+    border-radius: 16px;
+    width: 100%;
+    overflow-x: hidden;
+    margin-bottom: 100px;
+}
+
+
+.hstack{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+}
+
+.hstack_important{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.sb{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+
+.size_s:hover{
+    transition: 0.15s ease-in-out;
+    background-color: var(--dark-prime-invert-25);
+}
+
+.size_s img{
+    width: 18px !important;
+    height: 18px !important;
+}
+
+#loading {
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+        transition: opacity 0.15s ease-out; /* Плавное изменение прозрачности в течение 2 секунд */
+    /* Продолжение вашего CSS */
+}
+
+/* Скрыть стандартный скроллбар */
+::-webkit-scrollbar {
+    width: 0;
+}
+
+/* Стили для ползунка в Chrome и Safari */
+::-webkit-scrollbar-thumb {
+    background-color: #fff; /* Цвет ползунка */
+    border-radius: 10px; /* Скругление углов ползунка */
+}
+
+/* Стили для трека (дорожки) в Chrome и Safari */
+::-webkit-scrollbar-track {
+    background-color: transparent; /* Прозрачный фон трека */
+}
+
+/* Стили для ползунка в Firefox */
+::-moz-scrollbar-thumb {
+    background-color: #fff; /* Цвет ползунка */
+    border-radius: 10px; /* Скругление углов ползунка */
+}
+
+/* Стили для трека (дорожки) в Firefox */
+::-moz-scrollbar-track {
+    background-color: transparent; /* Прозрачный фон трека */
+}
+
+/* Стили для ползунка в Internet Explorer */
+::-ms-scrollbar-thumb {
+    background-color: #fff; /* Цвет ползунка */
+    border-radius: 10px; /* Скругление углов ползунка */
+}
+
+/* Стили для трека (дорожки) в Internet Explorer */
+::-ms-scrollbar-track {
+    background-color: transparent; /* Прозрачный фон трека */
+}
+
+/* Стили для ползунка в Opera */
+::-o-scrollbar-thumb {
+    background-color: #888; /* Цвет ползунка */
+    border-radius: 10px; /* Скругление углов ползунка */
+}
+
+/* Стили для трека (дорожки) в Opera */
+::-o-scrollbar-track {
+    background-color: transparent; /* Прозрачный фон трека */
+}
+
+hr{
+    width: 100%;
+    border: 1px solid var(--dark-prime-invert-25);
+    border-radius: 8px;
+}
+
+#dark-logo{
+    display: block;
+}
+
+#light-logo{
+    display: none;
+}
+
+
+
+.breadcrumb{
+    width: 100%;
+    cursor: pointer;
+}
+
+.icon100{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.navbar{
+    display: none !important;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    border-radius: 0px 0px 4px 4px;
+    top: 0px;
+    height: 54px;
+}
+
+.blockheading{
+    display: none !important;
+}
+
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    grid-template-rows: auto auto; /* 2 строки */
+    gap: 8px;
+  }
+  
+  .categorycard {
+    background-color: white;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    height: 144px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.25s;
+  }
+
+  .categorycard:hover{
+    transform: scale(0.98);
+    transition: 0.25s;
+  }
+
+  .categorycard img{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    transition: transform 0.1s ease; /* Добавляем плавный переход для более красивого эффекта */
+  }
+
+  .categorycard:hover img {
+    transform: scale(1.25) rotate(10deg); /* Применение увеличения и поворота одновременно */
+    transition: transform 0.1s ease; /* Добавляем плавный переход для более красивого эффекта */
+}
+
+  
+  /* Индивидуальная настройка расположения карточек */
+  .categorycard:nth-child(1) {
+    grid-column: span 1; /* Первая карточка занимает 1 колонку */
+  }
+  
+  .categorycard:nth-child(2),
+  .categorycard:nth-child(6) {
+    grid-column: span 2; /* Вторая карточка занимает 2 колонки */
+  }
+  
+  .categorycard:nth-child(3) {
+    grid-column: span 1; /* Третья карточка занимает 1 колонку */
+  }
+  
+  .categorycard:nth-child(4) {
+    grid-column: span 1; /* Четвертая карточка занимает 1 колонки */
+  }
+  
+  .categorycard:nth-child(5),
+  .categorycard:nth-child(6),
+  .categorycard:nth-child(7) {
+    grid-column: span 1; /* Остальные карточки занимают по одной колонке */
+  }
+  
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .cover img{
+        width: 100%;
+        overflow: hidden;
+        margin-top: -25%;
+    }
+
+    .block{
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 24px;
+        background-color: var(--dark-prime-100);
+        border-radius: 16px;
+        position: relative;
+        padding-top: 120px;
+    }
+
+    .blockheading{
+        padding: 16px;
+        display: flex;
+        background-color: red;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+
+    .hstack{
+        flex-direction: column;
+    }
+
+    .info .hstack{
+        flex-direction: row;
+    }
+
+    .hide540{
+        display: none;
+    }
+
+    .block{
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-bottom: 24px;
+    }
+
+    .heading{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .landgrid{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .categories{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .categorycard{
+        min-width: 90px;
+        height: 90px;
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    .categorycard:nth-child(1),
+    .categorycard:nth-child(2),
+    .categorycard:nth-child(3),
+    .categorycard:nth-child(4),
+    .categorycard:nth-child(5),
+    .categorycard:nth-child(6){
+        grid-column: span 1;
+    }
+
+    .categorycard:nth-child(7){
+        grid-column: span 3;
+    }
+
+    
+}
+
+@media screen and (max-width: 1290px) {
+
+    .navbar{
+        display: flex !important;
+    }
+
+    body{
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 960px){
+    .desktop{
+        display: none !important;
+    }
+}

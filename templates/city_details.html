@@ -1,0 +1,33 @@
+{% block content %}
+<div class="citydetails">
+    <h2>{{ city.city }}</h2>
+    
+    <!-- Основная информация -->
+    <p><strong>Страна:</strong> {{ city.country }}</p>
+    <p><strong>Рейтинг:</strong> {{ city.rating }}</p>
+    <p><strong>Расстояние:</strong> {{ city.distance }} км</p>
+    
+    <!-- Изображения -->
+    <div class="images">
+        <img src="{{ url_for('static', filename='images/city/' + city.cover) }}" alt="Обложка {{ city.city }}">
+        <img src="{{ url_for('static', filename='images/city/' + city.coat) }}" alt="Герб {{ city.city }}">
+    </div>
+    
+    <!-- Дополнительная информация -->
+    <div class="description">
+        {% if city.description %}
+            <h4>Описание</h4>
+            <p>{{ city.description }}</p>
+        {% else %}
+            <p>Описание недоступно.</p>
+        {% endif %}
+    </div>
+    
+    <!-- Вернуться назад -->
+    <a class="button" href="/cities">Вернуться к списку городов</a>
+</div>
+{% endblock %}
+
+
+<a class="button" href="{{ url_for('city_map', city_id=city.id) }}">Карта</a>
+<a class="button" href="{{ url_for('city_routes', city_id=city.id) }}">Маршруты</a>
