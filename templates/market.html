@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>VELOJOL</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    
+    <!-- Фавиконы и мета-данные -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/fav/favicon-16x16.png">
+    <link rel="mask-icon" href="static/images/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    
+    <!-- Open Graph мета-данные -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/images/landing/meta.jpg">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cities.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/market.css') }}">
+    
+
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      
+    <!-- Подключение тем -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+
+
+</head>
+    <!-- header -->
+    {% include 'header.html' %} 
+    <body class="bgprime400">
+        <main class="pt100">
+            
+            <!--Banners-->
+            <div class="banners mb32">
+
+            </div>
+
+            <!--Main-->
+            <div class="w100 hstack gap32" style="align-items: flex-start;">
+
+                <!--Category-->
+                <div class="island bgprime100 w100" style="max-width: 390px;">
+                    <h5 class="dark-prime-invert-100 island_heading bold">
+                        Категории
+                    </h5>
+                </div>
+
+                <!-- Добавляем модальное окно -->
+                <div id="storeModal" class="modal-store">
+                    <div class="modal-content">
+
+                        <!--Close button-->
+                        <span class="close button size_s">
+                            <img src="../static/img/icon/close.svg" alt="Close">
+                        </span>
+
+                        <div class="modal-header">
+                            <img id="modal-logo" src="" alt="">
+                            
+                            <div class="modal-cover" id="modal-cover"></div>
+                        </div>
+                        <div class="modal-body">
+
+                            <!--Категории-->
+                            <div id="modal-category" class="mb8"></div>
+
+                            <!--Title-->
+                            <h5 class="dark-prime-invert-200 bold" id="modal-name"></h5>
+                            
+                            <!--Desc-->
+                            <p class="mt8 dark-prime-invert-400" id="modal-description" style="text-align: left;"></p>
+                            
+                            <!-- Адрес -->
+                            <p><strong>Адрес:</strong> <a id="modal-address" href="#" target="_blank"></a></p>
+
+
+                            <!-- Доставка -->
+                            <div id="modal-delivery" class="delivery-label hidden">Есть доставка</div>
+
+                        
+
+                            <!--Social links-->
+                            <div class="w100 storecard-links mt24 grid gap8">
+                                <!--Instagram-->
+                                <a id="modal-instagram" href="#" target="_blank" class="hidden button size_m bgprime200 gap8">
+                                    <img src="../static/img/icon/instagram.svg" alt="instagram">
+                                    <p class="p2 dark-prime-invert-300">Instagram</p>
+                                </a>
+
+                                <!--Telegram-->
+                                <a id="modal-telegram" href="#" target="_blank" class="hidden button size_m bgprime200 gap8">
+                                    <img src="../static/img/icon/telegram.svg" alt="telegram">
+                                    <p class="p2 dark-prime-invert-300">Telegram</p>
+                                </a>
+
+                                <!--VK-->
+                                <a id="modal-vk" href="#" target="_blank" class="hidden button size_m bgprime200 gap8">
+                                    <img src="../static/img/icon/vk.svg" alt="vk">
+                                    <p class="p2 dark-prime-invert-300">VK</p>
+                                </a>
+
+                                <!--Web-->
+                                <a id="modal-web" href="#" target="_blank" class="hidden button size_m bgprime200 gap8">
+                                    <img src="../static/img/icon/web.svg" alt="web">
+                                    <p class="p2 dark-prime-invert-300">Сайт</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Список магазинов -->
+                <div class="w100">
+                    {% for store in stores %}
+                    <div class="storecard" 
+                         data-store='{{ store | tojson | safe }}' 
+                         onclick="openModal(this)">
+                        <div class="storecard-header" style="background-image: url('/static/img/market/{{ store.bg }}.jpg'); background-size: cover; background-position: center center;">
+                            <img class="storecard-logo" src="/static/img/market/{{ store.logo }}.jpg" alt="{{ store.name }}">
+                        </div>
+                        <div class="storecard-body">
+                            <h6 class="dark-prime-invert-100 bold" style="margin-bottom: 4px;">{{ store.name }}</h6>
+                            <p class="p2 dark-prime-invert-50 mt8">{{ store.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+            </div>
+        </main>
+    </body>
+
+    <!-- footer -->
+    {% include 'footer.html' %}
+
+    <!--Scripts-->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/market.js') }}"></script>
+</html>

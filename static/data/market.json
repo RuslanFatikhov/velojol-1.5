@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "name": "Shulz",
+      "description": "Официальный магазин велосипедов Shulz",
+      "catergory": "bike, clothe",
+      "logo": "shulz",
+      "bg": "shulz_cover",
+      "instagram": "shulz",
+      "telegram": "shulz",
+      "vk": "shulz",
+      "web": "shulz.com",
+      "address": "Гончарная улица, 24, Санкт-Петербург, Россия",
+      "lat": 59.928411,
+      "lon": 30.368513,
+      "delivery": true
+    }
+]

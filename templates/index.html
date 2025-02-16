@@ -37,8 +37,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     
+
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme') || 'dark'; // По умолчанию - темная
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      
+    
     <!-- Подключение тем -->
-    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+
 
 </head>
 <body>
@@ -72,7 +82,7 @@
 
                 <a href="/bazar">
                     <img src="static/img/landing/service_img1.png" alt="Phone icon">
-                    <h6 class="dark-prime-invert-200 center">Базар</h6>
+                    <h6 class="dark-prime-invert-200 center">Маркет</h6>
                 </a>
 
             </span>
@@ -95,8 +105,10 @@
                 <h5 class="dark-prime-invert-200">Велодорожки в городах</h5>
                 <a class="button ghost" href="/cities">
                     <p class="p2 dark-prime-invert-200">Все города</p>
-                    <img id="light-desktop" src="static/img/icon/arrow-right-black.svg">
-                    <img id="dark-desktop" src="static/img/icon/arrow-right-white.svg"></a>
+                    <img class="theme-icon light" src="static/img/icon/arrow-right-black.svg">
+                    <img class="theme-icon dark" src="static/img/icon/arrow-right-white.svg">
+                </a>
+                
             </span>
 
 
@@ -286,7 +298,7 @@
         <a href="/bazar" class="tapbar__item" id="tab-bazar">
             <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
             <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
-        <p class="p3 dark-prime-invert-300">Базар</p>
+        <p class="p3 dark-prime-invert-300">Маркет</p>
         </a>
         <button class="tapbar__item" id="tab-menu" onclick="openMenuPopup()">
             <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">

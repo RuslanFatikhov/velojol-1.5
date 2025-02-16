@@ -1,30 +1,68 @@
 document.addEventListener('DOMContentLoaded', function () {
     mapboxgl.accessToken = 'pk.eyJ1IjoiZnV6bGFuIiwiYSI6ImNsc2N3dnhuNTBrZXYya28xeG1mb3k3N3AifQ.bLjMuXA5JfgBW0pwtjQxxA';
 
-    
+    // 1) Функция, возвращающая стиль карты в зависимости от темы
+    function getMapStyle() {
+        return document.documentElement.getAttribute('data-theme') === 'light'
+            ? 'mapbox://styles/mapbox/light-v11'
+            : 'mapbox://styles/mapbox/dark-v11';
+    }
 
+    // 2) Функция для пересоздания стиля карты при смене темы
+    function reloadMapStyle() {
+        const newStyle = getMapStyle();
+        const currentStyle = map.getStyle();
+        const sources = {};
+        const layers = [];
+
+        // Сохраняем все слои и их источники, начинающиеся на "bikeLane-"
+        if (currentStyle && currentStyle.layers) {
+            currentStyle.layers.forEach(layer => {
+                if (layer.id.startsWith('bikeLane-')) {
+                    layers.push(layer);
+                    const src = map.getSource(layer.source);
+                    if (src && src._data && !sources[layer.source]) {
+                        sources[layer.source] = src._data;
+                    }
+                }
+            });
+        }
+
+        // Меняем стиль
+        map.setStyle(newStyle);
+
+        // Когда стиль загрузится, восстанавливаем источники и слои
+        map.once('style.load', () => {
+            Object.keys(sources).forEach(sourceId => {
+                map.addSource(sourceId, { type: 'geojson', data: sources[sourceId] });
+            });
+            layers.forEach(layer => {
+                map.addLayer(layer);
+            });
+        });
+    }
+
+    // 3) Создаём наблюдатель, который следит за сменой data-theme
+    const observer = new MutationObserver(reloadMapStyle);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+    // ================== ВАШ ИСХОДНЫЙ КОД ==================
+
+    // Глобальная (в рамках этого файла) переменная карты
     window.map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/dark-v11',
-        center: cityCoordinates,
-        zoom: cityZoom,
+        style: getMapStyle(), // Вместо 'mapbox://styles/mapbox/dark-v11'
+        center: cityCoordinates, // см. где у вас объявлены cityCoordinates
+        zoom: cityZoom,          // см. где у вас объявлен cityZoom
     });
 
     const initialCenter = cityCoordinates;
     const initialZoom = cityZoom;
+
+    // ВЕЛИКАЯ переменная со всеми велодорожками
     let bikeLanesData = [];
 
-    function setLayerOpacity(exceptId = "") {
-        const mapStyle = map.getStyle();
-        if (mapStyle && mapStyle.layers) {
-            mapStyle.layers.forEach(layer => {
-                if (layer.id.startsWith('bikeLane-')) {
-                    map.setPaintProperty(layer.id, 'line-opacity', exceptId === layer.id ? 1 : 0.5);
-                }
-            });
-        }
-    }
-
+    // Закрытие попапа
     function closeCustomPopup() {
         const customPopup = document.getElementById('customPopup');
         if (customPopup) {
@@ -33,9 +71,25 @@ document.addEventListener('DOMContentLoaded', function () {
         setLayerOpacity();
         map.flyTo({ center: initialCenter, zoom: initialZoom });
     }
+    window.closeCustomPopup = closeCustomPopup; // чтобы вызвать из кнопки в попапе
 
-    window.closeCustomPopup = closeCustomPopup;
+    // Прозрачность слоёв для визуальной подсветки выбранного
+    function setLayerOpacity(exceptId = "") {
+        const mapStyle = map.getStyle();
+        if (mapStyle && mapStyle.layers) {
+            mapStyle.layers.forEach(layer => {
+                if (layer.id.startsWith('bikeLane-')) {
+                    map.setPaintProperty(
+                      layer.id,
+                      'line-opacity',
+                      exceptId === layer.id ? 1 : 0.5
+                    );
+                }
+            });
+        }
+    }
 
+    // Уровень "безопасности"
     function getSafetyLevelDetails(safetyLevel) {
         const safetyLevels = {
             5: { color: '#64C750', label: 'Отлично' },
@@ -47,15 +101,16 @@ document.addEventListener('DOMContentLoaded', function () {
         return safetyLevels[safetyLevel] || { color: 'gray', label: 'Неизвестно' };
     }
 
+    // Загрузка фотографий
     function getPhotosFromFolder(cityId, bikelaneId) {
         const apiUrl = `/photos/${cityId}/${bikelaneId}`;
         const placeholder = `/static/img/placeholder.jpg`; // Заглушка
-    
+
         return fetch(apiUrl)
             .then(response => {
                 if (!response.ok) {
                     console.warn(`Ошибка при загрузке файлов из ${apiUrl}. Используется placeholder.`);
-                    return [placeholder]; // Если запрос не удался, возвращаем заглушку
+                    return [placeholder];
                 }
                 return response.json();
             })
@@ -68,27 +123,37 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => {
                 console.error(`Ошибка при запросе ${apiUrl}:`, error);
-                return [placeholder]; // При любой ошибке возвращаем заглушку
+                return [placeholder];
             });
     }
-    
-    
-    
 
+    // Генерация HTML для попапа
     async function createPopUpHtml(bikeLane) {
         const { color, label } = getSafetyLevelDetails(bikeLane.safetyLevel);
         const photos = await getPhotosFromFolder(cityId, bikeLane.id);
         const photosHtml = photos
             .map(photo => `<img src="${photo}" data-imageview alt="Фото велодорожки">`)
             .join('');
-    
+
         return `
             <div class="info">
+                <div class="photogrid popup_mobile">${photosHtml}</div>
                 <h4 class="dark-prime-invert-200">${bikeLane.name}</h4>
+                <p style="background-color: ${color}; color:#121212; padding:2px 8px; border-radius:8px;" class="dark-prime-invert-300">${label}</p>
+
+                <span class="hstack gap4">
+                    <img src="../static/img/icon/distance.svg" alt="Расстояние">
+                    <p class="dark-prime-invert-300">Расстояние: ${bikeLane.distance} м</p>
+                </span>
+
                 <p class="dark-prime-invert-200">${bikeLane.description}</p>
-                <p style="background-color: ${color};color: #121212;padding: 2px 8px;border-radius: 8px;" class="dark-prime-invert-300">${label}</p>
-                <p class="dark-prime-invert-300">Расстояние: ${bikeLane.distance} м</p>
-                <div class="photogrid">${photosHtml}</div>
+                <div class="photogrid popup_desktop">${photosHtml}</div>
+
+                
+                <span class="hstack gap8 w100 cta_block">
+                    <a href="https://tally.so/r/m6RZDe" target="_blank" style="width:100%;" class="dark-prime-invert-200 size_l bgprime400"><p class="center">Добавить фото</p></a>
+                </span>
+
                 <span class="hstack sb">
                     <p class="dark-prime-invert-50">Источник: ${bikeLane.source}</p>
                     <p class="dark-prime-invert-50">${bikeLane.date}</p>
@@ -99,8 +164,8 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         `;
     }
-    
 
+    // Логика клика по линии велодорожки
     function handleBikeLaneClick(bikeLane) {
         setLayerOpacity(`bikeLane-${bikeLane.id}`);
         map.flyTo({ center: bikeLane.coordinates[0], zoom: 14 });
@@ -108,12 +173,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const customPopup = document.getElementById('customPopup');
             if (customPopup) {
                 customPopup.innerHTML = popupHtml;
-                initImageView(); // Инициализация для работы с фото, если требуется
+                // initImageView(); // Если у вас есть логика для увеличения фото
                 customPopup.style.display = 'block';
             }
         });
     }
 
+    // Создание слоя на карте
     function createBikeLaneLayer(bikeLane) {
         const { color } = getSafetyLevelDetails(bikeLane.safetyLevel);
         const layerId = `bikeLane-${bikeLane.id}`;
@@ -144,17 +210,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Создание элемента в списке
     function createBikeLaneListItem(bikeLane) {
         const { color, label } = getSafetyLevelDetails(bikeLane.safetyLevel);
         const bikeLaneItem = document.createElement('div');
         bikeLaneItem.classList.add('bike-lane-item');
-    
-        // Получаем фотографии
+
         getPhotosFromFolder(cityId, bikeLane.id).then(photos => {
-            const photoHtml = photos.length > 0
+            const photoHtml = (photos && photos.length > 0)
                 ? `<img src="${photos[0]}" alt="${bikeLane.name}" class="thumbnail">`
                 : `<img src="/static/img/placeholder.jpg" alt="Нет изображения" class="thumbnail">`;
-    
+
             bikeLaneItem.innerHTML = `
                 ${photoHtml}
                 <span>
@@ -163,30 +229,33 @@ document.addEventListener('DOMContentLoaded', function () {
                             <h6 style="margin-bottom:8px;">${bikeLane.name}</h6>
                             <p class="p2 dark-prime-invert-200 distance">${bikeLane.distance} м</p>
                         </span>
-                        <span style="background-color: ${color}; color: #121212;font-weight:bold; letter-spacing:-2%; padding: 2px 8px 2px 8px; border-radius: 4px;">${label}</span>
+                        <span style="background-color: ${color}; color:#121212;font-weight:bold;letter-spacing:-2%;padding:2px 8px;border-radius:4px;">${label}</span>
                     </div>
                 </span>
             `;
-    
+
             bikeLaneItem.onclick = function () {
                 handleBikeLaneClick(bikeLane);
             };
         });
-    
+
         return bikeLaneItem;
     }
-    
 
+    // Заполняем список всеми велодорожками
     function populateBikeLanesList(data) {
         const bikeLanesList = document.getElementById('bikeLanesList');
         bikeLanesList.innerHTML = '';
-        data.sort((a, b) => a.name.localeCompare(b.name)).forEach(bikeLane => {
-            createBikeLaneLayer(bikeLane);
-            const bikeLaneItem = createBikeLaneListItem(bikeLane);
-            bikeLanesList.appendChild(bikeLaneItem);
-        });
+        data
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .forEach(bikeLane => {
+              createBikeLaneLayer(bikeLane);
+              const bikeLaneItem = createBikeLaneListItem(bikeLane);
+              bikeLanesList.appendChild(bikeLaneItem);
+          });
     }
 
+    // Пример: загружаем JSON и отрисовываем на карте
     map.on('load', function () {
         fetch(`/static/data/cities/${cityId}.json`)
             .then(response => {
@@ -199,14 +268,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (typeof data !== 'object') {
                     throw new Error('Invalid JSON response');
                 }
+                // Сохраняем в локальную переменную
                 bikeLanesData = data;
-                populateBikeLanesList(data);
 
+                // Отрисовка на карте
+                populateBikeLanesList(bikeLanesData);
+
+                // Обработка кликов по карте (выбор велодорожки)
                 map.on('click', function (e) {
-                    const features = map.queryRenderedFeatures(e.point, { layers: data.map(bikeLane => `bikeLane-${bikeLane.id}`) });
+                    const features = map.queryRenderedFeatures(e.point, {
+                        layers: bikeLanesData.map(bl => `bikeLane-${bl.id}`)
+                    });
                     if (features.length) {
                         const clickedBikeLaneId = features[0].properties.id;
-                        const clickedBikeLane = bikeLanesData.find(bikeLane => bikeLane.id === clickedBikeLaneId);
+                        const clickedBikeLane = bikeLanesData.find(bl => bl.id === clickedBikeLaneId);
                         if (clickedBikeLane) {
                             handleBikeLaneClick(clickedBikeLane);
                         }
@@ -218,25 +293,43 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert('Error loading bike lanes: ' + error.message);
             });
 
-            addBikeParkings(map); // Добавление велопарковок
+        // Если нужно, можно вызвать дополнительный код (например, addBikeParkings(map))
+        // addBikeParkings(map);
     });
 
+    // Инициализация кнопок зума
     function initializeZoomControls() {
         const zoomInButton = document.getElementById('zoomIn');
         const zoomOutButton = document.getElementById('zoomOut');
 
         if (zoomInButton && zoomOutButton) {
-            zoomInButton.addEventListener('click', function () {
-                map.zoomIn();
-            });
-
-            zoomOutButton.addEventListener('click', function () {
-                map.zoomOut();
-            });
+            zoomInButton.addEventListener('click', () => map.zoomIn());
+            zoomOutButton.addEventListener('click', () => map.zoomOut());
         } else {
             console.error('Zoom buttons not found in the DOM.');
         }
     }
-
     setTimeout(initializeZoomControls, 1000);
+
+    // --- Функция фильтрации (внутри DOMContentLoaded!) ---
+    window.filterBikeLanes = function() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const bikeLanesList = document.getElementById('bikeLanesList');
+        bikeLanesList.innerHTML = '';
+
+        // Если данные ещё не загружены или пусты
+        if (!bikeLanesData || bikeLanesData.length === 0) {
+            console.warn("Нет данных для фильтрации");
+            return;
+        }
+
+        const filtered = bikeLanesData.filter(bikeLane =>
+            bikeLane.name.toLowerCase().includes(searchInput)
+        );
+
+        filtered.forEach(bikeLane => {
+            const bikeLaneItem = createBikeLaneListItem(bikeLane);
+            bikeLanesList.appendChild(bikeLaneItem);
+        });
+    };
 });

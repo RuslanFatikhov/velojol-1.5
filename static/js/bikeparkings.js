@@ -14,8 +14,8 @@ async function addBikeParkings(map) {
     // Пути к GeoJSON и иконкам
     const parkingsGeojsonUrl = `static/data/cities/${cityId}-parkings.geojson`;
     const repairStationsGeojsonUrl = `static/data/cities/${cityId}-repairstation.geojson`;
-    const parkingIcon = 'static/img/icon/bikeparking.png';
-    const repairStationIcon = 'static/img/icon/repair-station.png';
+    const parkingIcon = 'static/img/icon/parking.svg';
+    const repairStationIcon = 'static/img/icon/repair.svg';
 
     try {
         // Загрузка иконок
@@ -70,9 +70,9 @@ async function addLayerToMap(map, geojsonUrl, layerId, iconId) {
             'icon-image': iconId,
             'icon-size': [
                 'interpolate', ['linear'], ['zoom'],
-                10, 0.1,
-                15, 0.25,
-                20, 0.5,
+                1, 0.1,
+                5, 0.25,
+                10, 0.5,
             ],
             'icon-allow-overlap': true,
         },

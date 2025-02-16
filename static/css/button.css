@@ -19,10 +19,6 @@ button{
     transition: 0.25s;
 }
 
-.ghost:hover{
-    background-color: var(--dark-prime-invert-5);
-    transition: 0.25s;
-}
 
 .button:hover{
     opacity: 0.9;
@@ -80,7 +76,7 @@ button{
 }
 
 .ghost:hover{
-    background-color: var(--dark-prime-invert-5);
+    background-color: var(--dark-prime-invert-5) !important;
     transition: 0.05s ease-in-out;
 }
 

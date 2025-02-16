@@ -5,6 +5,22 @@ import os
 
 app = Flask(__name__)
 
+def load_json(file_path):
+    """
+    Загружает данные из указанного JSON-файла.
+    Возвращает None, если файл не найден или поврежден.
+    """
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
+
+def load_stores():
+    with open("static/data/market.json", "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
 @app.route("/photos/<city_id>/<bikelane_id>", methods=["GET"])
 def get_bikelane_photos(city_id, bikelane_id):
     """
@@ -60,6 +76,17 @@ def cities():
     except json.JSONDecodeError:
         return "Ошибка в формате файла cities.json", 500  # Если JSON поврежден
     return render_template("cities.html", cities=cities_data)
+
+#Market
+@app.route("/market")
+def market():
+    stores = load_stores()
+    return render_template("market.html", stores=stores)
+
+#About
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 # Страница конкретного города
 @app.route("/<city_id>")
@@ -129,6 +156,16 @@ def city_map(city_id):
         bikeparkings_json_path=bikeparkings_json_path if bikeparkings_data_exists else None,
     )
 
+@app.route("/routes")
+def routes_page():
+    """
+    Displays the routes page with data from route_cities.json.
+    """
+    route_cities_data = load_json("static/data/route_cities.json")
+    if not route_cities_data:
+        return "Error: route_cities.json not found or invalid.", 500
+
+    return render_template("routes.html", routes=route_cities_data)
 
 # Страница маршрутов города
 @app.route("/<city_id>_routes")
@@ -145,43 +182,22 @@ def city_routes(city_id):
         with open(json_file_path, "r", encoding="utf-8") as f:
             routes_data = json.load(f)
 
-    except FileNotFoundError:
-        return f"Файл {city_id}_routes.json не найден в static/data/routes.", 404
+        # Загружаем данные о городах
+        with open("static/data/cities.json", "r", encoding="utf-8") as f:
+            cities_data = json.load(f)
+
+        # Поиск города по ID
+        city = next((c for c in cities_data if c["id"] == city_id), None)
+        if not city:
+            return f"Город с id '{city_id}' не найден.", 404
+
+    except FileNotFoundError as e:
+        return f"Файл не найден: {e.filename}", 404
     except json.JSONDecodeError:
-        return f"Ошибка в формате файла {city_id}_routes.json.", 500
+        return f"Ошибка в формате JSON файла.", 500
 
-    return render_template("city_routes.html", city_id=city_id, routes=routes_data)
+    return render_template("city_routes.html", city=city, routes=routes_data)
 
-
-    """
-    Отображает информацию о конкретном маршруте.
-    """
-    try:
-        # Путь к JSON-файлам маршрутов
-        routes_directory = "static/data/routes"
-        
-        # Поиск всех файлов маршрутов
-        from glob import glob
-        routes_files = glob(f"{routes_directory}/*_routes.json")
-        
-        # Ищем маршрут в каждом JSON-файле
-        route = None
-        for file_path in routes_files:
-            with open(file_path, "r", encoding="utf-8") as f:
-                routes_data = json.load(f)
-                route = next((r for r in routes_data if r["id"] == route_id), None)
-                if route:
-                    break  # Если маршрут найден, выходим из цикла
-        
-        if not route:
-            return "Маршрут не найден", 404
-
-    except FileNotFoundError:
-        return "Файлы маршрутов не найдены", 500
-    except json.JSONDecodeError:
-        return "Ошибка в формате одного из файлов маршрутов", 500
-
-    return render_template("route_details.html", route=route)
 
 # Страница маршрута
 @app.route("/route/<route_id>")
@@ -424,8 +440,6 @@ def add_city():
     return render_template("add_city.html")
 
 # Редактирование велодорожек
-
-
 @app.route("/admin/city/<city_id>/bikelanes", methods=["GET", "POST"])
 def admin_bikelanes(city_id):
     """
@@ -464,5 +478,5 @@ def admin_bikelanes(city_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5011)
+    app.run(debug=True, port=5022)
 

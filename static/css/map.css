@@ -193,6 +193,7 @@ main{
     flex-direction: column;
     padding: 4px;
     border-radius: 8px;
+    max-width: 42px;
 }
 
 .distance{
@@ -410,14 +411,31 @@ input[type="text" i] {
     }
 
     .bottomright{
-        
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: calc(100vh - 70px);
+    }
+
+    .bottomright p{
+        font-size: 12px !important;
+    }
+
+    .mapmiddle{
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        translate: translateY(-50%);
     }
 
     #customPopup{
-        height: calc(100vh - 100px);
+        height: 60vh;
         left: 0;
-        top: 0;
-        margin: 16px;
+        bottom: 0 !important;
+        top: auto;
+        z-index: 200000;
+        background-color: var(--dark-prime-300) !important;
+        padding-bottom: 100px;
     }
 
     .photogrid img{
@@ -435,6 +453,10 @@ input[type="text" i] {
 
     .h34{
         display: none;
+    }
+
+    .info h4{
+        margin-top: 0px;
     }
 }
 
@@ -459,6 +481,10 @@ input[type="text" i] {
     transition: ease-in-out 0.25s;
 }
 
+.popup_mobile{
+    display: none;
+}
+
 @media screen and (max-width: 920px) {
     main{
         flex-direction: column-reverse;
@@ -466,16 +492,7 @@ input[type="text" i] {
 
     .block{
         max-width: calc(100vw - 32px);
-    }
-
-    #customPopup{
-        max-width: calc(100vw - 32px);
-    }
-
-    .chips{
-        position: absolute;
-        right: 24px;
-        top: 68px;
+        z-index: 10000;
     }
 
     #map{
@@ -485,12 +502,45 @@ input[type="text" i] {
     .bike-lane-item{
         padding: 12px 0px 12px 0px;
     }
+
+    .popup_desktop{
+        display: none;
+    }
+
+    .absolute_rt{
+        position: fixed;
+        right: 8px;
+        top: 34vh;
+    }
+
+    .popup_mobile{
+        display: flex;
+    }
+
+    .cta_block{
+        position: fixed;
+        left: 0px;
+        bottom: 16px;
+        padding: 16px;
+    }
 }
 
 @media screen and (max-width: 430px) {
     .onboarding{
         justify-content:flex-start;
         margin-top: 16px;
+    }
+
+    
+
+    .popup_mobile{
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    .popup_mobile img{
+        width: 120px;
+        height: 120px;
     }
 }
 
@@ -517,13 +567,7 @@ input[type="text" i] {
 }
 
 .filter-button {
-    background: none;
-    border: none;
-    margin: 0 4px;
-    padding: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: none;
 }
 
 .filter-button img {
@@ -532,7 +576,7 @@ input[type="text" i] {
 }
 
 .filter-button.active {
-    background-color: #007BFF; /* Цвет активной кнопки */
+    background-color: var(--dark-prime-invert-25);
 }
 
 .filter-button:hover {

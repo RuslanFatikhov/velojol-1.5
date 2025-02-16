@@ -9,13 +9,14 @@
   --dark-prime-invert-400: #333333;
 
   --static-white: #fff;
-
+  
+  --dark-prime-10: rgba(26, 26, 26, 0.1);
   --dark-prime-25: #FFFFFF40;
   --dark-prime-50: #FFFFFF80;
   --dark-prime-100: #FFFFFF;
   --dark-prime-200: #F2F2F2;
   --dark-prime-300: #fbfbfb;
-  
+  --dark-prime-400: #f2f2f2;
 
   --dark-accent-100: #66FF80;
   --dark-accent-200: #02324A;
@@ -29,6 +30,8 @@
   --bg1: #F2F2F7;
 
   --bgstate500: #64C750;
+
+  --city-background: linear-gradient(rgba(242, 242, 242, 0.25), rgba(242, 242, 242, 1));
 }
 
 .staticwhite100{
@@ -103,6 +106,10 @@ color: var(--dark-accent-100);
   background-color: var(--dark-prime-invert-10);
 }
 
+.bgprimeinvert50{
+  background-color: var(--dark-prime-invert-50);
+}
+
 .bgprime50{
   background-color: var(--dark-prime-invert-50);
 }
@@ -126,16 +133,20 @@ color: var(--dark-accent-100);
 
 
 
-.bgprimveinvert100{
+.bgprimeinvert100{
 background-color: var(--dark-prime-invert-100);
 }
 
-.bgprimveinvert200{
+.bgprimeinvert200{
   background-color: var(--dark-prime-invert-200);
 }
 
-.bgprimveinvert300{
+.bgprimeinvert300{
   background-color: var(--dark-prime-invert-300);
+}
+
+.bgprimeinvert400{
+  background-color: var(--dark-prime-invert-400);
 }
 
 .bgprime25{

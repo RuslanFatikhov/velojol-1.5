@@ -1,33 +1,216 @@
-{% block content %}
-<div class="citydetails">
-    <h2>{{ city.city }}</h2>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>VELOJOL</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
     
-    <!-- Основная информация -->
-    <p><strong>Страна:</strong> {{ city.country }}</p>
-    <p><strong>Рейтинг:</strong> {{ city.rating }}</p>
-    <p><strong>Расстояние:</strong> {{ city.distance }} км</p>
+    <!-- Фавиконы и мета-данные -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
     
-    <!-- Изображения -->
-    <div class="images">
-        <img src="{{ url_for('static', filename='images/city/' + city.cover) }}" alt="Обложка {{ city.city }}">
-        <img src="{{ url_for('static', filename='images/city/' + city.coat) }}" alt="Герб {{ city.city }}">
-    </div>
+    <!-- Open Graph мета-данные -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/meta.jpg">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/city.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     
-    <!-- Дополнительная информация -->
-    <div class="description">
-        {% if city.description %}
-            <h4>Описание</h4>
-            <p>{{ city.description }}</p>
-        {% else %}
-            <p>Описание недоступно.</p>
-        {% endif %}
-    </div>
-    
-    <!-- Вернуться назад -->
-    <a class="button" href="/cities">Вернуться к списку городов</a>
-</div>
-{% endblock %}
+    <!-- Подключение тем -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
 
 
-<a class="button" href="{{ url_for('city_map', city_id=city.id) }}">Карта</a>
-<a class="button" href="{{ url_for('city_routes', city_id=city.id) }}">Маршруты</a>
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      
+
+</head>
+    <body class="bgprime400">
+    
+    <!-- header -->
+    {% include 'header.html' %} 
+
+        <main>
+            
+
+
+            <!--City main block-->
+            {% block content %}
+            <div class="citydetails">
+
+                <!--CITY COVER-->
+                <div class="citycover">
+                    <span class="citycovergradient"></span>
+
+                    <img src="{{ url_for('static', filename='img/city/' + city.cover.rsplit('.', 1)[0] ~ '_cover.' + city.cover.rsplit('.', 1)[1]) }}" alt="Обложка {{ city.city }}">
+
+                </div>
+
+                <!-- Back to list-->
+                <a class="button ghost" href="/cities">
+                    <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/arrow-left-white.svg') }}" alt="Go back">
+                    <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/arrow-left-black.svg') }}" alt="Go back">
+                    <p class="p3 dark-prime-invert-200">Все города</p>
+                </a>
+                
+
+
+                <!--HEADING-->
+                <div class="row gap16 mt24 mb16 w100">
+                    <!--City name-->
+                    <span class="row aic gap8 w100">
+                        <img style="width: 32px; height: 32px;" src="{{ url_for('static', filename='img/city/' + city.coat) }}" alt="Герб {{ city.city }}">
+                        <h2 class="bold dark-prime-invert-100">{{ city.city }}</h2>
+                    </span>
+
+                    <!--Rating-->
+                    <p class="dark-prime-invert-50">Рейтинг:<br>{{ city.rating }}</p>
+                </div>
+
+
+                <!--Service Block-->
+                <div class="city_service gap8">
+
+                    <!--Map-->
+                    <a class="map_button" href="{{ url_for('city_map', city_id=city.id) }}" 
+                    style="background-image: url('{{ url_for('static', filename='img/map/' ~ city.id ~ '.jpg') }}');">
+
+                        <span class="button size_m bgprime100">
+                            <p class="dark-prime-invert-300">Открыть карту велодорожек</p>
+                        </span>
+                    </a>
+
+                    <div id="service_side" class="column gap8" style="min-width: 160px;">
+
+                        <!--Routes-->
+                        <a href="{{ url_for('city_routes', city_id=city.id) }}" class="column size_l bgprime300" style="height: 100%; padding: 16px; border-radius: 16px; width: 100%;">
+                            <img id="dark-desktop" style="width: 48px; height: 48px;" class="mb16" src="{{ url_for('static', filename='img/icon/routes_white.svg') }}" alt="Routes">
+                            <h6 class="bold dark-prime-invert-300">Маршруты</h6>
+                            <p class="dark-prime-invert-300">32 маршрута</p>
+                        </a>
+
+
+                        <!--Market-->
+                        <a href="" class="column size_l bgprime300" style="height: 100%; padding: 16px; border-radius: 16px; width: 100%;">
+                            <img id="dark-desktop" style="width: 48px; height: 48px;" class="mb16" src="{{ url_for('static', filename='img/icon/routes_white.svg') }}" alt="Routes">
+                            <h6 class="bold dark-prime-invert-300">Маркет</h6>
+                            <p class="dark-prime-invert-300">54 магазина</p>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!--Info-->
+                <div class="hstack w100 gap16 mt24 mb24" style="align-items: flex-start;">
+                    <div class="island w100 bgprime300">
+                        <h5 class="island_heading bold dark-prime-invert-300">Инфраструктура</h5>
+
+
+                        <!--Distance-->
+                        <span class="cell">
+                            <h6 class="dark-prime-invert-200 w100">Велодорожки</h6>
+                            <p class="p3 dark-prime-100 label bgprimeinvert50">{{ city.distance }} км</p>
+                        </span>
+
+                        <!--Parking-->
+                        <span class="cell">
+                            <h6 class="dark-prime-invert-200 w100">Велопарковки</h6>
+                            <p class="p3 dark-prime-100 label bgprimeinvert50">{{ city.distance }} парковок</p>
+                        </span>
+
+                        <!--Stations-->
+                        <span class="cell">
+                            <h6 class="dark-prime-invert-200 w100">Велостанции</h6>
+                            <p class="p3 dark-prime-100 label bgprimeinvert50">{{ city.distance }} велостанции</p>
+                        </span>
+
+                        <!--p style="padding-left: 16px; padding-top: 16px;" class="p3 dark-prime-invert-50">По данным OpenStreeMaps на </p-->
+                    </div>
+
+                    <div class="island w100 bgprime300">
+                        <h5 class="island_heading dark-prime-invert-300">Шеринг</h5>
+                    
+                        <!-- Sharing system -->
+                        {% if city.sharing %}
+                            {% for share in city.sharing %}
+                                <span class="cell">
+                                    <img class="cellimg" src="{{ url_for('static', filename='img/sharing/' + share.logo) }}" alt="{{ share.name }}" class="sharing-logo">
+                                    <h6 class="dark-prime-invert-200 w100">{{ share.name }}</h6>
+                                    {% if share.status %}
+                                        <p class="p3 dark-prime-100 label bgprimeinvert50">{{ share.float }} велосипедов</p>
+                                    {% else %}
+                                        <p class="p3 dark-prime-100 label bgprimeinvert50">Ликвидирован</p>
+                                    {% endif %}
+                                </span>
+                            {% endfor %}
+                        {% else %}
+                            <p>Нет данных о шеринг-сервисах.</p>
+                        {% endif %}
+
+                                
+                    </div>
+                    
+                    
+                </div>
+                
+                <!-- Основная информация -->
+                <p><strong>Страна:</strong> {{ city.country }}</p>
+                
+                <p><strong>Расстояние:</strong> {{ city.distance }} км</p>
+                
+                
+                <!-- Дополнительная информация -->
+                <div class="description">
+                    {% if city.description %}
+                        <h4>Описание</h4>
+                        <p>{{ city.description }}</p>
+                    {% else %}
+                        <p>Описание недоступно.</p>
+                    {% endif %}
+                </div>
+                
+                
+            </div>
+            {% endblock %}
+
+
+            
+            
+        </main>
+
+
+    <!-- footer -->
+    {% include 'footer.html' %}
+
+    <!--Scripts-->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+
+</html>

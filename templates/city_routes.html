@@ -1,44 +1,100 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <title>{{ city.city }}</title>
+
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ВелоМаршруты</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head> 
-    <body>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города {{ city.city }}">
+    <meta name="keywords" content="Карта, велодорожки, {{ city.city }}">
+    <meta name="author" content="Velojol">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/fav/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/fav/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/fav/favicon-16x16.png') }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='img/fav/safari-pinned-tab.svg') }}" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
 
-        {% block content %}
-<div class="routes-page">
-    <h2>Маршруты города {{ city_id }}</h2>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/imageview.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+</head>
+<body>
 
-    <ul class="routes-list">
-        {% if routes %}
-            {% for route in routes %}
-                <li class="route-item">
-                    <h4>{{ route.name }}</h4>
-                    <p><strong>Расстояние:</strong> {{ route.distance }} км</p>
-                    <p><strong>Сложность:</strong> {{ route.difficulty }}</p>
-                    <a href="/route/{{ route.id }}">Подробнее</a>
-                </li>
-            {% endfor %}
-        {% else %}
-            <li>Маршруты для этого города не найдены.</li>
-        {% endif %}
-    </ul>
+    <!-- Header -->
+    <div class="tapbar row gap8">
+        <button class="size_m bgprime400" onclick="goToCityDetails()">
+            <img src="{{ url_for('static', filename='img/icon/left-arrow-white.svg') }}" alt="Go back">
+        </button>
 
-    <a class="button" href="/{{ city_id }}">Вернуться к информации о городе</a>
-</div>
-{% endblock %}
+        <span class="row w100 bgprime400">
+            <button id="tabMap" class="button active gap8 w100">
+                <img src="{{ url_for('static', filename='img/icon/map.svg') }}" alt="Map">
+                <p class="dark-prime-invert-200">Карта</p>
+            </button>
+            <button id="tabList" class="button gap8 w100">
+                <img src="{{ url_for('static', filename='img/icon/list-white.svg') }}" alt="List">
+                <p class="dark-prime-invert-200">Список</p>
+            </button>
+        </span>
+    </div>
 
+    <!-- Main Content -->
+    <main>
+        <div id="bikelist" class="block bgprime300">
+            <div class="navhead">
+                <button class="size_s desktop" onclick="goToCityDetails()">
+                    <img src="{{ url_for('static', filename='img/icon/left-arrow-white.svg') }}" alt="Go back">
+                </button>
+                <h6 class="dark-prime-invert-200">{{ city.city }}</h6>
+            </div>
 
+            <div id="bikeLanesList">
+                {% if routes %}
+                    <ul class="routes-list">
+                        {% for route in routes %}
+                            <li class="route-item">
+                                <h4>{{ route.name }}</h4>
+                                <p><strong>Расстояние:</strong> {{ route.distance }} км</p>
+                                <p><strong>Сложность:</strong> {{ route.difficulty }}</p>
+                                <a href="/route/{{ route.id }}" class="button border bgprime300 dark-prime-invert-200">Подробнее</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Маршруты для этого города не найдены.</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div id='map'></div>
+    </main>
 
+    <!-- API Initialization -->
+    <script>
+        var cityCoordinates = {{ city.coordinates | tojson }};
+        var cityZoom = {{ city.zoom | tojson }};
+        var cityName = {{ city.city | tojson }};
+    </script>
 
+    <!-- Navigation Script -->
+    <script>
+        function goToCityDetails() {
+            window.location.href = "/{{ city.id }}";
+        }
+    </script>
+
+    <!-- Mapbox Integration -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
-    <script src="{{ url_for('static', filename='js/maproutes.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/imageview.js') }}"></script>
 
-    </body>
+</body>
 </html>

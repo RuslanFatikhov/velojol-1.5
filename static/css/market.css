@@ -1,0 +1,132 @@
+.storecard{
+    width: 100%;
+    max-width: 220px;
+    height: 180px;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.25s ease-in-out;
+}
+
+.storecard-logo{
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+}
+
+.storecard-header{
+    width: 100%;
+    height: 96px;
+    position: relative;
+}
+
+.storecard-body{
+    padding: 8px 8px 0px 8px;
+}
+
+.storecard:hover{
+    background-color: var(--dark-prime-invert-5);
+    transition: ease-in-out 0.25s;
+}
+
+/* Стили для модального окна */
+.modal-store {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-prime-invert-25);
+    padding-bottom: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Модалка открывается снизу */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--dark-prime-100);
+    border-radius: 24px;
+    text-align: center;
+    transform: translateY(100%); /* Начальное положение - за экраном */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.modal-store.active {
+    opacity: 1;
+}
+
+.modal-content.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-cover {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+}
+
+#modal-logo{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    left: 24px;
+    top: 136px;
+    border-radius: 8px;
+}
+
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 24px 24px 24px;
+}
+
+#modal-category{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+#modal-category p{
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: var(--dark-prime-10);
+    color: var(--dark-prime-invert-100);
+}
+
+.delivery-label {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+

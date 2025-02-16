@@ -35,8 +35,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/imageview.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
 
+
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      
+
     <!-- Подключение тем -->
-    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+
 
 
     <!-- Lottie Web -->
@@ -55,7 +65,8 @@
 
     <div class="tapbar row gap8">
         <button class="size_m bgprime400" onclick="goToCityDetails()">
-            <img src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+            <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+            <img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
         </button>
 
         <span class="row w100 bgprime400">
@@ -72,47 +83,56 @@
 
     <main>
 
-        <!--Filters-->
-        <div id="mapFilters" class="filter-container">
-            <button id="bikeParkingsBtn" class="filter-button active" title="Велопарковки">
-                <img src="../static/img/icon/bike-parking.svg" alt="Велопарковки">
-            </button>
-            <button id="bikeStationsBtn" class="filter-button active" title="Велостанции">
-                <img src="../static/img/icon/bike-station.svg" alt="Велостанции">
-            </button>
-        </div>
-        
-        
-        
+        <!--Right-->
         <div class="bottomright">
             <ul class="gap8">
                 <a href="https://tally.so/r/mKx66k" target="_blank" class="button border bgprime300 dark-prime-invert-200 gap8">
-                    <img src="../static/img/icon/warning.svg" alt="warning">
+                    <img class="theme-icon dark" src="../static/img/icon/warning-white.svg" alt="warning">
+                    <img class="theme-icon light" src="../static/img/icon/warning-black.svg" alt="warning">
                     <p >Есть ошибка</p>
                 </a>
 
                 <a href="https://tally.so/r/w7dV16" target="_blank" class="button border bgprime300 dark-prime-invert-200 gap8">
-                    <img src="../static/img/icon/plus1.svg" alt="plus icon">
+                    <img class="theme-icon dark" src="../static/img/icon/warning-plus1.svg" alt="warning">
+                    <img class="theme-icon light" src="../static/img/icon/warning-plus2.svg" alt="warning">
                     <p>Добавить велодорожку</p>
                 </a>
 
             </ul>
 
-            
-            <div class="chips bgprime400">
-                <button class="button_icon" id="zoomIn">
-                    <img src="../static/img/icon/plus1.svg" alt="plus icon">
-                </button>
+            <!--Middle-->
+            <span class="column gap8 mapmiddle">
+                <!--Zoom chips-->
+                <div class="chips bgprime400">
+                    <button class="button_icon" id="zoomIn">
+                        <img class="theme-icon dark" src="../static/img/icon/plus1-white.svg" alt="plus">
+                        <img class="theme-icon light" src="../static/img/icon/plus1-black.svg" alt="plus">
+                    </button>
 
 
-                <button class="button_icon" id="zoomOut">
-                    <img src="../static/img/icon/minus.svg" alt="minus icon">
-                </button>
-            </div>
+                    <button class="button_icon" id="zoomOut">
+                        <img class="theme-icon dark" src="../static/img/icon/minus-white.svg" alt="minus">
+                        <img class="theme-icon light" src="../static/img/icon/minus-black.svg" alt="minus">
+                    </button>
+                </div>
+
+                <!--Filter chips-->
+                <div class="chips bgprime400 gap4">
+                    <button id="bikeParkingsBtn" class="filter-button active button_icon button_icon" title="Велопарковки">
+                        <img class="theme-icon dark" src="../static/img/icon/parking-white.svg" alt="parking">
+                        <img class="theme-icon light" src="../static/img/icon/parking-black.svg" alt="parking">
+                    </button>
+                    <button id="bikeStationsBtn" class="filter-button active button_icon button_icon" title="Велостанции">
+                        <img class="theme-icon dark" src="../static/img/icon/repair-white.svg" alt="repair">
+                        <img class="theme-icon light" src="../static/img/icon/repait-black.svg" alt="repair">
+                    </button>
+                </div>
+            </span>
 
 
             <a href="https://fatikhov.notion.site/Velojol-e83a5c646a8d4648a366d5b8e60f8a05?pvs=4" target="_blank" class="button border bgprime300 dark-prime-invert-200 gap8">
-                <img src="../static/img/icon/question.svg" alt="question">
+                <img class="theme-icon dark" src="../static/img/icon/question-white.svg" alt="question">
+                <img class="theme-icon light" src="../static/img/icon/question-black.svg" alt="question">
                 <p class="hide540">Что это</p>
             </a>
         </div>
@@ -133,12 +153,20 @@
 
             <div class="navhead">
                 <button class="size_s desktop" onclick="goToCityDetails()">
-                    <img src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+                    <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+<img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
                 </button>
 
                 <h6 class="dark-prime-invert-200">{{ city.city }}</h6>
             <span class="h34"></span>
             </div>
+
+            <!-- Панель поиска -->
+            <span class="search-input coolumn">
+                <img class="theme-icon dark" src="../static/img/icon/search-white.svg" alt="search">
+                <img class="theme-icon light" src="../static/img/icon/search-black.svg" alt="search">
+                <input type="text" id="searchInput" placeholder="Поиск по названию..." oninput="filterBikeLanes()"/>
+            </span>
 
             <div id="bikeLanesList">
                 <!-- Здесь будет динамически сгенерированный список велодорожек -->

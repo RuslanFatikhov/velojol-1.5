@@ -1,0 +1,16 @@
+[
+    {
+        "id": "almaty",
+        "city": "Алматы",
+        "country": "Казахстан",
+        "coat": "almaty.png",
+        "cover": "almaty.jpg"
+    },
+    {
+        "id": "astana",
+        "city": "Астана",
+        "country": "Казахстан",
+        "coat": "astana.png",
+        "cover": "astana.jpg"
+    }
+]

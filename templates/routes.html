@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>VELOJOL</title>
+    <title>Маршруты | VELOJOL</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Подробная карта велодорожек и велополос города">
@@ -36,51 +36,39 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
-
-    <script>
-        (function() {
-          const savedTheme = localStorage.getItem('theme') || 'dark';
-          document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
-      </script>
-      
     
     <!-- Подключение тем -->
-    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
 
 </head>
     <!-- header -->
     {% include 'header.html' %} 
-    
-    <body class="bgprime400">
-        <main class="pt100">
+    <main class="pt100">
+    <body>
         <!-- Список городов -->
-        <!-- Сделать группировку по странам-->
 
-        <div id="cities" class="w100">
-            <ul class="landgrid">
-                {% for city in cities %}
-                    <li>
-                        <a class="citycard" href="{{ url_for('city_details', city_id=city['id']) }}">
-                            <img class="citycover" src="{{ url_for('static', filename='img/city/' + city.cover) }}" alt="Cover of {{ city.city }}">
-                            <span class="badge bgstate500"><p class="p3 dark-prime-200">{{ city.rating }}</p></span>
-                            <img class="citycoat" src="{{ url_for('static', filename='img/city/' + city.coat) }}" alt="Coat of {{ city.city }}">
-                            <span class="mb16 column gap4 citycardbody">
-                                <h6 class="dark-prime-invert-100">{{ city.city }}</h6>
-                                <span class="row gap8">
-                                    <p class="dark-prime-invert-50">{{ city.distance }} км</p>
-                                    <p class="dark-prime-invert-50">•</p>
-                                    <p class="dark-prime-invert-50">{{ city.country }}</p>
+        <main class="pt100">
+            <div id="routes" class="w100">
+                <ul class="landgrid">
+                    {% for city in routes %}
+                        <li>
+                            <a class="citycard" href="{{ url_for('city_routes', city_id=city['id']) }}">
+                                <img class="citycover" src="{{ url_for('static', filename='img/city/' + city.cover) }}" alt="Cover of {{ city.city }}">
+                                <img class="citycoat" src="{{ url_for('static', filename='img/city/' + city.coat) }}" alt="Coat of {{ city.city }}">
+                                <span class="mb16 column gap4 citycardbody">
+                                    <h6 class="dark-prime-invert-100">{{ city.city }}</h6>
+                                    <span class="row gap8">
+                                        <p class="dark-prime-invert-50">{{ city.country }}</p>
+                                    </span>
                                 </span>
-                            </span>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-            
-        </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </main>
     </body>
+    </main>
 
     <!-- footer -->
     {% include 'footer.html' %}

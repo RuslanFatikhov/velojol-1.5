@@ -3,9 +3,10 @@
     <span class="headercontent row sb">
         <!-- Logo -->
         <a href="/">
-            <img class="headerlogo" id="dark-desktop" src="{{ url_for('static', filename='img/landing/white-logo.svg') }}" alt="Dark Logo">
-            <img class="headerlogo" id="light-desktop" src="{{ url_for('static', filename='img/landing/black-logo.svg') }}" alt="Light Logo">
+            <img class="headerlogo theme-icon dark" src="{{ url_for('static', filename='img/landing/white-logo.svg') }}" alt="Dark Logo">
+            <img class="headerlogo theme-icon light" src="{{ url_for('static', filename='img/landing/black-logo.svg') }}" alt="Light Logo">
         </a>
+
 
         <!-- Middle -->
         <span class="hstack gap8 desktop">
@@ -14,7 +15,7 @@
                 <a href="/cities" class="button ghost">
                     <p class="dark-prime-invert-100">Дорожки</p>
                 </a>
-                <div class="submenu bgprime400">
+                <div class="submenu bgprime300">
                     <div class="submenu-grid gap24">
 
 
@@ -77,7 +78,7 @@
                 <a href="/cities" class="button ghost">
                     <p class="dark-prime-invert-100">Маршруты</p>
                 </a>
-                <div class="submenu bgprime400">
+                <div class="submenu bgprime300">
                     <div class="submenu-grid gap24">
 
 
@@ -98,7 +99,7 @@
             </div>
 
             <!-- Маркет -->
-            <a href="/bazar" class="button ghost">
+            <a href="/market" class="button ghost">
                 <p class="dark-prime-invert-100">Маркет</p>
             </a>
         </span>
@@ -111,14 +112,15 @@
 
             <!-- Theme toggle button -->
             <button class="button ghost" id="theme-toggle-desktop" style="width: 134px;">
-                <span class="row gap8 aic" id="light-desktop">
+                <span class="theme-switcher light row gap8 aic">
                     <img src="{{ url_for('static', filename='img/icon/sun.svg') }}" alt="sun">
                     <p class="dark-prime-invert-100">Светлая</p>
                 </span>
-                <span class="row gap8 aic" id="dark-desktop">
+                <span class="theme-switcher dark row gap8 aic">
                     <img src="{{ url_for('static', filename='img/icon/moon.svg') }}" alt="moon">
                     <p class="dark-prime-invert-100">Темная</p>
                 </span>
+                
             </button>
         </span>
     </span>
@@ -139,7 +141,7 @@
         <a href="/cities" class="button ghost">
             <p class="dark-prime-invert-100">Маршруты</p>
         </a>
-        <a href="/bazar" class="button ghost">
+        <a href="/market" class="button ghost">
             <p class="dark-prime-invert-100">Маркет</p>
         </a>
     </div>

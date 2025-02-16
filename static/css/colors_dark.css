@@ -1,5 +1,5 @@
 :root {
-  --dark-prime-invert-5: rgba(26, 26, 26, 0.05);
+    --dark-prime-invert-5: rgba(255, 255, 255, 0.05);
     --dark-prime-invert-25: #FFFFFF40;
     --dark-prime-invert-50: #FFFFFF80;
     --dark-prime-invert-100: #fff;
@@ -7,7 +7,8 @@
     --dark-prime-invert-300: #d2d2d2;
 
     --static-white: #fff;
-  
+    
+    
     --dark-prime-25: #1A1A1A40;
     --dark-prime-50: #1A1A1A80;
     --dark-prime-100: #000000;
@@ -20,6 +21,8 @@
     --dark-accent-300: #6C0DF2;
 
     --bgstate500: #64C750;
+
+    --city-background: linear-gradient(rgba(51, 51, 51, 0.25), rgba(51, 51, 51, 1));
 }
 
 .staticwhite100{
@@ -28,6 +31,10 @@
 
 .bgstate500{
   background-color: var(--bgstate500);
+}
+
+.bgprimeinvert50{
+  background-color: var(--dark-prime-invert-50);
 }
 
 .dark-prime-100{
