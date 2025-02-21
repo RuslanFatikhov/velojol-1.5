@@ -36,8 +36,7 @@ footer ul{
 
 
 @media (max-width: 600px) {
-  .footer_grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
+  footer{
+    display: none;
   }
 }

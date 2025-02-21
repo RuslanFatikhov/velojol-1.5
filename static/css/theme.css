@@ -6,6 +6,7 @@
     --dark-prime-invert-100: #fff;
     --dark-prime-invert-200: #F2F2F2;
     --dark-prime-invert-300: #d2d2d2;
+    --dark-prime-invert-400 :#333333;
 
     --static-white: #fff;
     
@@ -21,6 +22,9 @@
     --dark-accent-300: #6C0DF2;
 
     --bgstate500: #64C750;
+
+    --accent-market-10: rgba(242, 93, 24, 0.1);
+    --accent-market-100: #F25D18;
 
     --city-background: linear-gradient(rgba(51, 51, 51, 0.25), rgba(51, 51, 51, 1));
 }
@@ -49,6 +53,10 @@
     --dark-accent-100: #66FF80;
     --dark-accent-200: #02324A;
     --dark-accent-300: #6C0DF2;
+
+
+    --accent-market-10: rgba(242, 93, 24, 0.1);
+    --accent-market-100: #F25D18;
 
     --bronze: #AD8A56;
     --silver: #D7D7D7;
@@ -106,6 +114,9 @@
 .accent200 { color: var(--dark-accent-200); }
 .red { color: var(--red); }
 
+.bgmarket10{ background-color: var(--accent-market-10);}
+.bgmarket100{ background-color: var(--accent-market-100);}
+.market100{ color: var(--accent-market-100)};
 
 /* По умолчанию показываем тёмную тему */
 .theme-icon.light {

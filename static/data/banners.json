@@ -1,0 +1,23 @@
+[
+    {
+      "image": "static/img/market/banners/banner1.jpg",
+      "link": "https://example.com/banner1",
+      "alt": "Banner 1"
+    },
+    {
+      "image": "static/img/market/banners/banner2.jpg",
+      "link": "https://example.com/banner2",
+      "alt": "Banner 2"
+    },
+    {
+        "image": "static/img/market/banners/banner3.jpg",
+        "link": "https://example.com/banner2",
+        "alt": "Banner 2"
+    },
+    {
+        "image": "static/img/market/banners/banner4.jpg",
+        "link": "https://example.com/banner2",
+        "alt": "Banner 2"
+    }
+  ]
+  

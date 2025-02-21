@@ -58,13 +58,21 @@ main{
     transition: 0.15s ease-in-out;
 }
 
-.bike-lane-item:hover{
+.bike-route-item{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 8px;
+}
+
+.bike-lane-item:hover , .bike-route-item:hover{
     background-color: var(--dark-prime-400);
     transition: 0.15s ease-in-out;
 }
 
 
-.bike-lane-item img{
+.bike-lane-item img, .bike-route-item img{
     min-width: 48px;
     min-height: 48px;
     max-width: 48px;
@@ -485,6 +493,11 @@ input[type="text" i] {
     display: none;
 }
 
+
+.bike-route-item{
+    display: flex;
+}
+
 @media screen and (max-width: 920px) {
     main{
         flex-direction: column-reverse;
@@ -584,6 +597,18 @@ input[type="text" i] {
 }
 
 
+.routemodal{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1000000;
+    display: none;
+}
 
-
-
+.route-modal-content{
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 390px;
+    padding: 30px 16px 30px 16px;
+}

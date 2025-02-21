@@ -57,19 +57,61 @@
         <main class="pt100">
             
             <!--Banners-->
-            <div class="banners mb32">
-
+            <div class="banners mb32" id="banners-container">
+                <!-- Баннеры будут загружены динамически -->
             </div>
 
             <!--Main-->
             <div class="w100 hstack gap32" style="align-items: flex-start;">
 
                 <!--Category-->
-                <div class="island bgprime100 w100" style="max-width: 390px;">
+                <div class="island bgprime100 w100 market-filter">
                     <h5 class="dark-prime-invert-100 island_heading bold">
                         Категории
                     </h5>
+                    <ul id="category-list">
+                        <li><button class="category-button" data-category="all">
+                            <h6>Все</h6>
+                        </button></li>
+
+                        <li><button class="category-button" data-category="велосипеды">
+                            <img src="{{ url_for('static', filename='img/market/bicycle.jpg') }}" alt="category">
+                            <h6>Велосипеды</h6>
+                        </button></li>
+
+                        <li><button class="category-button" data-category="запчасти">
+                            <img src="{{ url_for('static', filename='img/market/tool.jpg') }}" alt="category">
+                            <h6>Запчасти</h6>
+                        </button></li>
+
+                        <li><button class="category-button" data-category="одежда">
+                            <img src="{{ url_for('static', filename='img/market/clothe.jpg') }}" alt="category">
+                            <h6>Одежда</h6>
+                        </button></li>
+
+                        <li><button class="category-button" data-category="аксессуары">
+                            <img src="{{ url_for('static', filename='img/market/acsess.jpg') }}" alt="category">
+                            <h6>аксессуары</h6>
+                        </button></li>
+
+                        <li><button class="category-button" data-category="еда">
+                            <img src="{{ url_for('static', filename='img/market/food.jpg') }}" alt="category">
+                            <h6>Еда</h6>
+                        </button></li>
+
+                        <li><button class="category-button" data-category="ремонт">
+                            <img src="{{ url_for('static', filename='img/market/food.jpg') }}" alt="category">
+                            <h6>Ремонт</h6>
+                        </button></li>
+
+                        <li><button class="category-button" data-category="аренда">
+                            <img src="{{ url_for('static', filename='img/market/food.jpg') }}" alt="category">
+                            <h6>Аренда</h6>
+                        </button></li>
+                        
+                    </ul>
                 </div>
+
 
                 <!-- Добавляем модальное окно -->
                 <div id="storeModal" class="modal-store">
@@ -97,11 +139,16 @@
                             <p class="mt8 dark-prime-invert-400" id="modal-description" style="text-align: left;"></p>
                             
                             <!-- Адрес -->
-                            <p><strong>Адрес:</strong> <a id="modal-address" href="#" target="_blank"></a></p>
-
+                            <span class="mt16 mb16 bgprime10 row gap12 aic" style="padding: 12px; border-radius: 16px;">
+                                <img src="../static/img/icon/address.svg" alt="location">
+                                <p style="text-align: left;"><a class="dark-prime-invert-100" style="text-align: left;" id="modal-address" href="#" target="_blank"></a></p>
+                            </span>
 
                             <!-- Доставка -->
-                            <div id="modal-delivery" class="delivery-label hidden">Есть доставка</div>
+                            <div id="modal-delivery" class="delivery-label hidden">
+                                <img src="{{ url_for('static', filename='img/icon/truck.svg') }}" alt="delivery">
+                                <p class="dark-prime-100">Есть доставка</p>
+                            </div>
 
                         
 
@@ -135,12 +182,15 @@
                     </div>
                 </div>
 
+                
+
                 <!-- Список магазинов -->
-                <div class="w100">
+                <div class="w100 market-grid">
                     {% for store in stores %}
                     <div class="storecard" 
-                         data-store='{{ store | tojson | safe }}' 
-                         onclick="openModal(this)">
+                            data-store='{{ store | tojson | safe }}' 
+                            data-category="{{ store.catergory }}"
+                            onclick="openModal(this)">
                         <div class="storecard-header" style="background-image: url('/static/img/market/{{ store.bg }}.jpg'); background-size: cover; background-position: center center;">
                             <img class="storecard-logo" src="/static/img/market/{{ store.logo }}.jpg" alt="{{ store.name }}">
                         </div>
@@ -151,10 +201,36 @@
                     </div>
                     {% endfor %}
                 </div>
+
                 
             </div>
         </main>
     </body>
+
+
+    <!-- Tapbar -->
+    <div class="tapbar bgprime300">
+        <a href="/" class="tapbar__item" id="tab-index">
+            <img src="static/img/tapbar/menu_inactive.svg" class="icon icon-inactive">
+            <img src="static/img/tapbar/menu_active.svg" class="icon icon-active">
+            <p class="p3 dark-prime-invert-300">Главная</p>
+        </a>    
+        <a href="/routes" class="tapbar__item" id="tab-routes">
+            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
+            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маршруты</p>
+        </a>
+        <a href="/market" class="tapbar__item active" id="tab-bazar">
+            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
+            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маркет</p>
+        </a>
+        <button class="tapbar__item" id="tab-menu" onclick="openMenuPopup()">
+            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
+            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Меню</p>
+        </button>
+    </div>
 
     <!-- footer -->
     {% include 'footer.html' %}
@@ -162,4 +238,32 @@
     <!--Scripts-->
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
     <script src="{{ url_for('static', filename='js/market.js') }}"></script>
+
+
+    <!--Banners script-->
+    <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            fetch('/static/data/banners.json')
+        .then(response => response.json())
+        .then(data => {
+        const container = document.getElementById('banners-container');
+
+        data.forEach(banner => {
+            const link = document.createElement('a');
+            link.href = banner.link;
+            link.target = "_blank";
+            link.className = "marketbanner";
+
+            const img = document.createElement('img');
+            img.src = banner.image;
+            img.alt = banner.alt;
+
+            link.appendChild(img);
+            container.appendChild(link);
+        });
+        })
+        .catch(error => console.error('Error loading banners:', error));
+    });
+    </script>
+
 </html>

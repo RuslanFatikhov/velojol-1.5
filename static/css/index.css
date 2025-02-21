@@ -174,7 +174,7 @@ hr{
   }
   
   .categorycard {
-    background-color: white;
+    background-color: #F3F3F3;
     border-radius: 16px;
     padding: 16px;
     display: flex;
@@ -185,7 +185,7 @@ hr{
   }
 
   .categorycard:hover{
-    transform: scale(0.98);
+    transform: scale(0.99);
     transition: 0.25s;
   }
 
@@ -199,7 +199,7 @@ hr{
   }
 
   .categorycard:hover img {
-    transform: scale(1.25) rotate(10deg); /* Применение увеличения и поворота одновременно */
+    transform: scale(1.25) rotate(5deg); /* Применение увеличения и поворота одновременно */
     transition: transform 0.1s ease; /* Добавляем плавный переход для более красивого эффекта */
 }
 
@@ -359,6 +359,7 @@ hr{
         height: 90px;
         padding: 8px;
         border-radius: 8px;
+        background-color: var(--dark-prime-invert-200);
     }
 
     .categorycard:nth-child(1),

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>{{ city.city }}</title>
+    <title>Маршруты {{ city.city }}</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,13 +18,25 @@
     <meta name="theme-color" content="#121212">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/imageview.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+
+
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme') || 'dark';
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      
+
+    <!-- Подключение тем -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
 </head>
 <body>
 
@@ -56,33 +68,35 @@
                 <h6 class="dark-prime-invert-200">{{ city.city }}</h6>
             </div>
 
-            <div id="bikeLanesList">
-                {% if routes %}
-                    <ul class="routes-list">
-                        {% for route in routes %}
-                            <li class="route-item">
-                                <h4>{{ route.name }}</h4>
-                                <p><strong>Расстояние:</strong> {{ route.distance }} км</p>
-                                <p><strong>Сложность:</strong> {{ route.difficulty }}</p>
-                                <a href="/route/{{ route.id }}" class="button border bgprime300 dark-prime-invert-200">Подробнее</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>Маршруты для этого города не найдены.</p>
-                {% endif %}
+            <div id="bikeRoutesList">
             </div>
         </div>
         
+        <!-- Модальное окно маршрута -->
+        <div id="routeModal" class="routemodal">
+            <div class="route-modal-content bgprime300">
+                <button id="closeModal" class="close-button">&times;</button>
+                <h2 id="routeTitle"></h2>
+                <img id="routePhoto" src="" alt="Фото маршрута">
+                <p id="routeDistance"></p>
+                <p id="routeHeight"></p>
+                <p id="routeDifficulty"></p>
+                <p id="routeDescription"></p>
+            </div>
+        </div>
+
+    
+
         <div id='map'></div>
     </main>
 
-    <!-- API Initialization -->
     <script>
         var cityCoordinates = {{ city.coordinates | tojson }};
         var cityZoom = {{ city.zoom | tojson }};
         var cityName = {{ city.city | tojson }};
+        var cityId = {{ city.id | tojson }};
     </script>
+    
 
     <!-- Navigation Script -->
     <script>
@@ -93,8 +107,13 @@
 
     <!-- Mapbox Integration -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
-    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/routes_map.js') }}"></script>
     <script src="{{ url_for('static', filename='js/imageview.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="https://unpkg.com/togeojson@0.16.0/togeojson.js"></script>
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+
 
 </body>
 </html>

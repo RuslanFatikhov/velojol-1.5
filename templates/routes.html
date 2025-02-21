@@ -37,8 +37,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme') || 'dark'; // По умолчанию - темная
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      
+    
     <!-- Подключение тем -->
-    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='css/colors_dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
 
 </head>
     <!-- header -->

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         modalContent.classList.remove("active");
         setTimeout(() => {
             modal.style.display = "none";
-        }, 300); // Должно совпадать с длительностью анимации
+        }, 300);
     });
 
     window.onclick = function (event) {
@@ -23,6 +23,40 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 300);
         }
     };
+
+    // Фильтрация магазинов по категориям
+    const categoryButtons = document.querySelectorAll(".category-button");
+    const stores = document.querySelectorAll(".storecard");
+
+    function getURLParameter(name) {
+        return new URLSearchParams(window.location.search).get(name);
+    }
+
+    const selectedCategory = getURLParameter("category");
+
+    if (selectedCategory) {
+        categoryButtons.forEach(button => {
+            if (button.getAttribute("data-category") === selectedCategory) {
+                button.classList.add("active");
+                filterStores(selectedCategory);
+            }
+        });
+    }
+
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            categoryButtons.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+            filterStores(this.getAttribute("data-category"));
+        });
+    });
+
+    function filterStores(category) {
+        stores.forEach(store => {
+            const storeCategories = store.getAttribute("data-category").split(",").map(cat => cat.trim());
+            store.style.display = (category === "all" || storeCategories.includes(category)) ? "block" : "none";
+        });
+    }
 });
 
 function openModal(element) {
@@ -32,10 +66,8 @@ function openModal(element) {
     document.getElementById("modal-name").innerText = store.name;
     document.getElementById("modal-description").innerText = store.description;
 
-    // Используем bg как cover
     document.getElementById("modal-cover").style.backgroundImage = `url('/static/img/market/${store.bg}.jpg')`;
 
-    // Устанавливаем адрес и ссылку на Яндекс.Карты
     const addressElement = document.getElementById("modal-address");
     addressElement.innerText = store.address || "Адрес не указан";
 
@@ -45,7 +77,6 @@ function openModal(element) {
         addressElement.href = "#";
     }
 
-    // Обрабатываем категории
     const categoryContainer = document.getElementById("modal-category");
     categoryContainer.innerHTML = "";
     if (store.catergory) {
@@ -57,7 +88,6 @@ function openModal(element) {
         });
     }
 
-    // Показываем или скрываем лейбл доставки
     const deliveryElement = document.getElementById("modal-delivery");
     if (store.delivery) {
         deliveryElement.classList.remove("hidden");
@@ -75,18 +105,17 @@ function openModal(element) {
     Object.keys(links).forEach((key) => {
         if (store[key]) {
             if (key === "web") {
-                links[key].href = `https://${store[key]}`; // Для веб-сайта добавляем https://
+                links[key].href = `https://${store[key]}`;
             } else if (key === "telegram") {
-                links[key].href = `https://t.me/${store[key]}`; // Для Telegram формируем ссылку t.me
+                links[key].href = `https://t.me/${store[key]}`;
             } else {
-                links[key].href = `https://${key}.com/${store[key]}`; // Для Instagram, VK формируем стандартную ссылку
+                links[key].href = `https://${key}.com/${store[key]}`;
             }
-            links[key].classList.remove("hidden"); // Показываем ссылку
+            links[key].classList.remove("hidden");
         } else {
-            links[key].classList.add("hidden"); // Скрываем ссылку, если её нет
+            links[key].classList.add("hidden");
         }
     });
-    
 
     const modal = document.getElementById("storeModal");
     const modalContent = modal.querySelector(".modal-content");
@@ -97,4 +126,3 @@ function openModal(element) {
         modalContent.classList.add("active");
     }, 10);
 }
-
