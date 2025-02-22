@@ -74,7 +74,7 @@
 .staticwhite100 { color: var(--static-white); }
 
 .bgstate500 { background-color: var(--bgstate500); }
-
+.bgprimeinvert25 { background-color: var(--dark-prime-invert-25); }
 .bgprimeinvert50 { background-color: var(--dark-prime-invert-50); }
 
 .dark-prime-100 { color: var(--dark-prime-100) !important; }

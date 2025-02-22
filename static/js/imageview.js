@@ -30,25 +30,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+
 function initImageView() {
-    document.querySelectorAll('img[data-imageview]').forEach((img, index) => {
+    // Получаем все картинки с data-imageview
+    const imageElements = document.querySelectorAll('img[data-imageview]');
+    // Создаем (или пересобираем) глобальный массив изображений
+    window.images = Array.from(imageElements).map(img => img.src);
+
+    console.log("Найдено изображений:", imageElements.length);
+
+    imageElements.forEach((img, index) => {
+        console.log("Добавляем обработчик на изображение:", img.src);
         img.addEventListener('click', function() {
             openModal(this.src);
-            currentImageIndex = index; // Обновляем текущий индекс
+            currentImageIndex = index;
         });
     });
 }
 
+
+
 function openModal(imageSrc) {
+    console.log("Открываем изображение:", imageSrc); // Проверка
+
     const modal = document.getElementById('imageModal');
     const modalImg = document.querySelector('.modal-image');
     const counter = document.querySelector('.image-counter');
+
+    if (!modal || !modalImg || !counter) {
+        console.error("Ошибка: Модальное окно или его элементы не найдены.");
+        return;
+    }
 
     modal.style.display = "flex";
     modal.classList.add('visible');
     modalImg.src = imageSrc;
     counter.textContent = `${currentImageIndex + 1} / ${images.length}`;
 }
+
 
 function updateImage(step) {
     currentImageIndex += step;
@@ -62,4 +82,6 @@ function updateImage(step) {
     modalImg.src = images[currentImageIndex];
     counter.textContent = `${currentImageIndex + 1} / ${images.length}`; // Обновление счётчика
 }
+
+
 

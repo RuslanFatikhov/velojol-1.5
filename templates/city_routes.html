@@ -60,30 +60,118 @@
 
     <!-- Main Content -->
     <main>
+        <!--Right-->
+        <div class="bottomright">
+
+            <!--Middle-->
+            <span class="column gap8 mapmiddle">
+                <!--Zoom chips-->
+                <div class="chips bgprime400">
+                    <button class="button_icon" id="zoomIn">
+                        <img class="theme-icon dark" src="../static/img/icon/plus1-white.svg" alt="plus">
+                        <img class="theme-icon light" src="../static/img/icon/plus1-black.svg" alt="plus">
+                    </button>
+
+
+                    <button class="button_icon" id="zoomOut">
+                        <img class="theme-icon dark" src="../static/img/icon/minus-white.svg" alt="minus">
+                        <img class="theme-icon light" src="../static/img/icon/minus-black.svg" alt="minus">
+                    </button>
+                </div>
+            </span>
+
+
+            <a href="https://fatikhov.notion.site/Velojol-e83a5c646a8d4648a366d5b8e60f8a05?pvs=4" target="_blank" class="button border bgprime300 dark-prime-invert-200 gap8">
+                <img class="theme-icon dark" src="../static/img/icon/question-white.svg" alt="question">
+                <img class="theme-icon light" src="../static/img/icon/question-black.svg" alt="question">
+                <p class="hide540">Что это</p>
+            </a>
+        </div>
+
+        <!--ImageView-->
+        <div id="imageModal" class="modal">
+            <span class="size_s close"><img src="../static/img/icon/close.svg"></span>
+            <img class="modal-image">
+            <!-- Кнопки навигации -->
+            <a class="prev size_s"><img src="../static/img/icon/arrow-left-white.svg"></a>
+            <a class="next size_s"><img src="../static/img/icon/arrow-right-white.svg"></a>
+            <!-- Порядковый номер фото -->
+            <div class="image-counter">1 / 1</div>
+        </div>
+
+        <!--List-->
         <div id="bikelist" class="block bgprime300">
             <div class="navhead">
                 <button class="size_s desktop" onclick="goToCityDetails()">
                     <img src="{{ url_for('static', filename='img/icon/left-arrow-white.svg') }}" alt="Go back">
                 </button>
                 <h6 class="dark-prime-invert-200">{{ city.city }}</h6>
+                <span class="h34"></span>
             </div>
 
             <div id="bikeRoutesList">
             </div>
         </div>
         
-        <!-- Модальное окно маршрута -->
-        <div id="routeModal" class="routemodal">
-            <div class="route-modal-content bgprime300">
-                <button id="closeModal" class="close-button">&times;</button>
-                <h2 id="routeTitle"></h2>
-                <img id="routePhoto" src="" alt="Фото маршрута">
-                <p id="routeDistance"></p>
-                <p id="routeHeight"></p>
-                <p id="routeDifficulty"></p>
-                <p id="routeDescription"></p>
+            <!-- Модальное окно маршрута -->
+            <div id="routeModal" class="routemodal">
+                <div class="route-modal-content bgprime300" style="border-radius: 16px;">
+
+                    <!-- Close -->
+                    <button id="closeModal" class="size_s" style="position: absolute; right:16px; top:16px;" onclick="closeRouteModal()">
+                        <img src="../static/img/icon/close.svg" alt="Закрыть">
+                    </button>
+
+
+                    
+
+                    <h4 id="routeTitle" class="dark-prime-invert-200 mb8" style="max-width: calc(100% - 32px);"></h4>
+                    <p id="routeDifficulty" style="border-radius:8px; display: flex; justify-content: center; max-width: 80px;" class="bgprimeinvert50 dark-prime-100 mb16"></p>
+                    
+
+                    <div class="route-stats hstack_important_important gap24 mb16">
+                        <span class="hstack_important gap4">
+                            <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance.svg">
+                            <p class="dark-prime-invert-100" id="totalDistance"></p>
+                        </span>
+                        
+                        <span class="hstack_important gap4">
+                            <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high.svg">
+                            <p class="dark-prime-invert-100" id="ascent"></p>
+                        </span>
+
+                        <span class="hstack_important gap4">
+                            <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/down.svg">
+                            <p class="dark-prime-invert-100" id="descent"></p>
+                        </span>
+
+                        <!--Time-->
+                        <span class="hstack_important gap4">
+                            <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time.svg">
+                            <p class="dark-prime-invert-100" id="routeTime"></p>
+                        </span>
+                    </div>
+
+                    <p class="dark-prime-invert-200 p2 mb16" id="routeDescription"></p>
+
+                    <!-- Контейнер для всех фотографий -->
+                    <div id="routePhotosContainer" class="photogrid popup_desktop"></div>
+
+                    <!-- График высоты -->
+                    <div id="chartContainer" class="mb16 mt16">
+                        <canvas id="elevationChart"></canvas>
+                    </div>
+                    
+                    
+                    
+                    <!-- Кнопка для скачивания GPX -->
+                    <button id="downloadGpxBtn" class="size_m bgprimeinvert25 w100">
+                        <p class="dark-prime-invert-200">Скачать GPX</p>
+                    </button>
+
+                </div>
             </div>
-        </div>
+
 
     
 
@@ -112,7 +200,23 @@
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
     <script src="https://unpkg.com/togeojson@0.16.0/togeojson.js"></script>
     <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="{{ url_for('static', filename='js/tabs.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/elevation_chart.js"></script>
 
+    <script>
+            document.getElementById('downloadGpxBtn').addEventListener('click', function () {
+            // Получаем GPX-файл (замени URL на реальный путь к файлу)
+            const gpxUrl = '/static/routes/sample_route.gpx'; // Предположим, что у нас есть готовый файл
+
+            const link = document.createElement('a');
+            link.href = gpxUrl;
+            link.download = 'route.gpx'; // Имя файла при скачивании
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
 
 
 </body>

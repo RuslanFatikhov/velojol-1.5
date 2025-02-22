@@ -69,6 +69,7 @@ main{
 .bike-lane-item:hover , .bike-route-item:hover{
     background-color: var(--dark-prime-400);
     transition: 0.15s ease-in-out;
+    cursor: pointer;
 }
 
 
@@ -86,7 +87,7 @@ main{
     width: 100%;
 }
 
-#customPopup{
+#customPopup, #routeModal{
     display: none;
     padding: 16px;
 
@@ -436,7 +437,8 @@ input[type="text" i] {
         translate: translateY(-50%);
     }
 
-    #customPopup{
+    #customPopup, #routeModal{
+        min-width:100vw;
         height: 60vh;
         left: 0;
         bottom: 0 !important;
@@ -605,10 +607,6 @@ input[type="text" i] {
     display: none;
 }
 
-.route-modal-content{
-    position: absolute;
-    left: 16px;
-    top: 16px;
-    width: 390px;
-    padding: 30px 16px 30px 16px;
+#chartContainer{
+    height: 300px;
 }

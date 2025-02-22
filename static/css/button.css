@@ -84,6 +84,16 @@ button{
     min-width: 48px;
     height: 48px;
     border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.15s ease-in-out;
+}
+
+.size_m:hover{
+    transform: scale(0.98);
+    opacity: 0.95;
+    transition: 0.15s ease-in-out;
 }
 
 .size_s{

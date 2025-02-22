@@ -156,6 +156,7 @@ def city_map(city_id):
         bikeparkings_json_path=bikeparkings_json_path if bikeparkings_data_exists else None,
     )
 
+# Маргшруты
 @app.route("/routes")
 def routes_page():
     """
@@ -197,7 +198,6 @@ def city_routes(city_id):
         return f"Ошибка в формате JSON файла.", 500
 
     return render_template("city_routes.html", city=city, routes=routes_data)
-
 
 # Страница маршрута
 @app.route("/route/<route_id>")
@@ -476,6 +476,29 @@ def admin_bikelanes(city_id):
 
     return render_template("admin_bikelanes.html", city_id=city_id, bikelanes=bikelanes_data)
 
+# Фото маршрутов
+@app.route('/static/data/routes_photos.php')
+def get_route_photos():
+    """
+    Returns a list of photos for a route specified by the `folder` parameter.
+
+    :param folder: The folder name of the route.
+    :type folder: str
+    :return: A JSON object with the list of photos.
+    :rtype: dict
+    """
+    folder = request.args.get('folder')
+    folder_path = f"static/img/routes/{folder}"
+
+    if not os.path.exists(folder_path):
+        return jsonify({"photos": []})
+
+    # Get a list of all files in the folder
+    photos = [f for f in os.listdir(folder_path) if f.endswith(('.jpg', '.png', '.jpeg'))]
+    # Sort the list of photos by name (so that the first one is always the same)
+    photos.sort()
+    
+    return jsonify({"photos": photos})
 
 if __name__ == "__main__":
     app.run(debug=True, port=5022)

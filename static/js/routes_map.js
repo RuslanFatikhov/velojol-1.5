@@ -72,14 +72,24 @@ const routeColors = [
     '#e6194b', '#3cb44b', '#ffe119', '#0082c8', '#f58231', '#911eb4', '#46f0f0'
 ];
 
-// 5) Функция для закрытия модального окна
-function closeRouteModal() {
-    const modal = document.getElementById('routeModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
+
+// Функция для получения первого фото из папки маршрута
+function getFirstPhoto(routePhotos) {
+    return fetch(`/static/data/routes_photos.php?folder=${routePhotos}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.photos.length > 0) {
+                return `/static/img/routes/${routePhotos}/${data.photos[0]}`; // Первое фото из списка
+            } else {
+                return `/static/img/placeholder.jpg`; // Если фото нет, вернуть заглушку
+            }
+        })
+        .catch(error => {
+            console.error("Ошибка загрузки фото:", error);
+            return `/static/img/placeholder.jpg`;
+        });
 }
-window.closeRouteModal = closeRouteModal; // чтобы дергать из HTML
+
 
 // 5) Функция для закрытия модального окна
 function closeRouteModal() {
@@ -87,49 +97,90 @@ function closeRouteModal() {
     if (modal) {
         modal.style.display = 'none';
     }
+
+    // Возвращаем карту в предыдущее состояние
+    if (previousView.center && previousView.zoom) {
+        map.flyTo({
+            center: previousView.center,
+            zoom: previousView.zoom
+        });
+
+        // Сбрасываем сохранённые значения
+        previousView.center = null;
+        previousView.zoom = null;
+    }
 }
-window.closeRouteModal = closeRouteModal; // чтобы дергать из HTML
+
+window.closeRouteModal = closeRouteModal;
+
+
+// Функция получения всех фото маршрута
+function getAllPhotos(routePhotos) {
+    return fetch(`/static/data/routes_photos.php?folder=${routePhotos}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.photos.length > 0) {
+                return data.photos.map(photo => `/static/img/routes/${routePhotos}/${photo}`);
+            } else {
+                return [`/static/img/placeholder.jpg`]; // Если фото нет, вернуть заглушку
+            }
+        })
+        .catch(error => {
+            console.error("Ошибка загрузки фото:", error);
+            return [`/static/img/placeholder.jpg`];
+        });
+}
 
 // 6) Открытие модального окна с информацией о маршруте
-function openRouteModal(route) {
+// Открытие модального окна с информацией о маршруте
+function openRouteModal(route, geojson) {
+    // Заполняем данные маршрута
     document.getElementById('routeTitle').textContent = route.name;
-    document.getElementById('routeDistance').textContent = `Расстояние: ${route.distance} км`;
-    document.getElementById('routeHeight').textContent = `Перепад высоты: ${route.height} м`;
-    document.getElementById('routeDifficulty').textContent = `Сложность: ${route.difficulty}`;
+    document.getElementById('routeTime').textContent = `${route.time}ч`;
+    document.getElementById('routeDifficulty').textContent = `${route.difficulty}`;
     document.getElementById('routeDescription').textContent = route.description;
-    document.getElementById('routePhoto').src = `/static/img/routes/${route.photos}/cover.jpg`;
 
+    // Устанавливаем GPX-файл для скачивания
+    const downloadBtn = document.getElementById('downloadGpxBtn');
+    if (downloadBtn) {
+        downloadBtn.onclick = function () {
+            const gpxUrl = `/static/data/gpx/${route.gpx}`; // Путь к GPX
+            const link = document.createElement('a');
+            link.href = gpxUrl;
+            link.download = `${route.name.replace(/\s+/g, '_')}.gpx`; // Имя файла
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+    }
+
+    // Загружаем фото
+    const photosContainer = document.getElementById('routePhotosContainer');
+    photosContainer.innerHTML = '';
+
+    getAllPhotos(route.photos).then(photoUrls => {
+        photoUrls.forEach(photoUrl => {
+            const imgElement = document.createElement('img');
+            imgElement.src = photoUrl;
+            imgElement.alt = `Фото маршрута ${route.name}`;
+            imgElement.classList.add('route-photo-thumbnail');
+            imgElement.setAttribute('data-imageview', ''); // ВАЖНО
+            photosContainer.appendChild(imgElement);
+        });
+
+        // ВАЖНО: Обновляем обработчики кликов после вставки фото
+        initImageView();
+    });
+
+    // Обрабатываем и рисуем график высот
+    processAndRenderElevationChart(geojson);
+
+    // Показываем модальное окно
     document.getElementById('routeModal').style.display = 'block';
 }
 
-// Функция закрытия модального окна
-document.getElementById('closeModal').addEventListener('click', function() {
-    document.getElementById('routeModal').style.display = 'none';
-});
 
 
-// 6) Открытие модального окна с информацией о маршруте
-function openRouteModal(route) {
-    const modal = document.getElementById('routeModal');
-    if (!modal) return;
-
-    // Наполняем содержимым
-    document.getElementById('routeTitle').textContent = route.name || 'Без названия';
-    document.getElementById('routeDistance').textContent = `Расстояние: ${route.distance ?? 'N/A'} км`;
-    document.getElementById('routeHeight').textContent = `Перепад высоты: ${route.height ?? 'N/A'} м`;
-    document.getElementById('routeDifficulty').textContent = `Сложность: ${route.difficulty ?? 'N/A'}`;
-    document.getElementById('routeDescription').textContent = route.description || '';
-
-    // Пример: меняем фото обложки
-    const routePhoto = document.getElementById('routePhoto');
-    if (routePhoto) {
-        routePhoto.src = `/static/img/routes/${route.photos}/cover.jpg`;
-        routePhoto.alt = route.name;
-    }
-
-    // Показываем модал
-    modal.style.display = 'block';
-}
 
 // 7) Устанавливаем прозрачность всех слоёв, кроме одного
 function setRouteOpacity(exceptId = '') {
@@ -147,27 +198,37 @@ function setRouteOpacity(exceptId = '') {
     });
 }
 
+let previousView = {
+    center: null,
+    zoom: null
+};
+
 // 8) Функция при клике по маршруту
 function handleRouteClick(route, layerGeoJson) {
+    // Сохраняем текущий центр и зум карты, если они ещё не сохранены
+    if (!previousView.center || !previousView.zoom) {
+        previousView.center = map.getCenter();
+        previousView.zoom = map.getZoom();
+    }
+
     // Выделяем маршрут
     setRouteOpacity(`route-${route.id}`);
 
-    // Центрируемся на точках GPX (берем первую координату)
+    // Центрируемся на маршруте
     if (
         layerGeoJson &&
         layerGeoJson.features &&
         layerGeoJson.features.length > 0 &&
         layerGeoJson.features[0].geometry.coordinates.length > 0
     ) {
-        const coordinates = layerGeoJson.features[0].geometry.coordinates;
-        // Можем пролететь к bounding box, чтобы показать весь маршрут
         const bbox = turf.bbox(layerGeoJson);
         map.fitBounds(bbox, { padding: 40 });
     }
 
     // Открываем модальное окно
-    openRouteModal(route);
+    openRouteModal(route, layerGeoJson);
 }
+
 
 // 9) Создание слоя с маршрутом
 async function createRouteLayer(route, color) {
@@ -224,47 +285,57 @@ function populateRoutesList(data) {
         item.classList.add('bike-route-item'); // Перераспользуем стили
         const color = routeColors[index % routeColors.length];
 
-        // Корректно объявляем пути к изображениям **внутри** цикла
-        const imagePath = `/static/img/routes/${route.photos}/cover.jpg`;
-        const placeholderPath = `/static/img/placeholder.jpg`;
+        // Загружаем первое фото маршрута
+        getFirstPhoto(route.photos).then(photoUrl => {
+            item.innerHTML = `
+                <div class="vstack_important">
+                    <span class="hstack_important gap12">
+                        <img src="${photoUrl}" alt="${route.name}" class="route-thumbnail">
 
-        item.innerHTML = `
-            <div class="vstack_important">
-                <span class="hstack_important gap12">
-                    <img src="${imagePath}" onerror="this.onerror=null; this.src='${placeholderPath}';" alt="${route.name}" class="route-thumbnail">
-
-                    <span class="vstack_important">
-                        <h6 class="dark-prime-invert-100" style="margin-bottom:4px;">${route.name}</h6>
-                        <p>${route.difficulty}</p>
+                        <span class="vstack_important">
+                            <h6 class="dark-prime-invert-100" style="margin-bottom:4px;">${route.name}</h6>
+                            <p style="height:20px; padding: 4px 8px; border-radius:8px; display: flex; align-items:center; justify-content: center; max-width: 80px;" class="bgprimeinvert50 dark-prime-100 mb16">${route.difficulty}</p>
+                        </span>
                     </span>
+                </div>
+
+                <span class="hstack_important gap24">
+                    <span class="hstack_important gap4">
+                        <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance.svg">
+                        <p class="dark-prime-invert-100">${route.distance}км</p>
+                    </span>
+                    <span class="hstack_important gap4">
+                        <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high.svg">
+                        <p class="dark-prime-invert-100">${route.height}м</p>
+                    </span>
+                    <span class="hstack_important gap4">
+                        <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time.svg">
+                        <p class="dark-prime-invert-100">${route.time}ч</p>
+                    </span>  
                 </span>
             </div>
+            `;
 
-            <span class="hstack_important gap24">
-                <span class="hstack_important gap4"><img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance.svg"><p class="dark-prime-invert-100">${route.distance}км</p></span>
-                <span class="hstack_important gap4"><img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high.svg"><p class="dark-prime-invert-100">${route.height}м</p></span>
-                <span class="hstack_important gap4"><img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time.svg"><p class="dark-prime-invert-100">${route.time}м</p></span>  
-            </span>
-        </div>
-        `;
+            // Добавляем обработчик клика после загрузки фото
+            item.addEventListener('click', () => {
+                const layerId = `route-${route.id}`;
+                const sourceId = `route-source-${route.id}`;
+                const source = map.getSource(sourceId);
+                if (source) {
+                    // GeoJSON
+                    const data = source._data;
+                    handleRouteClick(route, data);
+                } else {
+                    console.warn('Источник не найден:', sourceId);
+                }
+            });
 
-        // При клике на элемент списка – тоже открываем маршрут
-        item.addEventListener('click', () => {
-            const layerId = `route-${route.id}`;
-            const sourceId = `route-source-${route.id}`;
-            const source = map.getSource(sourceId);
-            if (source) {
-                // GeoJSON
-                const data = source._data;
-                handleRouteClick(route, data);
-            } else {
-                console.warn('Источник не найден:', sourceId);
-            }
+            // Добавляем элемент в список
+            bikeRoutesList.appendChild(item);
         });
-
-        bikeRoutesList.appendChild(item);
     });
 }
+
 
 
 // 11) Основная загрузка

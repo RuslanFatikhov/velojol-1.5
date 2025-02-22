@@ -125,6 +125,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error(`Ошибка при запросе ${apiUrl}:`, error);
                 return [placeholder];
             });
+
+            
     }
 
     // Генерация HTML для попапа
@@ -143,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 <span class="hstack gap4">
                     <img src="../static/img/icon/distance.svg" alt="Расстояние">
-                    <p class="dark-prime-invert-300">Расстояние: ${bikeLane.distance} м</p>
+                    <p class="dark-prime-invert-300">${bikeLane.distance} м</p>
                 </span>
 
                 <p class="dark-prime-invert-200">${bikeLane.description}</p>
@@ -173,7 +175,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const customPopup = document.getElementById('customPopup');
             if (customPopup) {
                 customPopup.innerHTML = popupHtml;
-                // initImageView(); // Если у вас есть логика для увеличения фото
+                // ВАЖНО: добавляем повторную инициализацию
+                initImageView();
                 customPopup.style.display = 'block';
             }
         });
