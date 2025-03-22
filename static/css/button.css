@@ -128,4 +128,12 @@ button{
         height: 16px;
     }
 
+    .size_m{
+        padding: 8px;
+        max-height: 34px;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: 0.15s ease-in-out;
+    }
+
 }

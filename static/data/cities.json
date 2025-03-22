@@ -182,22 +182,5 @@
            
         ],
         "rating": 0.0
-    },
-    {
-        "id": "aktau",
-        "city": "Актау",
-        "country": "Казахстан",
-        "coat": "aktau.png",
-        "cover": "aktau.jpg",
-        "distance": 100.0,
-        "zoom": 10,
-        "coordinates": [
-            75.0,
-            56.0
-        ],
-        "sharing":[
-           
-        ],
-        "rating": 5.0
     }
 ]

@@ -144,7 +144,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p style="background-color: ${color}; color:#121212; padding:2px 8px; border-radius:8px;" class="dark-prime-invert-300">${label}</p>
 
                 <span class="hstack gap4">
-                    <img src="../static/img/icon/distance.svg" alt="Расстояние">
+
+                    <img class="theme-icon dark" src="../static/img/icon/distance-dark.svg" alt="Distance">
+                    <img class="theme-icon light" src="../static/img/icon/distance-light.svg" alt="Distance">
                     <p class="dark-prime-invert-300">${bikeLane.distance} м</p>
                 </span>
 
@@ -161,7 +163,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p class="dark-prime-invert-50">${bikeLane.date}</p>
                 </span>
                 <button class="size_s absolute_rt" onclick="closeCustomPopup();">
-                    <img src="../static/img/icon/close.svg" alt="Закрыть">
+                    <img class="theme-icon dark" src="../static/img/icon/close-white.svg" alt="close">
+                    <img class="theme-icon light" src="../static/img/icon/close-black.svg" alt="close">
                 </button>
             </div>
         `;
@@ -335,4 +338,65 @@ document.addEventListener('DOMContentLoaded', function () {
             bikeLanesList.appendChild(bikeLaneItem);
         });
     };
+
+    // Функция для добавления слоя велопарковок
+    function addBikeParkings() {
+        fetch(`/static/data/bikeparkings.json`)
+            .then(response => response.json())
+            .then(data => {
+                if (!map.getSource('bikeparkings')) {
+                    map.addSource('bikeparkings', {
+                        type: 'geojson',
+                        data: data
+                    });
+                }
+
+                if (!map.getLayer('bikeparkings')) {
+                    map.addLayer({
+                        id: 'bikeparkings',
+                        type: 'circle',
+                        source: 'bikeparkings',
+                        paint: {
+                            'circle-radius': 6,
+                            'circle-color': '#007cbf'
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Ошибка загрузки велопарковок:', error));
+    }
+
+    // Функция для добавления слоя велостанций
+    function addBikeRepairStations() {
+        fetch(`/static/data/repairstations.json`)
+            .then(response => response.json())
+            .then(data => {
+                if (!map.getSource('repairstations')) {
+                    map.addSource('repairstations', {
+                        type: 'geojson',
+                        data: data
+                    });
+                }
+
+                if (!map.getLayer('repairstations')) {
+                    map.addLayer({
+                        id: 'repairstations',
+                        type: 'circle',
+                        source: 'repairstations',
+                        paint: {
+                            'circle-radius': 6,
+                            'circle-color': '#ff5733'
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Ошибка загрузки велостанций:', error));
+    }
+
+    // Загружаем слои после загрузки карты
+    map.on('load', function () {
+        addBikeParkings();
+        addBikeRepairStations();
+    });
+
 });

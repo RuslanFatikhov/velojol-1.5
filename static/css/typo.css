@@ -4,10 +4,10 @@
 
 
 
-h1, h2, h3, h4, h5, h6,p {
+h1, h2, h3, h4, h5, h6,p, .checkbox-label {
     font-family: 'Inter Tight', sans-serif;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
 }
   
   h1 {
@@ -155,7 +155,8 @@ h1, h2, h3, h4, h5, h6,p {
     line-height: 20px;
   }
 
-  .course-img{
-    height: 300px !important;
+  .citycard p{
+    font-size: 14px;
+    line-height: 16px;
   }
 }

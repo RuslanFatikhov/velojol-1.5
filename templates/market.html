@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>VELOJOL</title>
+    <title>VELOJOL | Маркет</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Подробная карта велодорожек и велополос города">
@@ -53,11 +53,11 @@
 </head>
     <!-- header -->
     {% include 'header.html' %} 
-    <body class="bgprime400">
+    <body class="bgprime200">
         <main class="pt100">
             
             <!--Banners-->
-            <div class="banners mb32" id="banners-container">
+            <div class="banners" id="banners-container">
                 <!-- Баннеры будут загружены динамически -->
             </div>
 
@@ -65,47 +65,47 @@
             <div class="w100 hstack gap32" style="align-items: flex-start;">
 
                 <!--Category-->
-                <div class="island bgprime100 w100 market-filter">
-                    <h5 class="dark-prime-invert-100 island_heading bold">
+                <div class="island w100 market-filter">
+                    <h5 class="dark-prime-invert-100 island_heading bold desktop">
                         Категории
                     </h5>
                     <ul id="category-list">
-                        <li><button class="category-button" data-category="all">
+                        <li><button class="category-button active" data-category="all">
                             <h6>Все</h6>
                         </button></li>
 
                         <li><button class="category-button" data-category="велосипеды">
-                            <img src="{{ url_for('static', filename='img/market/bicycle.jpg') }}" alt="category">
+                            <img src="{{ url_for('static', filename='img/market/bicycle.png') }}" alt="category">
                             <h6>Велосипеды</h6>
                         </button></li>
 
                         <li><button class="category-button" data-category="запчасти">
-                            <img src="{{ url_for('static', filename='img/market/tool.jpg') }}" alt="category">
+                            <img src="{{ url_for('static', filename='img/market/tool.png') }}" alt="category">
                             <h6>Запчасти</h6>
                         </button></li>
 
                         <li><button class="category-button" data-category="одежда">
-                            <img src="{{ url_for('static', filename='img/market/clothe.jpg') }}" alt="category">
+                            <img src="{{ url_for('static', filename='img/market/clothe.png') }}" alt="category">
                             <h6>Одежда</h6>
                         </button></li>
 
                         <li><button class="category-button" data-category="аксессуары">
-                            <img src="{{ url_for('static', filename='img/market/acsess.jpg') }}" alt="category">
+                            <img src="{{ url_for('static', filename='img/market/acsess.png') }}" alt="category">
                             <h6>аксессуары</h6>
                         </button></li>
 
                         <li><button class="category-button" data-category="еда">
-                            <img src="{{ url_for('static', filename='img/market/food.jpg') }}" alt="category">
+                            <img src="{{ url_for('static', filename='img/market/food.png') }}" alt="category">
                             <h6>Еда</h6>
                         </button></li>
 
                         <li><button class="category-button" data-category="ремонт">
-                            <img src="{{ url_for('static', filename='img/market/food.jpg') }}" alt="category">
+                            <img src="{{ url_for('static', filename='img/market/repair.png') }}" alt="category">
                             <h6>Ремонт</h6>
                         </button></li>
 
                         <li><button class="category-button" data-category="аренда">
-                            <img src="{{ url_for('static', filename='img/market/food.jpg') }}" alt="category">
+                            <img src="{{ url_for('static', filename='img/market/rent.png') }}" alt="category">
                             <h6>Аренда</h6>
                         </button></li>
                         
@@ -130,24 +130,31 @@
                         <div class="modal-body">
 
                             <!--Категории-->
-                            <div id="modal-category" class="mb8"></div>
+                            <div id="modal-category" class="mb16"></div>
 
                             <!--Title-->
-                            <h5 class="dark-prime-invert-200 bold" id="modal-name"></h5>
+                            <h4 class="dark-prime-invert-200 bold" id="modal-name"></h4>
                             
                             <!--Desc-->
-                            <p class="mt8 dark-prime-invert-400" id="modal-description" style="text-align: left;"></p>
+                            <p class="mt8 dark-prime-invert-300" id="modal-description" style="text-align: left;"></p>
                             
                             <!-- Адрес -->
-                            <span class="mt16 mb16 bgprime10 row gap12 aic" style="padding: 12px; border-radius: 16px;">
-                                <img src="../static/img/icon/address.svg" alt="location">
-                                <p style="text-align: left;"><a class="dark-prime-invert-100" style="text-align: left;" id="modal-address" href="#" target="_blank"></a></p>
-                            </span>
+                            <a 
+                                id="modal-address" 
+                                href="#" 
+                                target="_blank" 
+                                class="mt16 mb16 bgprime10 row gap12 aic w100 address-link"
+                                style="padding: 12px; border-radius: 16px;"
+                                >
+                                <img src="{{ url_for('static', filename='img/icon/address.svg') }}" alt="location">
+                                <p class="p2 dark-prime-invert-300"></p>
+                            </a>
+
 
                             <!-- Доставка -->
                             <div id="modal-delivery" class="delivery-label hidden">
                                 <img src="{{ url_for('static', filename='img/icon/truck.svg') }}" alt="delivery">
-                                <p class="dark-prime-100">Есть доставка</p>
+                                <p class="staticwhite100">Есть доставка</p>
                             </div>
 
                         
@@ -156,25 +163,29 @@
                             <div class="w100 storecard-links mt24 grid gap8">
                                 <!--Instagram-->
                                 <a id="modal-instagram" href="#" target="_blank" class="hidden button size_m bgprime200 gap8">
-                                    <img src="../static/img/icon/instagram.svg" alt="instagram">
+                                    <img class="theme-icon dark" src="../static/img/icon/instagram-white.svg" alt="Instagram">
+                                    <img class="theme-icon light" src="../static/img/icon/instagram-black.svg" alt="Instagram">
                                     <p class="p2 dark-prime-invert-300">Instagram</p>
                                 </a>
 
                                 <!--Telegram-->
                                 <a id="modal-telegram" href="#" target="_blank" class="hidden button size_m bgprime200 gap8">
-                                    <img src="../static/img/icon/telegram.svg" alt="telegram">
+                                    <img class="theme-icon dark" src="../static/img/icon/telegram-white.svg" alt="telegram">
+                                    <img class="theme-icon light" src="../static/img/icon/telegram-black.svg" alt="telegram">
                                     <p class="p2 dark-prime-invert-300">Telegram</p>
                                 </a>
 
                                 <!--VK-->
                                 <a id="modal-vk" href="#" target="_blank" class="hidden button size_m bgprime200 gap8">
-                                    <img src="../static/img/icon/vk.svg" alt="vk">
+                                    <img class="theme-icon dark" src="../static/img/icon/vk-white.svg" alt="vk">
+                                    <img class="theme-icon light" src="../static/img/icon/vk-black.svg" alt="vk">
                                     <p class="p2 dark-prime-invert-300">VK</p>
                                 </a>
 
                                 <!--Web-->
                                 <a id="modal-web" href="#" target="_blank" class="hidden button size_m bgprime200 gap8">
-                                    <img src="../static/img/icon/web.svg" alt="web">
+                                    <img class="theme-icon dark" src="../static/img/icon/web-white.svg" alt="Web">
+                                    <img class="theme-icon light" src="../static/img/icon/web-black.svg" alt="Web">
                                     <p class="p2 dark-prime-invert-300">Сайт</p>
                                 </a>
                             </div>
@@ -183,25 +194,70 @@
                 </div>
 
                 
-
-                <!-- Список магазинов -->
-                <div class="w100 market-grid">
-                    {% for store in stores %}
-                    <div class="storecard" 
-                            data-store='{{ store | tojson | safe }}' 
-                            data-category="{{ store.catergory }}"
-                            onclick="openModal(this)">
-                        <div class="storecard-header" style="background-image: url('/static/img/market/{{ store.bg }}.jpg'); background-size: cover; background-position: center center;">
-                            <img class="storecard-logo" src="/static/img/market/{{ store.logo }}.jpg" alt="{{ store.name }}">
-                        </div>
-                        <div class="storecard-body">
-                            <h6 class="dark-prime-invert-100 bold" style="margin-bottom: 4px;">{{ store.name }}</h6>
-                            <p class="p2 dark-prime-invert-50 mt8">{{ store.description }}</p>
+                <div>
+                    <div class="w100 market-service">
+                        <!-- Текст с количеством магазинов -->
+                        <p id="storeCountText" class="dark-prime-invert-300 w100"></p>
+                        
+                        <button class="button size_m bgprimeinvert10 p2 dark-prime-invert-100" id="openFiltersModal">Фильтры</button>
+                    
+                        <!-- Модальное окно фильтров -->
+                        <div id="filtersModal" class="modal-store" style="display: none;">
+                            <div class="modal-content bgprime100" style="">
+                                <span class="close button size_s">
+                                    <img src="../static/img/icon/close.svg" alt="Close">
+                                </span>
+                    
+                                <div class="modal-body">
+                                    <h4 class="dark-prime-invert-200 bold">Фильтры</h4>
+                                    <!-- Фильтр по городам -->
+                                    <div class="filter-section mt16 mb16">
+                                        <h6 class="dark-prime-invert-100 bold tal">Города</h6>
+                    
+                                        <label class="checkbox-label mt8 dark-prime-invert-200">
+                                            <input type="checkbox" class="city-filter" value="Алматы"> Алматы
+                                        </label>
+                                        <label class="checkbox-label mt8 dark-prime-invert-200">
+                                            <input type="checkbox" class="city-filter" value="Астана"> Астана
+                                        </label>
+                                        <label class="checkbox-label mt8 dark-prime-invert-200">
+                                            <input type="checkbox" class="city-filter" value="Санкт-Петербург"> Санкт-Петербург
+                                        </label>
+                                        <!-- Добавь другие города по необходимости -->
+                                    </div>
+                    
+                                    <!-- Фильтр по доставке -->
+                                    <div class="filter-section mb16">
+                                        <h6 class="dark-prime-invert-100 bold tal">Доставка</h6>
+                                        <label class="checkbox-label mt8 dark-prime-invert-200">
+                                            <input type="checkbox" id="deliveryFilter"> Только с доставкой
+                                        </label>
+                                    </div>
+                    
+                                    <!-- Кнопка применения фильтров -->
+                                    <button class="button w100 size_m bgprimeinvert200 p2 bolds dark-prime-100" id="applyFilters">Применить</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
 
+                    <!-- Список магазинов -->
+                    <div class="w100 market-grid">
+                        {% for store in stores %}
+                        <div class="storecard" 
+                             data-store='{{ store | tojson | safe }}' 
+                             onclick="openModal(this)">
+                            <div class="storecard-header" style="background-image: url('/static/img/market/{{ store.bg }}.jpg'); background-size: cover; background-position: center center;">
+                                <img class="storecard-logo" src="/static/img/market/{{ store.logo }}.jpg" alt="{{ store.name }}">
+                            </div>
+                            <div class="storecard-body">
+                                <h6 class="dark-prime-invert-100 bold" style="margin-bottom: 4px;">{{ store.name }}</h6>
+                                <p class="p2 dark-prime-invert-50 mt8">{{ store.description }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
                 
             </div>
         </main>
@@ -211,24 +267,28 @@
     <!-- Tapbar -->
     <div class="tapbar bgprime300">
         <a href="/" class="tapbar__item" id="tab-index">
-            <img src="static/img/tapbar/menu_inactive.svg" class="icon icon-inactive">
-            <img src="static/img/tapbar/menu_active.svg" class="icon icon-active">
+            <img src="static/img/icon/home_inactive_dark.svg" class="icon icon-inactive theme-icon light" alt="home">
+            <img src="static/img/icon/home_inactive_light.svg" class="icon icon-inactive theme-icon dark" alt="home">
+            <img src="static/img/icon/home_active.svg" class="icon icon-active">
             <p class="p3 dark-prime-invert-300">Главная</p>
         </a>    
         <a href="/routes" class="tapbar__item" id="tab-routes">
-            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
-            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
-        <p class="p3 dark-prime-invert-300">Маршруты</p>
+            <img src="static/img/icon/routes_inactive_dark.svg" alt="Routes" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/routes_inactive_light.svg" alt="Routes" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/routes_active.svg" alt="Routes" class="icon icon-active">
+            <p class="p3 dark-prime-invert-300">Маршруты</p>
         </a>
         <a href="/market" class="tapbar__item active" id="tab-bazar">
-            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
-            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
-        <p class="p3 dark-prime-invert-300">Маркет</p>
+            <img src="static/img/icon/market_inactive_dark.svg" alt="market" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/market_inactive_light.svg" alt="market" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/market_active.svg" alt="Home" class="icon icon-active">
+            <p class="p3 dark-prime-invert-300">Маркет</p>
         </a>
         <button class="tapbar__item" id="tab-menu" onclick="openMenuPopup()">
-            <img src="static/img/tapbar/menu_inactive.svg" alt="Home" class="icon icon-inactive">
-            <img src="static/img/tapbar/menu_active.svg" alt="Home" class="icon icon-active">
-        <p class="p3 dark-prime-invert-300">Меню</p>
+            <img src="static/img/icon/menu_inactive_dark.svg" alt="Menu" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/menu_inactive_light.svg" alt="Menu" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/menu_active.svg" alt="Home" class="icon icon-active">
+            <p class="p3 dark-prime-invert-300">Меню</p>
         </button>
     </div>
 
@@ -238,6 +298,8 @@
     <!--Scripts-->
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
     <script src="{{ url_for('static', filename='js/market.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+
 
 
     <!--Banners script-->

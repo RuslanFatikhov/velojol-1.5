@@ -5,6 +5,28 @@ import os
 
 app = Flask(__name__)
 
+def pluralize_stores(count):
+    """
+    Возвращает строку с правильным окончанием для слова 'магазин' в зависимости от числа.
+    """
+    if count % 10 == 1 and count % 100 != 11:
+        return f"{count} магазин"
+    elif count % 10 in [2, 3, 4] and count % 100 not in [12, 13, 14]:
+        return f"{count} магазина"
+    else:
+        return f"{count} магазинов"
+
+def pluralize_routes(count):
+    """
+    Возвращает строку с правильным окончанием для слова 'маршрут' в зависимости от числа.
+    """
+    if count % 10 == 1 and count % 100 != 11:
+        return f"{count} маршрут"
+    elif count % 10 in [2, 3, 4] and count % 100 not in [12, 13, 14]:
+        return f"{count} маршрута"
+    else:
+        return f"{count} маршрутов"
+
 def load_json(file_path):
     """
     Загружает данные из указанного JSON-файла.
@@ -20,6 +42,37 @@ def load_stores():
     with open("static/data/market.json", "r", encoding="utf-8") as file:
         return json.load(file)
 
+def load_data_count(city_id, data_type):
+    """ Загружает количество объектов из JSON-файла по указанному типу (парковки или велостанции) """
+    file_path = f"static/data/cities/{city_id}-{data_type}.geojson"
+    print(f"Ищем файл: {file_path}")  # Для отладки
+    if os.path.exists(file_path):
+        try:
+            with open(file_path, encoding="utf-8") as f:
+                data = json.load(f)
+                count = len(data.get("features", []))  # Подсчет всех объектов
+                print(f"Загружено {count} объектов ({data_type})")  # Проверка данных
+                return count
+        except (json.JSONDecodeError, FileNotFoundError) as e:
+            print(f"Ошибка при загрузке JSON ({data_type}): {e}")
+            return 0
+    else:
+        print(f"Файл не найден ({data_type})!")
+    return 0
+
+def load_routes_count(city_id):
+    """
+    Загружает количество маршрутов для города из файла static/data/routes/{city_id}_routes.json.
+    Возвращает 0, если файл не найден или повреждён.
+    """
+    file_path = f"static/data/routes/{city_id}_routes.json"
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            routes_data = json.load(f)
+            return len(routes_data)  # Подсчитываем количество маршрутов
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Ошибка при загрузке маршрутов для {city_id}: {e}")
+        return 0
 
 @app.route("/photos/<city_id>/<bikelane_id>", methods=["GET"])
 def get_bikelane_photos(city_id, bikelane_id):
@@ -98,17 +151,42 @@ def city_details(city_id):
         with open("static/data/cities.json", "r", encoding="utf-8") as f:
             cities_data = json.load(f)
 
-        # Поиск города по id
         city = next((c for c in cities_data if c["id"] == city_id), None)
         if not city:
             return "Город не найден", 404
+
+        parking_count = load_data_count(city_id, "parkings")
+        station_count = load_data_count(city_id, "repairstation")
+
+        try:
+            stores = load_stores()
+            store_count = sum(1 for store in stores if city["city"] in store.get("address", ""))
+        except Exception as e:
+            print(f"Ошибка загрузки магазинов: {e}")
+            store_count = 0
+
+        # Подсчитываем количество маршрутов
+        routes_count = load_routes_count(city_id)
+
+        # Форматируем строки с правильными окончаниями
+        store_text = pluralize_stores(store_count)
+        routes_text = pluralize_routes(routes_count)
 
     except FileNotFoundError:
         return "Файл cities.json не найден", 500
     except json.JSONDecodeError:
         return "Ошибка в формате файла cities.json", 500
 
-    return render_template("city_details.html", city=city)
+    return render_template(
+        "city_details.html",
+        city=city,
+        parking_count=parking_count,
+        station_count=station_count,
+        store_count=store_count,
+        store_text=store_text,
+        routes_count=routes_count,
+        routes_text=routes_text
+    )
 
 # Страница карты города
 @app.route("/<city_id>_map")
@@ -501,5 +579,5 @@ def get_route_photos():
     return jsonify({"photos": photos})
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5022)
+    app.run(debug=True, port=5025)
 

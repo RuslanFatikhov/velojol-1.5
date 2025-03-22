@@ -236,4 +236,8 @@ table{
     .li-callout{
         flex-direction: column;
     }
+
+    .course-img{
+        height: 300px !important;
+      }
 }

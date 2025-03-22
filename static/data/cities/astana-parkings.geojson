@@ -1,0 +1,182 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-03-01T04:30:06Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2691369403",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "4",
+        "covered": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4133869,
+          51.1184116
+        ]
+      },
+      "id": "node/2691369403"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2691374075",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "6",
+        "covered": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4063097,
+          51.11009
+        ]
+      },
+      "id": "node/2691374075"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4327033091",
+        "amenity": "bicycle_parking",
+        "covered": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4082839,
+          51.1868231
+        ]
+      },
+      "id": "node/4327033091"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5614870865",
+        "access": "yes",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "15",
+        "covered": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4373707,
+          51.1262422
+        ]
+      },
+      "id": "node/5614870865"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5614872003",
+        "access": "yes",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "15",
+        "covered": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4381789,
+          51.1281702
+        ]
+      },
+      "id": "node/5614872003"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6512584387",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4248224,
+          51.0909392
+        ]
+      },
+      "id": "node/6512584387"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6512584388",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4261955,
+          51.0925504
+        ]
+      },
+      "id": "node/6512584388"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12146026388",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "wall_loops",
+        "capacity": "6",
+        "covered": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4170716,
+          51.1639029
+        ]
+      },
+      "id": "node/12146026388"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12146062863",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "wall_loops",
+        "capacity": "10",
+        "covered": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4295027,
+          51.1533164
+        ]
+      },
+      "id": "node/12146062863"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12146203340",
+        "amenity": "bicycle_parking",
+        "bicycle_parking": "stands",
+        "capacity": "5",
+        "covered": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          71.4234229,
+          51.1695304
+        ]
+      },
+      "id": "node/12146203340"
+    }
+  ]
+}

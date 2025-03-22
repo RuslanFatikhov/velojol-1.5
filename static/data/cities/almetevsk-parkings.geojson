@@ -1,0 +1,158 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-03-01T04:33:56Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9149443628",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.2756532,
+          54.8947215
+        ]
+      },
+      "id": "node/9149443628"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10617499406",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.3150669,
+          54.8932927
+        ]
+      },
+      "id": "node/10617499406"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10631199205",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.2897503,
+          54.8988764
+        ]
+      },
+      "id": "node/10631199205"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10680755505",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.2868517,
+          54.8983033
+        ]
+      },
+      "id": "node/10680755505"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10680755506",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.2870416,
+          54.8983007
+        ]
+      },
+      "id": "node/10680755506"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10734904405",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.2867808,
+          54.911574
+        ]
+      },
+      "id": "node/10734904405"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10844093032",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.3279278,
+          54.910336
+        ]
+      },
+      "id": "node/10844093032"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12462449348",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.2684037,
+          54.8988328
+        ]
+      },
+      "id": "node/12462449348"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12543810637",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.2478605,
+          54.9025801
+        ]
+      },
+      "id": "node/12543810637"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12543810695",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          52.2521741,
+          54.9005182
+        ]
+      },
+      "id": "node/12543810695"
+    }
+  ]
+}

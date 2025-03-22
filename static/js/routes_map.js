@@ -301,15 +301,18 @@ function populateRoutesList(data) {
 
                 <span class="hstack_important gap24">
                     <span class="hstack_important gap4">
-                        <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance.svg">
+                        <img class="theme-icon light" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance-light.svg">
+                        <img class="theme-icon dark" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance-dark.svg">
                         <p class="dark-prime-invert-100">${route.distance}км</p>
                     </span>
                     <span class="hstack_important gap4">
-                        <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high.svg">
+                        <img class="theme-icon dark" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high-light.svg">
+                        <img class="theme-icon light" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high-dark.svg">
                         <p class="dark-prime-invert-100">${route.height}м</p>
                     </span>
                     <span class="hstack_important gap4">
-                        <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time.svg">
+                        <img class="theme-icon light" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time-dark.svg">
+                        <img class="theme-icon dark" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time-light.svg">
                         <p class="dark-prime-invert-100">${route.time}ч</p>
                     </span>  
                 </span>

@@ -1,0 +1,23 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-03-01T04:37:05Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4685626893",
+        "amenity": "bicycle_parking"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.6339357,
+          42.358273
+        ]
+      },
+      "id": "node/4685626893"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 /* ========== Тёмная тема (по умолчанию) ========== */
 :root {
     --dark-prime-invert-5: rgba(255, 255, 255, 0.05);
+    --dark-prime-invert-10: #FFFFFF10;
     --dark-prime-invert-25: #FFFFFF40;
     --dark-prime-invert-50: #FFFFFF80;
     --dark-prime-invert-100: #fff;
@@ -24,9 +25,10 @@
     --bgstate500: #64C750;
 
     --accent-market-10: rgba(242, 93, 24, 0.1);
+    --accent-market-20: rgba(242, 93, 24, 0.2);
     --accent-market-100: #F25D18;
 
-    --city-background: linear-gradient(rgba(51, 51, 51, 0.25), rgba(51, 51, 51, 1));
+    --city-background: linear-gradient(rgba(26, 26, 26, 0.25), rgba(26, 26, 26, 1));
 }
 
 /* ========== Светлая тема ========== */
@@ -56,6 +58,7 @@
 
 
     --accent-market-10: rgba(242, 93, 24, 0.1);
+    --accent-market-20: rgba(242, 93, 24, 0.2);
     --accent-market-100: #F25D18;
 
     --bronze: #AD8A56;
@@ -74,6 +77,7 @@
 .staticwhite100 { color: var(--static-white); }
 
 .bgstate500 { background-color: var(--bgstate500); }
+.bgprimeinvert10 { background-color: var(--dark-prime-invert-10); }
 .bgprimeinvert25 { background-color: var(--dark-prime-invert-25); }
 .bgprimeinvert50 { background-color: var(--dark-prime-invert-50); }
 

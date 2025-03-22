@@ -43,16 +43,19 @@
     <!-- Header -->
     <div class="tapbar row gap8">
         <button class="size_m bgprime400" onclick="goToCityDetails()">
-            <img src="{{ url_for('static', filename='img/icon/left-arrow-white.svg') }}" alt="Go back">
+            <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/left-arrow-white.svg') }}" alt="Go back">
+            <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/left-arrow-black.svg') }}" alt="Go back">
         </button>
 
         <span class="row w100 bgprime400">
             <button id="tabMap" class="button active gap8 w100">
-                <img src="{{ url_for('static', filename='img/icon/map.svg') }}" alt="Map">
+                <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/map-white.svg') }}" alt="Map">
+                <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/map-black.svg') }}" alt="Map">
                 <p class="dark-prime-invert-200">Карта</p>
             </button>
             <button id="tabList" class="button gap8 w100">
-                <img src="{{ url_for('static', filename='img/icon/list-white.svg') }}" alt="List">
+                <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/list-white.svg') }}" alt="List">
+                <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/list-black.svg') }}" alt="List">
                 <p class="dark-prime-invert-200">Список</p>
             </button>
         </span>
@@ -62,7 +65,7 @@
     <main>
         <!--Right-->
         <div class="bottomright">
-
+            <span class="h34"></span>
             <!--Middle-->
             <span class="column gap8 mapmiddle">
                 <!--Zoom chips-->
@@ -90,7 +93,10 @@
 
         <!--ImageView-->
         <div id="imageModal" class="modal">
-            <span class="size_s close"><img src="../static/img/icon/close.svg"></span>
+            <span class="size_s close">
+                <img class="theme-icon dark" src="../static/img/icon/close-white.svg" alt="close">
+                <img class="theme-icon light" src="../static/img/icon/close-black.svg" alt="close">
+            </span>
             <img class="modal-image">
             <!-- Кнопки навигации -->
             <a class="prev size_s"><img src="../static/img/icon/arrow-left-white.svg"></a>
@@ -103,7 +109,8 @@
         <div id="bikelist" class="block bgprime300">
             <div class="navhead">
                 <button class="size_s desktop" onclick="goToCityDetails()">
-                    <img src="{{ url_for('static', filename='img/icon/left-arrow-white.svg') }}" alt="Go back">
+                    <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+                <img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
                 </button>
                 <h6 class="dark-prime-invert-200">{{ city.city }}</h6>
                 <span class="h34"></span>
@@ -119,7 +126,8 @@
 
                     <!-- Close -->
                     <button id="closeModal" class="size_s" style="position: absolute; right:16px; top:16px;" onclick="closeRouteModal()">
-                        <img src="../static/img/icon/close.svg" alt="Закрыть">
+                        <img class="theme-icon dark" src="../static/img/icon/close-dark.svg" alt="Закрыть">
+                        <img class="theme-icon light" src="../static/img/icon/close-light.svg" alt="Закрыть">
                     </button>
 
 
@@ -131,23 +139,27 @@
 
                     <div class="route-stats hstack_important_important gap24 mb16">
                         <span class="hstack_important gap4">
-                            <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance.svg">
+                            <img class="theme-icon light" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance-light.svg">
+                            <img class="theme-icon dark" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/distance-dark.svg">
                             <p class="dark-prime-invert-100" id="totalDistance"></p>
                         </span>
                         
                         <span class="hstack_important gap4">
-                            <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high.svg">
+                            <img class="theme-icon dark" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high-light.svg">
+                            <img class="theme-icon light" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/high-dark.svg">
                             <p class="dark-prime-invert-100" id="ascent"></p>
                         </span>
 
                         <span class="hstack_important gap4">
-                            <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/down.svg">
+                            <img class="theme-icon dark" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/down-light.svg">
+                            <img class="theme-icon light" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/down-dark.svg">
                             <p class="dark-prime-invert-100" id="descent"></p>
                         </span>
 
                         <!--Time-->
                         <span class="hstack_important gap4">
-                            <img class="theme-icon" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time.svg">
+                            <img class="theme-icon dark" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time-light.svg">
+                            <img class="theme-icon light" style="max-width:20px !important; max-height:20px !important; min-width:20px !important; min-height:20px !important;" src="static/img/icon/time-dark.svg">
                             <p class="dark-prime-invert-100" id="routeTime"></p>
                         </span>
                     </div>

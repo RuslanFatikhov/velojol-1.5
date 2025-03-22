@@ -50,7 +50,7 @@
       
 
 </head>
-    <body class="bgprime400">
+    <body class="bgprime200">
     
     <!-- header -->
     {% include 'header.html' %} 
@@ -95,36 +95,43 @@
 
                 <!--Service Block-->
                 <div class="city_service gap8">
-
-                    <!--Map-->
-                    <a class="map_button" href="{{ url_for('city_map', city_id=city.id) }}" 
-                    style="background-image: url('{{ url_for('static', filename='img/map/' ~ city.id ~ '.jpg') }}');">
-
+                    <!--Map-dark--> 
+                    <a class="theme-icon dark map_button" href="{{ url_for('city_map', city_id=city.id) }}" 
+                    style="background-image: url('{{ url_for('static', filename='img/map/' ~ city.id ~ '-dark.jpg') }}');">
                         <span class="button size_m bgprime100">
                             <p class="dark-prime-invert-300">Открыть карту велодорожек</p>
                         </span>
                     </a>
 
-                    <div id="service_side" class="column gap8" style="min-width: 160px;">
+                    <!--Map-light--> 
+                    <a class="theme-icon light map_button" href="{{ url_for('city_map', city_id=city.id) }}" 
+                    style="background-image: url('{{ url_for('static', filename='img/map/' ~ city.id ~ '-light.jpg') }}');">
+                        <span class="button  size_m bgprime100">
+                            <p class="dark-prime-invert-300">Открыть карту велодорожек</p>
+                        </span>
+                    </a>
 
+
+                    <div id="service_side" class="column gap8" style="min-width: 160px;">
+                        {% if routes_count > 0 %}
                         <!--Routes-->
                         <a href="{{ url_for('city_routes', city_id=city.id) }}" class="column size_l bgprime300" style="height: 100%; padding: 16px; border-radius: 16px; width: 100%;">
-                            <img id="dark-desktop" style="width: 48px; height: 48px;" class="mb16" src="{{ url_for('static', filename='img/icon/routes_white.svg') }}" alt="Routes">
+                            <img id="dark-desktop" style="width: 40px; height: 48px; margin-top: -8px;" class="mb16" src="{{ url_for('static', filename='img/landing/service_img3.png') }}" alt="Routes">
                             <h6 class="bold dark-prime-invert-300">Маршруты</h6>
-                            <p class="dark-prime-invert-300">32 маршрута</p>
+                            <p class="dark-prime-invert-300">{{ routes_text }}</p>
                         </a>
+                        {% endif %}
 
-
+                        {% if store_count > 0 %}
                         <!--Market-->
-                        <a href="" class="column size_l bgprime300" style="height: 100%; padding: 16px; border-radius: 16px; width: 100%;">
-                            <img id="dark-desktop" style="width: 48px; height: 48px;" class="mb16" src="{{ url_for('static', filename='img/icon/routes_white.svg') }}" alt="Routes">
+                        <a href="/market?city={{ city.city | urlencode }}" class="column size_l bgprime300" style="height: 100%; padding: 16px; border-radius: 16px; width: 100%;">
+                            <img id="dark-desktop" style="width: 40px; height: 48px; margin-top: -8px;" class="mb16" src="{{ url_for('static', filename='img/landing/service_img4.png') }}" alt="Market">
                             <h6 class="bold dark-prime-invert-300">Маркет</h6>
-                            <p class="dark-prime-invert-300">54 магазина</p>
+                            <p class="dark-prime-invert-300">{{ store_text }}</p>
                         </a>
-
+                        {% endif %}
                     </div>
                 </div>
-
 
                 <!--Info-->
                 <div class="hstack w100 gap16 mt24 mb24" style="align-items: flex-start;">
@@ -138,16 +145,16 @@
                             <p class="p3 dark-prime-100 label bgprimeinvert50">{{ city.distance }} км</p>
                         </span>
 
-                        <!--Parking-->
+                        <!-- Parkings -->
                         <span class="cell">
                             <h6 class="dark-prime-invert-200 w100">Велопарковки</h6>
-                            <p class="p3 dark-prime-100 label bgprimeinvert50">{{ city.distance }} парковок</p>
+                            <p class="p3 dark-prime-100 label bgprimeinvert50">{{ parking_count }} парковок</p>
                         </span>
 
                         <!--Stations-->
                         <span class="cell">
                             <h6 class="dark-prime-invert-200 w100">Велостанции</h6>
-                            <p class="p3 dark-prime-100 label bgprimeinvert50">{{ city.distance }} велостанции</p>
+                            <p class="p3 dark-prime-100 label bgprimeinvert50">{{ station_count }} велостанций</p>
                         </span>
 
                         <!--p style="padding-left: 16px; padding-top: 16px;" class="p3 dark-prime-invert-50">По данным OpenStreeMaps на </p-->
@@ -178,23 +185,7 @@
                     
                     
                 </div>
-                
-                <!-- Основная информация -->
-                <p><strong>Страна:</strong> {{ city.country }}</p>
-                
-                <p><strong>Расстояние:</strong> {{ city.distance }} км</p>
-                
-                
-                <!-- Дополнительная информация -->
-                <div class="description">
-                    {% if city.description %}
-                        <h4>Описание</h4>
-                        <p>{{ city.description }}</p>
-                    {% else %}
-                        <p>Описание недоступно.</p>
-                    {% endif %}
-                </div>
-                
+                                
                 
             </div>
             {% endblock %}
@@ -210,7 +201,6 @@
 
     <!--Scripts-->
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
 </body>
 
 </html>

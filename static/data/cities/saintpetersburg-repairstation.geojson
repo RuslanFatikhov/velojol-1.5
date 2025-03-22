@@ -1,0 +1,96 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2025-03-01T04:39:08Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6812478369",
+        "amenity": "bicycle_repair_station",
+        "opening_hours": "24/7",
+        "service:bicycle:bicycle": "yes",
+        "service:bicycle:diy": "yes",
+        "service:bicycle:repair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3222858,
+          60.0324835
+        ]
+      },
+      "id": "node/6812478369"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7922773658",
+        "amenity": "bicycle_repair_station",
+        "self_service": "yes",
+        "service:bicycle:pump": "yes",
+        "service:bicycle:tools": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3294715,
+          59.9674812
+        ]
+      },
+      "id": "node/7922773658"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8491438793",
+        "addr:housenumber": "40/2",
+        "addr:street": "Светлановский проспект",
+        "amenity": "bicycle_repair_station",
+        "description": "Ремон и обслуживание велосипедов",
+        "name": "Zombie Master",
+        "opening_hours": "Mo-Su 10:00-09:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3757675,
+          60.0236348
+        ]
+      },
+      "id": "node/8491438793"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11184187237",
+        "amenity": "bicycle_repair_station",
+        "website": "https://www.usports.ru"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4146507,
+          59.9398979
+        ]
+      },
+      "id": "node/11184187237"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11903585388",
+        "amenity": "bicycle_repair_station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4974246,
+          59.9541991
+        ]
+      },
+      "id": "node/11903585388"
+    }
+  ]
+}

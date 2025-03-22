@@ -3,6 +3,10 @@
     scroll-behavior: smooth;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body{
     background-color: var(--dark-prime-200);
 }
@@ -174,7 +178,7 @@ hr{
   }
   
   .categorycard {
-    background-color: #F3F3F3;
+    background-color: var(--accent-market-20);
     border-radius: 16px;
     padding: 16px;
     display: flex;
@@ -199,7 +203,7 @@ hr{
   }
 
   .categorycard:hover img {
-    transform: scale(1.25) rotate(5deg); /* Применение увеличения и поворота одновременно */
+    transform: scale(1.1) rotate(2.5deg); /* Применение увеличения и поворота одновременно */
     transition: transform 0.1s ease; /* Добавляем плавный переход для более красивого эффекта */
 }
 
@@ -302,7 +306,6 @@ hr{
         background-color: var(--dark-prime-100);
         border-radius: 16px;
         position: relative;
-        padding-top: 120px;
     }
 
     .blockheading{
@@ -316,7 +319,7 @@ hr{
     }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 900px) {
 
     .hstack{
         flex-direction: column;
@@ -359,7 +362,14 @@ hr{
         height: 90px;
         padding: 8px;
         border-radius: 8px;
-        background-color: var(--dark-prime-invert-200);
+    }
+
+    .categorycard img{
+        position: absolute;
+        bottom: -20px;
+        right: 0px;
+        width: 80px;
+        height: 80px;
     }
 
     .categorycard:nth-child(1),
@@ -373,6 +383,11 @@ hr{
 
     .categorycard:nth-child(7){
         grid-column: span 3;
+    }
+
+    .categorycard:nth-child(7) img{
+        width: 140px;
+        height: 140px;
     }
 
     

@@ -17,6 +17,14 @@
   scrollbar-width: none; /* Для Firefox */
 }
 
+
+.citygrid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:16px;
+    width: 100%;
+}
+
 .landgrid::-webkit-scrollbar {
     display: none; /* Скрыть горизонтальный скроллбар */
   }
@@ -128,6 +136,12 @@
         padding-left: 0;
         padding-right: 0;
         padding-top: 8px;
+    }
+
+    .citygrid{
+        grid-template-columns: 1fr 1fr;
+        padding-left: 16px;
+        padding-right: 16px;
     }
     
 }

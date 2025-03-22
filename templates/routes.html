@@ -51,13 +51,42 @@
 </head>
     <!-- header -->
     {% include 'header.html' %} 
+
+    <!-- Tapbar -->
+    <div class="tapbar bgprime300">
+        <a href="#cover" class="tapbar__item active" id="tab-index">
+            <img src="static/img/icon/home_inactive_dark.svg" class="icon icon-inactive theme-icon light" alt="home">
+            <img src="static/img/icon/home_inactive_light.svg" class="icon icon-inactive theme-icon dark" alt="home">
+            <img src="static/img/icon/home_active.svg" class="icon icon-active">
+            <p class="p3 dark-prime-invert-300">Главная</p>
+        </a>    
+        <a href="/routes" class="tapbar__item" id="tab-routes">
+            <img src="static/img/icon/routes_inactive_dark.svg" alt="Routes" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/routes_inactive_light.svg" alt="Routes" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/routes_active.svg" alt="Routes" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маршруты</p>
+        </a>
+        <a href="/market" class="tapbar__item" id="tab-bazar">
+            <img src="static/img/icon/market_inactive_dark.svg" alt="market" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/market_inactive_light.svg" alt="market" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/market_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маркет</p>
+        </a>
+        <button class="tapbar__item" id="tab-menu" onclick="openMenuPopup()">
+            <img src="static/img/icon/menu_inactive_dark.svg" alt="Menu" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/menu_inactive_light.svg" alt="Menu" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Меню</p>
+        </button>
+    </div>
+
     <main class="pt100">
-    <body>
+    <body class="bgprime200">
         <!-- Список городов -->
 
         <main class="pt100">
             <div id="routes" class="w100">
-                <ul class="landgrid">
+                <ul class="citygrid">
                     {% for city in routes %}
                         <li>
                             <a class="citycard" href="{{ url_for('city_routes', city_id=city['id']) }}">
@@ -83,4 +112,5 @@
 
     <!--Scripts-->
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
 </html>

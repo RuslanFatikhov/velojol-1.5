@@ -164,6 +164,10 @@
     justify-content: flex-start !important;
 }
 
+.desktop{
+    display: flex;
+}
+
 .mobile{
     display: none;
 }
