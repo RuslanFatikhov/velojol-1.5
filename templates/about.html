@@ -1,1 +1,151 @@
-О проекте
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>VELOJOL</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    
+    <!-- Фавиконы и мета-данные -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    
+    <!-- Open Graph мета-данные -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/meta.jpg">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cities.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    
+
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme') || 'dark'; // По умолчанию - темная
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      
+    
+    <!-- Подключение тем -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+
+
+</head>
+<body>
+    <!-- header -->
+    {% include 'header.html' %} 
+
+    <main>
+        <!--Cover-->
+        <div class="about_cover" style="display: flex; flex-direction: column; align-items: flex-end;">
+            <span style="display: flex; flex-direction: column; align-items: flex-start; width: 100%; max-width: 390px; gap: 24px;">
+                <h1 class="staticwhite100 bold">VELOJOL</h1>
+                <h5 class="staticwhite100">Сообщество для тех,<br>кто выбирает свободу на двух колесах</h5>
+            </span>
+            <img class="about_cover_img" src="static/img/about/about_cover.jpg" alt="cover">
+        </div>
+
+        <!--2-slide-->
+        <div class="about_2slide">
+            <span class="column gap24" style="max-width: 690px;">
+                <h1 class="staticwhite100 bold">Почему мы это делаем</h1>
+                <p class="staticwhite100">Мы хотим, чтобы велосипед стал частью жизни как можно большего числа людей. Чтобы он был не просто транспортом, а настоящей свободой на двух колёсах — возможностью исследовать города, уходить за горизонт и чувствовать себя живым.</p>
+            </span>
+
+            <span class="column gap24" style="margin-top: 140px; width: 100%;">
+                <h1 class="staticwhite100 bold">Что мы хотим достичь</h1>
+
+                <span class="cards_grid_about">
+                    <h6 class="staticwhite100">Создать место, где каждый велосипедист чувствует себя своим</h6>
+                    <h6 class="staticwhite100">Показать, что велосипед подходит для любых целей</h6>
+                    <h6 class="staticwhite100">Помогать друг другу находить крутые места и безопасные дороги</h6>
+                    <h6 class="staticwhite100">Вдохновлять тех, кто только задумывается начать кататься</h6>
+                </span>
+            </span>
+        </div>
+
+        <!--3-slide-->
+        <div class="about_3slide">
+            <h1 class="staticwhite100 bold">Сотрудничество</h1>
+
+            <span class="cards_grid_about">
+
+                <span class="card_about_3 row gap16">
+                    <img src="static/img/about/spotter.png" alt="spotter">
+                    <h3 class="staticwhite100">Споттеры</h3>
+                    <p class="staticwhite100">— людей, которые могут сообщать о новых маршрутах, интересных местах и событиях</p>
+                </span>
+
+                <span class="card_about_3 row gap16">
+                    <img src="static/img/about/market.png" alt="market">
+                    <h3 class="staticwhite100">Партнёры</h3>
+                    <p class="staticwhite100">— брендов, магазинов или активных участников велокультуры, готовых поддержать проект</p>
+                </span>
+
+                <span class="card_about_3 row gap16">
+                    <img src="static/img/about/partner.png" alt="partner">
+                    <h3 class="staticwhite100">Энтузиасты</h3>
+                    <p class="staticwhite100">— людей с идеями, навыками или желанием помочь проекту развиваться</p>
+                </span>
+
+            </span>
+        </div>
+    </main>
+
+    <!-- Tapbar -->
+    <div class="tapbar bgprime300">
+        <a href="#cover" class="tapbar__item active" id="tab-index">
+            <img src="static/img/icon/home_inactive_dark.svg" class="icon icon-inactive theme-icon light" alt="home">
+            <img src="static/img/icon/home_inactive_light.svg" class="icon icon-inactive theme-icon dark" alt="home">
+            <img src="static/img/icon/home_active.svg" class="icon icon-active">
+            <p class="p3 dark-prime-invert-300">Главная</p>
+        </a>    
+        <a href="/routes" class="tapbar__item" id="tab-routes">
+            <img src="static/img/icon/routes_inactive_dark.svg" alt="Routes" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/routes_inactive_light.svg" alt="Routes" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/routes_active.svg" alt="Routes" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маршруты</p>
+        </a>
+        <a href="/market" class="tapbar__item" id="tab-bazar">
+            <img src="static/img/icon/market_inactive_dark.svg" alt="market" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/market_inactive_light.svg" alt="market" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/market_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маркет</p>
+        </a>
+        <button class="tapbar__item" id="tab-menu" onclick="openMenuPopup()">
+            <img src="static/img/icon/menu_inactive_dark.svg" alt="Menu" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/menu_inactive_light.svg" alt="Menu" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Меню</p>
+        </button>
+    </div>
+    <!-- footer -->
+    {% include 'footer.html' %}
+
+    <!--Scripts-->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+</body>
+</html>

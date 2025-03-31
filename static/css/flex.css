@@ -169,7 +169,7 @@
 }
 
 .mobile{
-    display: none;
+    display: none !important;
 }
 
 @media screen and (max-width: 540px) {
@@ -179,6 +179,6 @@
     }
 
     .mobile{
-        display: flex;
+        display: flex !important;
     }
 }

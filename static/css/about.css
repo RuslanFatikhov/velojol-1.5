@@ -1,0 +1,55 @@
+body{
+    background-color: #B09C82;
+}
+
+main{
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about_cover{
+    width: 100%;
+    height: 50vh;
+    margin-top: 158px;
+}
+
+.about_cover_img{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    z-index: -1;
+}
+
+.about_2slide{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cards_grid_about{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.cards_grid_about h6{
+    padding: 24px;
+    border-radius: 16px;
+    background-color: rgba(254, 254, 254, 0.2);
+}
+
+.about_3slide {
+    width: 100%;
+    height: 50vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+    transition: opacity 0.6s ease; /* Плавный переход */
+    opacity: 0; /* По умолчанию скрыто */
+}
