@@ -1,11 +1,14 @@
 body{
     background-color: #B09C82;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 main{
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    overflow: visible;
 }
 
 .about_cover{
@@ -38,7 +41,15 @@ main{
     margin-top: 24px;
 }
 
-.cards_grid_about h6{
+.cards_grid_about3{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 120px;
+}
+
+.cards_grid_about p{
     padding: 24px;
     border-radius: 16px;
     background-color: rgba(254, 254, 254, 0.2);
@@ -46,10 +57,141 @@ main{
 
 .about_3slide {
     width: 100%;
-    height: 50vh;
     max-width: 1200px;
     margin: 0 auto;
+    margin-top: 120px;
     padding: 100px 0;
     transition: opacity 0.6s ease; /* Плавный переход */
     opacity: 0; /* По умолчанию скрыто */
+    overflow-x: visible;
 }
+
+.card_about_3{
+    display: flex;
+    flex-direction: column !important;
+    background-color: rgba(254, 254, 254, 0.2);
+    padding: 24px;
+    border-radius: 16px;
+    height: 400px;
+    justify-content: flex-end
+}
+
+.card_about_3 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.block3banner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--dark-accent-300);
+    padding: 16px;
+    align-items: center;
+    border-radius: 16px;
+    margin-top: 24px;
+}
+
+.about_4slide{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 120px;
+    padding: 100px 0;
+}
+
+.about_4slide span{
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card_about_3 p{
+    height: 65px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .about_cover{
+        margin-top:100px;
+        height: 300px;
+    }
+
+    .about_cover_img{
+        width: 100vw;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .cards_grid_about{
+        margin-top: 8px;
+        gap: 8px;
+    }
+
+    .cards_grid_about p{
+        padding: 16px;
+    }
+    
+    .about_3slide{
+        margin-top: 240px;
+    }
+
+    .cards_grid_about3{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 0 16px; /* Добавляем отступы слева и справа */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        margin-top: 24px;
+    }
+    
+    .cards_grid_about3::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+
+    .card_about_3{
+        min-width: 200px;
+        width: 200px;
+        padding: 0px 16px 16px 16px;
+        justify-content: flex-start;
+        overflow: visible;
+    }
+
+    .card_about_3 img{
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .block3banner{
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .block3banner a{
+        width: 100%;
+        text-align: center;
+    }
+
+    .about_4slide{
+        margin-top: 40px;
+    }
+
+    .about_4slide span{
+        margin-top: 24px;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .about_cover, .about_2slide,.about_3slide h1, .about_4slide{
+        padding-left: 16px;
+        padding-right:16px;
+        overflow-x:visible;
+    }
+}
+

@@ -119,6 +119,7 @@ h1, h2, h3, h4, h5, h6,p, .checkbox-label {
   h1{
     font-size: 32px;
     line-height: 42px;
+    letter-spacing: 0px;
   }
 
   h2{

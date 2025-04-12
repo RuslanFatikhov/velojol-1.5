@@ -61,9 +61,10 @@
         <div class="about_cover" style="display: flex; flex-direction: column; align-items: flex-end;">
             <span style="display: flex; flex-direction: column; align-items: flex-start; width: 100%; max-width: 390px; gap: 24px;">
                 <h1 class="staticwhite100 bold">VELOJOL</h1>
-                <h5 class="staticwhite100">Сообщество для тех,<br>кто выбирает свободу на двух колесах</h5>
+                <h2 style="font-size: 24px; line-height: 32px; font-weight: 500;" class="staticwhite100">Сообщество для тех,<br>кто выбирает свободу на двух колесах</h2>
             </span>
-            <img class="about_cover_img" src="static/img/about/about_cover.jpg" alt="cover">
+            <img class="desktop about_cover_img" src="static/img/about/about_cover.jpg" alt="cover">
+            <img class="mobile about_cover_img" src="static/img/about/about_cover_mob.jpg" alt="cover">
         </div>
 
         <!--2-slide-->
@@ -73,42 +74,65 @@
                 <p class="staticwhite100">Мы хотим, чтобы велосипед стал частью жизни как можно большего числа людей. Чтобы он был не просто транспортом, а настоящей свободой на двух колёсах — возможностью исследовать города, уходить за горизонт и чувствовать себя живым.</p>
             </span>
 
-            <span class="column gap24" style="margin-top: 140px; width: 100%;">
+            <span class="column gap24" style="margin-top: 20%; width: 100%;">
                 <h1 class="staticwhite100 bold">Что мы хотим достичь</h1>
 
                 <span class="cards_grid_about">
-                    <h6 class="staticwhite100">Создать место, где каждый велосипедист чувствует себя своим</h6>
-                    <h6 class="staticwhite100">Показать, что велосипед подходит для любых целей</h6>
-                    <h6 class="staticwhite100">Помогать друг другу находить крутые места и безопасные дороги</h6>
-                    <h6 class="staticwhite100">Вдохновлять тех, кто только задумывается начать кататься</h6>
+                    <p class="staticwhite100">Создать место, где каждый велосипедист чувствует себя своим</p>
+                    <p class="staticwhite100">Показать, что велосипед подходит для любых целей</p>
+                    <p class="staticwhite100">Помогать друг другу находить крутые места и безопасные дороги</p>
+                    <p class="staticwhite100">Вдохновлять тех, кто только задумывается начать кататься</p>
                 </span>
             </span>
         </div>
 
         <!--3-slide-->
-        <div class="about_3slide">
+        <div class="about_3slide" id="partners">
             <h1 class="staticwhite100 bold">Сотрудничество</h1>
 
-            <span class="cards_grid_about">
+            <span class="cards_grid_about3">
 
                 <span class="card_about_3 row gap16">
-                    <img src="static/img/about/spotter.png" alt="spotter">
-                    <h3 class="staticwhite100">Споттеры</h3>
+                    <img src="static/img/about/cat.png" alt="spotter">
+                    <h3 class="staticwhite100 bold">Споттеры</h3>
                     <p class="staticwhite100">— людей, которые могут сообщать о новых маршрутах, интересных местах и событиях</p>
                 </span>
 
                 <span class="card_about_3 row gap16">
                     <img src="static/img/about/market.png" alt="market">
-                    <h3 class="staticwhite100">Партнёры</h3>
+                    <h3 class="staticwhite100 bold">Партнёры</h3>
                     <p class="staticwhite100">— брендов, магазинов или активных участников велокультуры, готовых поддержать проект</p>
                 </span>
 
                 <span class="card_about_3 row gap16">
                     <img src="static/img/about/partner.png" alt="partner">
-                    <h3 class="staticwhite100">Энтузиасты</h3>
+                    <h3 class="staticwhite100 bold">Энтузиасты</h3>
                     <p class="staticwhite100">— людей с идеями, навыками или желанием помочь проекту развиваться</p>
                 </span>
 
+            </span>
+
+            <span class="block3banner">
+                <h5 class="staticwhite100">Если у вас есть идеи или вы хотите поучаствовать — напишите нам!</a></h5>
+                <a href="https://t.me/fuzlan" target="_blank" style="background-color: #fff; height: 100%;" class="button size_m bgwhite"><h5 class="staticblack100">Написать</h5></a>
+            </span>
+        </div>
+
+        <!--4-slide-->
+        <div class="about_4slide">
+            <h1 class="staticwhite100 bold">Присоединяйтесь к сообществу!</h1>
+
+            <span class="abou4list">
+
+                <a class="row gap24 aic"  href="https://t.me/velojol" target="_blank">
+                    <img style="width: 48px; height: 48px;" src="static/img/about/telegram.png" alt="telegram">
+                    <h3 class="staticwhite100 bold">Telegram</h3>
+                </a>
+
+                <a class="row gap24 aic" target="_blank" href="https://www.youtube.com/@Velojol">
+                    <img style="width: 48px; height: 48px;" src="static/img/about/youtube.png" alt="youtbe">
+                    <h3 class="staticwhite100 bold">Youtube</h3>
+                </a>
             </span>
         </div>
     </main>
@@ -140,8 +164,7 @@
         <p class="p3 dark-prime-invert-300">Меню</p>
         </button>
     </div>
-    <!-- footer -->
-    {% include 'footer.html' %}
+
 
     <!--Scripts-->
     <script src="{{ url_for('static', filename='js/theme.js') }}"></script>

@@ -39,11 +39,10 @@
 }
 
 .map_button span{
+
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    left: 16px;
     bottom: 16px;
-    z-index: 100;
 }
 
 

@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const thirdScroll = 800;   // Высота третьего скролла
 
     const aboutCoverSpan = document.querySelector('.about_cover span');
-    const aboutCoverImg = document.querySelector('.about_cover_img');
+    const aboutCoverImgDesktop = document.querySelector('.about_cover_img.desktop');
+    const aboutCoverImgMobile = document.querySelector('.about_cover_img.mobile');
     const about2Slide = document.querySelector('.about_2slide');
     const about3Slide = document.querySelector('.about_3slide');
     const body = document.body;
@@ -26,12 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutCoverSpan.style.opacity = spanOpacity;
         }
 
-        if (aboutCoverImg) {
-            const blurValue = Math.min((scrollY / firstScroll) * 100, 100);
-            const imageOpacity = Math.max(1 - (scrollY / firstScroll) * 0.5, 0.5);
-            aboutCoverImg.style.filter = `blur(${blurValue}px)`;
-            aboutCoverImg.style.opacity = imageOpacity;
-        }
+        // Функция для обработки анимаций изображений (и десктоп, и мобилка)
+        const handleImageAnimation = (imageElement) => {
+            if (imageElement) {
+                const blurValue = Math.min((scrollY / firstScroll) * 100, 100);
+                const imageOpacity = Math.max(1 - (scrollY / firstScroll) * 0.5, 0.5);
+                imageElement.style.filter = `blur(${blurValue}px)`;
+                imageElement.style.opacity = imageOpacity;
+            }
+        };
+
+        handleImageAnimation(aboutCoverImgDesktop);
+        handleImageAnimation(aboutCoverImgMobile);
 
         if (about2Slide) {
             const slideOpacity = Math.min((scrollY - firstScroll) / 200, 1);
@@ -45,9 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 about2Slide.style.transition = 'opacity 0.6s ease';
             }
 
-            if (aboutCoverImg) {
-                aboutCoverImg.style.opacity = Math.max(1 - (scrollY - secondScroll) / 200, 0);
-                aboutCoverImg.style.transition = 'opacity 0.6s ease';
+            if (aboutCoverImgDesktop) {
+                aboutCoverImgDesktop.style.opacity = Math.max(1 - (scrollY - secondScroll) / 200, 0);
+                aboutCoverImgDesktop.style.transition = 'opacity 0.6s ease';
+            }
+
+            if (aboutCoverImgMobile) {
+                aboutCoverImgMobile.style.opacity = Math.max(1 - (scrollY - secondScroll) / 200, 0);
+                aboutCoverImgMobile.style.transition = 'opacity 0.6s ease';
             }
 
             const bgTransitionValue = Math.min((scrollY - secondScroll) / 200, 1);

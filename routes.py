@@ -155,3 +155,8 @@ def init_routes(app):
         ]
         photos.sort()
         return jsonify({"photos": photos})
+    
+    # Страница Споттеров
+    @app.route("/spotters")
+    def spotters():
+        return render_template("spotters.html")

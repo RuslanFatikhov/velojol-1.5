@@ -91,6 +91,7 @@ header {
     width: 100vw;
     height: 100vh;
     z-index: 1000;
+    padding: 24px 16px;
   }
   
   .popup-menu.open {

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Споттеры</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    
+    <!-- Фавиконы и мета-данные -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    
+    <!-- Open Graph мета-данные -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/meta.jpg">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cities.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    
+
+    <script>
+        (function() {
+          const savedTheme = localStorage.getItem('theme') || 'dark'; // По умолчанию - темная
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+      </script>
+      
+    
+    <!-- Подключение тем -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+
+
+</head>
+<body>
+
+
+    <!-- header -->
+    {% include 'header.html' %} 
+
+
+
+    <!-- main --->
+    <main>
+
+        <!-- intro  desk-->
+        <section style="width: 100%; height: 300px; overflow: hidden; margin-top: 100px; border-radius: 24px; padding: 24px; position: relative;" class="bgprime300 row gap16 desktop">
+            <div class="column gap16" style="max-width: 500px; justify-content: center;">
+                <h2 class="dark-prime-invert-300 bold">Споттеры VELOJOL</h2>
+                <p style="opacity: 0.7;" class="dark-prime-invert-300">Фотографируй и фиксируй велодорожки в городах, помогая создать актуальную карту для всех велосипедистов</p>
+                <p style="opacity: 0.7;" class="dark-prime-invert-300">Активные участники получают призы от партнёров</p>
+                <a href="" style="width: 290px;" class="button bgstate500"><p class="dark-prime-200">Стать Споттером</p></a>
+            </div>
+            
+            <video style="height: 300px; position: absolute; right: 24px; top:24px" autoplay muted loop playsinline class="video-background-spotter theme-icon light">
+                <source src="/static/img/landing/cat-white.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+
+            <video style="height: 300px; position:absolute; right: 24px; top: 24px;" autoplay muted loop playsinline class="video-background-spotter theme-icon dark">
+                <source src="/static/img/landing/cat-black.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </section>
+
+        <!-- intro mobile-->
+         <section class="bgprime300 column gap16 mobile" style="padding: 24px; margin-top: 80px; border-radius: 24px; height: 500px; overflow: hidden;">
+            <div class="column gap16">
+                <h2 class="dark-prime-invert-300 bold">Споттеры VELOJOL</h2>
+                <p style="opacity: 0.7;" class="dark-prime-invert-300">Фотографируй и фиксируй велодорожки в городах, помогая создать актуальную карту для всех велосипедистов</p>
+                <p style="opacity: 0.7;" class="dark-prime-invert-300">Активные участники получают призы от партнёров</p>
+                <a href="" style="width: 290px;" class="button bgstate500"><p class="dark-prime-200">Стать Споттером</p></a>
+            </div>
+
+            <img src="static/img/about/cat.png" alt="cat" style="width: 100%; height: 300px; object-fit: cover; object-position: top;">
+         </section>
+
+
+         <!-- Как Стать Споттером? -->
+        <section id="how-to-spotter" style="margin-top: 48px;">
+            <h2 class="dark-prime-invert-300 bold">Как Стать Споттером?</h2>
+            <ul class="row gap8" style="margin-top: 24px;">
+                    <li class="card bgprime300 column gap8 w100">
+                        <h4 class="bold dark-prime-invert-300">📝 Пройди регистрацию</h4>
+                        <p class="dark-prime-invert-300">Зарегистрируйся на специальной форме</p>
+                    </li>
+                    <li class="card bgprime300 column gap8 w100">
+                        <h4 class="bold dark-prime-invert-300">📩 Ожидай сообщения</h4>
+                        <p class="dark-prime-invert-300">Админ свяжется с тобой и предложит задания на фотографирование</p>
+                    </li>
+                    <li class="card bgprime300 column gap8 w100">
+                        <h4 class="bold dark-prime-invert-300">🎁 Получай призы от партнёров</h4>
+                        <p class="dark-prime-invert-300">За активность и вклад в проект</p>
+                    </li>
+            </ul>
+        </section>
+
+        <!-- Города, Которые Ждут Тебя -->
+        <section id="cities-spotter" style="margin-top: 48px; width: 100%;">
+            <h2 class="bold dark-prime-invert-300 tal">Города, которые ждут тебя</h2>
+
+
+                <ul class="row gap8" style="margin-top: 32px;">
+                    <li class="bgprime300 column gap8 w100" style="border-radius: 16px; overflow: hidden;">
+                        <img src="static/img/city/astana.jpg" style="width: 100%; height: 180px; object-fit: cover;" alt="astana">
+                        <h4 class="bold dark-prime-invert-300" style="padding: 8px 16px 16px 16px;">Астана</h4>
+                    </li>
+
+                    <li class="bgprime300 column gap8 w100" style="border-radius: 16px; overflow: hidden;">
+                        <img src="static/img/city/moscow.jpg" style="width: 100%; height: 180px; object-fit: cover;" alt="moscow">
+                        <h4 class="bold dark-prime-invert-300" style="padding: 8px 16px 16px 16px;">Москва</h4>
+                    </li>
+
+                    <li class="bgprime300 column gap8 w100" style="border-radius: 16px; overflow: hidden;">
+                        <img src="static/img/city/pavlodar.jpg" style="width: 100%; height: 180px; object-fit: cover;" alt="pavlodar">
+                        <h4 class="bold dark-prime-invert-300" style="padding: 8px 16px 16px 16px;">Павлодар</h4>
+                    </li>
+
+                    <li class="bgprime300 column gap8 w100" style="border-radius: 16px; overflow: hidden;">
+                        <img src="static/img/city/shimkent.jpg" style="width: 100%; height: 180px; object-fit: cover;" alt="shymkent">
+                        <h4 class="bold dark-prime-invert-300" style="padding: 8px 16px 16px 16px;">Шымкент</h4>
+                    </li>
+                </ul>
+        </section>
+    </main>
+
+    <!-- Tapbar -->
+    <div class="tapbar bgprime300">
+        <a href="#cover" class="tapbar__item active" id="tab-index">
+            <img src="static/img/icon/home_inactive_dark.svg" class="icon icon-inactive theme-icon light" alt="home">
+            <img src="static/img/icon/home_inactive_light.svg" class="icon icon-inactive theme-icon dark" alt="home">
+            <img src="static/img/icon/home_active.svg" class="icon icon-active">
+            <p class="p3 dark-prime-invert-300">Главная</p>
+        </a>    
+        <a href="/routes" class="tapbar__item" id="tab-routes">
+            <img src="static/img/icon/routes_inactive_dark.svg" alt="Routes" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/routes_inactive_light.svg" alt="Routes" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/routes_active.svg" alt="Routes" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маршруты</p>
+        </a>
+        <a href="/market" class="tapbar__item" id="tab-bazar">
+            <img src="static/img/icon/market_inactive_dark.svg" alt="market" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/market_inactive_light.svg" alt="market" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/market_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Маркет</p>
+        </a>
+        <button class="tapbar__item" id="tab-menu" onclick="openMenuPopup()">
+            <img src="static/img/icon/menu_inactive_dark.svg" alt="Menu" class="icon icon-inactive theme-icon light">
+            <img src="static/img/icon/menu_inactive_light.svg" alt="Menu" class="icon icon-inactive theme-icon dark">
+            <img src="static/img/icon/menu_active.svg" alt="Home" class="icon icon-active">
+        <p class="p3 dark-prime-invert-300">Меню</p>
+        </button>
+    </div>
+    <!-- footer -->
+    {% include 'footer.html' %}
+
+    <!--Scripts-->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+
+
+</body>
+</html>

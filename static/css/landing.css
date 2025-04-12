@@ -160,6 +160,16 @@ footer{
     border-radius: 0px 0px 24px 24px;
 }
 
+.route_banner{
+    width: 100%; 
+    height: 250px; 
+    background-image: url('/static/img/landing/route-banner.jpg'); 
+    background-size: cover;
+    background-position: center center; 
+    border-radius: 16px; 
+    margin-bottom:24px;
+}
+
 @media screen and (max-width: 1020px) {
     .video-background-spotter{
         right: -24px;
@@ -178,6 +188,11 @@ footer{
     .cover-banner{
         height: 500px;
     }
+
+    .route_banner{
+        height: 220px;
+    }
+
 }
 
 
@@ -225,6 +240,12 @@ footer{
         padding-left: 16px;
         padding-right: 16px;
     }
+
+    .route_banner{
+        height: 180px;
+        background-image: url('/static/img/landing/route-banner-mobile.jpg');
+    }
+
 }
 
 @media screen and (max-width: 800px) {
@@ -247,6 +268,59 @@ footer{
         top: 80px;
         left: 0px;
     }
+
+    .route_banner{
+        height: 180px;
+    }
 }
+
+
+/* spotter page */
+@media (max-width: 768px) {
+    ul.row.gap8, ul.row.gap16 {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 16px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Для Firefox */
+    }
+
+    #cities-spotter ul{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    #cities-spotter li{
+        max-width: 150px; 
+        margin-right: 4px;
+        flex-shrink: 0;
+    }
+
+
+    #how-to-spotter ul{
+        flex-direction: column !important;
+    }
+
+    #how-to-spotter li{
+        min-height: 120px !important;
+    }
+
+
+    /* Убираем скроллбар */
+    ul.row.gap8::-webkit-scrollbar,
+    ul.row.gap16::-webkit-scrollbar {
+        display: none;
+    }
+
+    #how-to-spotter h2, #cities-spotter h2{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+
+
+
 
 

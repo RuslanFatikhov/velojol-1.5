@@ -172,10 +172,10 @@
     display: none !important;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 768px) {
 
     .desktop{
-        display: none;
+        display: none !important;
     }
 
     .mobile{

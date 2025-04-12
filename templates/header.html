@@ -12,7 +12,7 @@
         <span class="hstack gap8 desktop">
             <!-- Дорожки -->
             <div class="menu-item">
-                <a href="" class="button ghost">
+                <a href="/cities" class="button ghost">
                     <p class="dark-prime-invert-100">Дорожки</p>
                 </a>
                 <div class="submenu bgprime300">
@@ -75,7 +75,7 @@
 
             <!-- Маршруты -->
             <div class="menu-item">
-                <a href="" class="button ghost">
+                <a href="/almaty_routes" class="button ghost">
                     <p class="dark-prime-invert-100">Маршруты</p>
                 </a>
                 <div class="submenu bgprime300">
@@ -129,22 +129,75 @@
 
  
 <!-- Popup Menu -->
-<div id="popup-menu" class="popup-menu bgprime100">
+<div id="popup-menu" class="popup-menu bgprime400 column">
     <button id="close-popup" class="close-button">Закрыть</button>
-    <div class="popup-content">
-        <a href="/about" class="button ghost">
-            <p class="dark-prime-invert-100">О проекте</p>
-        </a>
-        <a href="/cities" class="button ghost">
-            <p class="dark-prime-invert-100">Дорожки</p>
-        </a>
-        <a href="/cities" class="button ghost">
-            <p class="dark-prime-invert-100">Маршруты</p>
-        </a>
-        <a href="/market" class="button ghost">
-            <p class="dark-prime-invert-100">Маркет</p>
-        </a>
-    </div>
+
+    <!--list-->
+        <ul class="column gap8">
+            <li>
+                <a href="/about" class="cell_size_s">
+                  <p class="dark-prime-invert-100">О проекте</p>
+                  <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/chevron_right-dark.svg') }}" alt="chevron">
+                  <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/chevron_right-light.svg') }}" alt="chevron">
+                </a>
+              </li>
+              <li>
+                <a href="/cities" class="cell_size_s">
+                  <p class="dark-prime-invert-100">Велодорожки</p>
+                  <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/chevron_right-dark.svg') }}" alt="chevron">
+                  <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/chevron_right-light.svg') }}" alt="chevron">
+                </a>
+              </li>
+              <li>
+                <a href="/routes" class="cell_size_s">
+                  <p class="dark-prime-invert-100">Маршруты</p>
+                  <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/chevron_right-dark.svg') }}" alt="chevron">
+                  <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/chevron-down-light.svg') }}" alt="chevron">
+                </a>
+              </li>
+              <li>
+                <a href="/market" class="cell_size_s">
+                  <p class="dark-prime-invert-100">Маркет</p>
+                  <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/chevron_right-dark.svg') }}" alt="chevron">
+                  <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/chevron_right-light.svg') }}" alt="chevron">
+                </a>
+              </li>
+                
+        </ul>
+      
+        <span style="width:100%; height:50%"></span>
+
+        <!--Theme switch-->
+        <div class="row w100 bgprime400 theme-tab">
+            <button id="mobile-theme-light" class="button gap8 w100">
+                <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/sun-light.svg') }}" alt="sun">
+                <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/sun-dark.svg') }}" alt="sun">
+                <p class="dark-prime-invert-200">Светлая</p>
+            </button>
+            
+            <button id="mobile-theme-dark" class="button gap8 w100">
+                <img class="theme-icon dark" src="{{ url_for('static', filename='img/icon/moon-light.svg') }}" alt="moon">
+                <img class="theme-icon light" src="{{ url_for('static', filename='img/icon/moon-dark.svg') }}" alt="moon">
+                <p class="dark-prime-invert-200">Темная</p>
+            </button>
+        </div>
+        
+        
+      
+        <!--Social links-->
+        <div class="row gap8 mt24">
+          <a href="https://t.me/velojol" target="_blank" style="width: 48px; height: 48px;">
+            <img class="theme-icon light" style="width: 100%; height: 100%;" src="{{ url_for('static', filename='img/icon/telegram_light.svg') }}" alt="telegram">
+            <img class="theme-icon dark" style="width: 100%; height: 100%;" src="{{ url_for('static', filename='img/icon/telegram_dark.svg') }}" alt="telegram">
+          </a>
+
+          <a href="#" target="_blank" style="width: 48px; height: 48px;">
+            <img class="theme-icon light" style="width: 100%; height: 100%;" src="{{ url_for('static', filename='img/icon/youtube_light.svg') }}" alt="youtube">
+            <img class="theme-icon dark" style="width: 100%; height: 100%;" src="{{ url_for('static', filename='img/icon/youtube_dark.svg') }}" alt="youtube">
+          </a>
+        </div>
+      </div>
+      
 </div>
 
 

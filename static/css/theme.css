@@ -10,6 +10,7 @@
     --dark-prime-invert-400 :#333333;
 
     --static-white: #fff;
+    --static-black:#121212;
     
     --dark-prime-25: #1A1A1A40;
     --dark-prime-50: #1A1A1A80;
@@ -42,7 +43,7 @@
     --dark-prime-invert-300: #262626;
     --dark-prime-invert-400: #333333;
 
-    --static-white: #fff;
+    
   
     --dark-prime-10: rgba(26, 26, 26, 0.1);
     --dark-prime-25: #FFFFFF40;
@@ -75,7 +76,7 @@
 
 /* ========== Общие стили ========== */
 .staticwhite100 { color: var(--static-white); }
-
+.staticblack100 { color: var(--static-black); }
 .bgstate500 { background-color: var(--bgstate500); }
 .bgprimeinvert10 { background-color: var(--dark-prime-invert-10); }
 .bgprimeinvert25 { background-color: var(--dark-prime-invert-25); }
@@ -121,6 +122,7 @@
 .bgmarket10{ background-color: var(--accent-market-10);}
 .bgmarket100{ background-color: var(--accent-market-100);}
 .market100{ color: var(--accent-market-100)};
+.bgwhite { background-color: var(--static-white); }
 
 /* По умолчанию показываем тёмную тему */
 .theme-icon.light {
