@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Велосипедная культура и сообщество</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/coursemeta.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7C2FWEP4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2M7C2FWEP4');
+    </script>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+     
+        ym(95219611, "init", {
+             clickmap:true,
+             trackLinks:true,
+             accurateTrackBounce:true,
+             webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/95219611" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</head>
+<body>
+
+    <!--Course-menu-->
+    <div class="course-menu fs">
+        <a href="{{ url_for('course') }}" class="button fs">
+            
+            <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+        <img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
+            <p class="dark-prime-invert-100">Назад</p>
+        </a>
+
+        <hr>
+
+        <span class="column gap2">
+
+            <a href="#one" class="button fs dark-prime-invert-400">
+                <p class="dark-prime-invert-100">Вовлекаемся в сообщество</p>
+            </a>
+
+        </span>
+
+    </div>
+
+    <!--Navbar-->
+    <div class="navbar row bgprime100 aic">
+        <a style="position: absolute; left: 16px;" href="{{ url_for('course') }}" class="button fs">
+            
+            <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+        <img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
+
+        </a>
+
+        <p style="margin-left: auto; margin-right: auto;" class="dark-prime-invert-100 center bold">Введение</p>
+    </div>
+
+    <main class="course-main">
+
+        
+
+        <!--Cover-->
+        <div class="course-cover bgprime10">
+
+            <!--Badges-->
+            <span class="gap8 row">
+                <p class="badge_m dark-prime-invert-100 bgprime200">8 урок из 8</p>
+                <p class="badge_m dark-prime-invert-100 bgprime200">8 минут на чтение</p>
+            </span>
+
+            <h1 class="dark-prime-invert-100 mt16 mb8 center">Велосипедная культура и сообщество</h1>
+            <p class="dark-prime-invert-200 mb16"></p>
+
+            <img src="{{ url_for('static', filename='/img/course/9cover.png') }}" alt="cover">
+        </div>    
+
+
+            <p class="p1 dark-prime-invert-100 mb16">В предыдущих уроках мы поговорили о важных аспектах велосипеда и велосипедизма. Мы изучили, как правильно выбирать велосипед, обслуживать его, соблюдать правила безопасности на дорогах и эффективно перемещаться по городу. Мы даже говорили о том, как велосипед может стать не просто транспортным средством, но и частью вашего образа жизни.
+
+                <br><br>Теперь пришло время задуматься о том, как сделать этот образ жизни еще более насыщенным и интересным. Ведь велосипед – это не только два колеса и рама, это целая культура, объединяющая людей с разными интересами в местных сообществах. Если вы почувствовали, что велосипед может стать чем-то большим для вас, чем просто средством передвижения, то вам стоит познакомиться с велосипедным сообществом.
+                
+                <br><br>В этом уроке мы поговорим о том, как вовлечься в местное велосипедное сообщество и какие увлекательные возможности оно может предложить. Окружите себя людьми, которые разделяют вашу страсть к велосипедам, и вы откроете для себя новые горизонты. Общий интерес, совместные прогулки или тренировки могут усилить вашу мотивацию и сделать процесс велосипедизма еще более веселым и увлекательным.</p>
+            <hr>
+
+            <h3 class="dark-prime-invert-100 mt48 mb16" id="one">Вовлекаемся в сообщество</h3>
+            <p class="p1 dark-prime-invert-100">Для того чтобы вовлечься в местное велосипедное сообщество, нужно взять первые шаги и активно искать возможности для общения и участия. Вот несколько шагов, которые помогут вам в этом:</p>
+
+            <ul class="gap8 column mt48 mb48">
+                <li class="li-callout">
+                    <p class="p1 dark-prime-invert-100">
+                        <b>1. Поиск велосипедных групп и клубов</b><br>
+                        Интернет и социальные сети - это отличные инструменты для поиска местных велосипедных сообществ. Ищите группы, клубы или форумы, связанные с велосипедами и активными видами отдыха в вашем регионе. В поисковике так и набирайте: “велосипедные сообщества в городе (ваш город)”.</p>
+                </li>
+
+                <li class="li-callout" style="flex-direction: column;">
+                    <p class="p1 dark-prime-invert-100">
+                        <b>2. Участие в организованных поездках.</b><br>
+                        Многие велосипедные группы и клубы организуют регулярные прогулки, велопоездки и тренировки. Присоединитесь к ним и начните участвовать. Это отличный способ познакомиться с новыми людьми и наладить связи в сообществе. В крупных городах в теплое время года часто проводят веломероприятия. Обычно о них можно узнать из чатов велосипедистов или городских групп в соц сетях. Например, </p>
+
+                        <div class="mt16 gap8" style="display: flex; flex-direction: column; width: 100%; overflow: hidden; box-sizing: border-box;">
+                            <img style="box-sizing: border-box; height: auto; border-radius: 16px; width: 100%;" src="https://luizamiftakhova.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe3ee84bd-7341-466b-90f0-bb396205a44a%2F21e0d664-4b78-47af-b041-0f0c7e9b333b%2F%25D0%25A1%25D0%25BD%25D0%25B8%25D0%25BC%25D0%25BE%25D0%25BA_%25D1%258D%25D0%25BA%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B0_2023-11-13_%25D0%25B2_18.40.21.png?table=block&id=f76e9522-fa9c-4909-8984-ddda27dfa423&spaceId=e3ee84bd-7341-466b-90f0-bb396205a44a&width=580&userId=&cache=v2">
+
+                            <img style="box-sizing: border-box; height: auto; border-radius: 16px;" src="https://luizamiftakhova.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe3ee84bd-7341-466b-90f0-bb396205a44a%2F185c2ecc-023e-4360-92af-1a1a30a028a0%2F%25D0%25A1%25D0%25BD%25D0%25B8%25D0%25BC%25D0%25BE%25D0%25BA_%25D1%258D%25D0%25BA%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B0_2023-10-30_%25D0%25B2_14.45.29.png?table=block&id=1e5d5258-c841-4518-8b3e-0e4b8add07c9&spaceId=e3ee84bd-7341-466b-90f0-bb396205a44a&width=480&userId=&cache=v2">
+                        </div>
+                </li>
+
+                <li class="li-callout">
+                    <p class="p1 dark-prime-invert-100">
+                        <b>3. Посещение местных велосипедных магазинов</b><br>
+                        Местные велосипедные магазины часто являются центрами велосипедной культуры. Посетите магазины в вашем городе, узнайте о местных мероприятиях, группах и акциях. Многие магазины также организуют велосипедные события</p>
+                </li>
+
+                <li class="li-callout" style="flex-direction: column;">
+                    <p class="p1 dark-prime-invert-100">
+                        <b>4. Посещение велосипедных фестивалей и ярмарок</b><br>
+                        Такие мероприятия обычно привлекают много участников и предлагают разнообразные активности, от соревнований до мастер-классов.</p>
+                        
+                        <div class="mt16" style="display:flex; flex-direction:column; gap: 8px;">
+                            <img src="https://luizamiftakhova.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe3ee84bd-7341-466b-90f0-bb396205a44a%2Ff00ebb76-31a5-4d40-8358-6b45afe20a9a%2F%25D0%25A1%25D0%25BD%25D0%25B8%25D0%25BC%25D0%25BE%25D0%25BA_%25D1%258D%25D0%25BA%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B0_2023-10-30_%25D0%25B2_14.42.54.png?table=block&id=f35916cb-c286-4af1-bbc9-df5bd9c465bc&spaceId=e3ee84bd-7341-466b-90f0-bb396205a44a&width=1150&userId=&cache=v2">
+
+                            <img src="https://luizamiftakhova.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fe3ee84bd-7341-466b-90f0-bb396205a44a%2F7ecfdac5-cafa-428a-9a2e-e6282b31e740%2F%25D0%25A1%25D0%25BD%25D0%25B8%25D0%25BC%25D0%25BE%25D0%25BA_%25D1%258D%25D0%25BA%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B0_2023-10-30_%25D0%25B2_14.33.38.png?table=block&id=b05bfe0a-a61a-4e06-a4a3-a5e301f30052&spaceId=e3ee84bd-7341-466b-90f0-bb396205a44a&width=1060&userId=&cache=v2">
+                        </div>
+                </li>
+
+                <li class="li-callout">
+                    <p class="p1 dark-prime-invert-100">
+                        <b>5. Создание собственных велосипедных мероприятий</b><br>
+                        Если не удается найти подходящее мероприятие, не стесняйтесь организовать свое собственное. Это не обязательно должно быть глобальным мероприятием с тысячами участников. Попробуйте пригласить друзей и знакомых на велопрогулку. Это может стать отличным началом для формирования собственного велосипедного сообщества. Например, вдохновившись историей из книги "Велоэкономика", вы можете организовать схожее событие, наподобие велозавтрака. Эта простая идея может стать отправной точкой для создания вашей собственной велосипедной группы или клуба. Организация регулярных велосипедных прогулок, встреч на природе, или даже тематических событий может объединить людей, разделяющих вашу страсть к велосипедам и активному образу жизни</p>
+
+                    
+                </li>
+            </ul>
+
+            <p class="p1 dark-prime-invert-100 mt24 mb24">Вовлечение в местное велосипедное сообщество начинается с вашей активности и желания познакомиться с новыми людьми, которые разделяют вашу страсть к велосипедам. Не бойтесь делиться своим опытом, учиться у других и наслаждаться велосипедной культурой вместе с сообществом</p>
+
+            <hr>
+
+            <p class="p1 dark-prime-invert-100 mb24 mt24">Неважно, являетесь ли вы опытным велосипедистом или только начали свой путь, вовлечение в сообщество единомышленников может принести вам массу новых впечатлений, знаний и друзей. Открыв для себя велосипедные мероприятия, погружаясь в историю и культуру, вы делаете свою жизнь более яркой и насыщенной.
+                <br><br>
+                Надеюсь, этот урок вдохновил вас не просто кататься на велосипеде, но и стать активным участником этого мира, полного приключений, открытий и, конечно же, движения. Помните, что каждый из нас может сделать свой вклад в развитие велосипедной культуры, стать частью большого и дружного сообщества и, таким образом, делать мир лучше. <br><br>
+                
+                🚴‍♂️🌍🚴‍♀️</p>
+
+            <!--Next lessons-->
+        <div class="next-lesson bgprimeinvert300 row">
+            <span class="column" style="width: 100%;">
+                <p style="text-transform: uppercase;" class="p1 dark-prime-50">СЛЕДУЮЩИЙ УРОК</p>
+                <h4 class="dark-prime-100 mt8 mb16">Заключение и следующие шаги</h4>
+                <a href="https://velojol.kz/index.wsgi/course/conclusion-and-next-steps" style="max-width: 150px;" class="button bgprime100 center"><p class="p1 dark-prime-invert-100">Перейти</p>
+
+                    <img class="theme-icon dark" src="../static/img/icon/arrow-right-white.svg" alt="Go back">
+                    <img class="theme-icon light" src="../static/img/icon/arrow-right-black.svg" alt="Go back">
+                </a>
+            </span>
+
+            <img style="width: 115px; height: 115px; object-fit: contain;" src="{{ url_for('static', filename='/img/course/id-10.png') }}" alt="next-cover">
+        </div> 
+    </main>
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+
+</html>

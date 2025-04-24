@@ -300,6 +300,11 @@ hr{
         overflow: hidden;
     }
 
+    #cities{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
     .block{
         padding-left: 16px;
         padding-right: 16px;

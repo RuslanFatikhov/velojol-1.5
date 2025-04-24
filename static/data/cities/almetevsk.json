@@ -3,8 +3,8 @@
     "id": "alm1",
     "name": "Чехова улица",
     "distance": 928,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная одностороняя велодорожка. Есть знаки и разметки",
     "coordinates": [
       [
         52.305210222669615,
@@ -107,7 +107,11 @@
         54.90443763663768
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm2/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm1/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm1/3.jpg"
+    ],
     "source": "Velojol",
     "date": "08.06.24"
   },
@@ -115,8 +119,8 @@
     "id": "alm2",
     "name": "Чехова улица",
     "distance": 879,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная одностороняя велодорожка. Есть знаки и разметки",
     "coordinates": [
       [
         52.30518409567287,
@@ -183,7 +187,10 @@
         54.91225364755351
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm2/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm2/2.jpg"
+    ],
     "source": "Velojol",
     "date": "08.06.24"
   },
@@ -467,8 +474,8 @@
     "id": "alm9",
     "name": "Изаила Зарипова проспект",
     "distance": 895,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Частично обособленная велодорожка c односторонним движением. Знаков нет. Разметка есть",
     "coordinates": [
       [
         52.25105369130486,
@@ -539,248 +546,137 @@
         54.91456094317124
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm9/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/4.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/5.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/6.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/7.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/8.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/9.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/10.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/11.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/12.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/13.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/14.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/15.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/16.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/17.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/18.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/19.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/20.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/21.jpg",
+      "https://velojol.kz/src/almetevsk/alm9/22.jpg"
+    ],
     "source": "Velojol",
     "date": "12.06.24"
   },
   {
     "id": "alm10",
     "name": "Гафиатуллина улица",
-    "distance": 2160,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "distance": 660,
+    "safetyLevel": 4,
+    "description": "Велопешеходная дорожка, физически обособленная. Есть размтека",
     "coordinates": [
-      [
-        52.28523457254886,
-        54.90590952043905
-      ],
-      [
-        52.282710063862766,
-        54.90607901100327
-      ],
-      [
-        52.28260102648588,
-        54.906100710550874
-      ],
-      [
-        52.28198454593792,
-        54.90613928749514
-      ],
-      [
-        52.2818629273269,
-        54.906160987010225
-      ],
-      [
-        52.280478150126385,
-        54.90625790291344
-      ],
-      [
-        52.27835317198165,
-        54.90642015897066
-      ],
-      [
-        52.2775153544103,
-        54.9064929979406
-      ],
-      [
-        52.27689468028939,
-        54.90653157450032
-      ],
-      [
-        52.275028466888074,
-        54.90666900322341
-      ],
-      [
-        52.27479781090008,
-        54.90668105835272
-      ],
-      [
-        52.27282272696763,
-        54.90683570226332
-      ],
-      [
-        52.2722071576344,
-        54.90688207475222
-      ],
-      [
-        52.27206706254432,
-        54.90689915933956
-      ],
-      [
-        52.27191846605825,
-        54.906960937604055
-      ],
-      [
-        52.269736036634384,
-        54.90712717387535
-      ],
-      [
-        52.262405637003354,
-        54.90761922429212
-      ],
-      [
-        52.26186183801215,
-        54.90765048709096
-      ],
-      [
-        52.26184289069798,
-        54.90762564709863
-      ],
-      [
-        52.26138435996654,
-        54.907657966797444
-      ],
-      [
-        52.2594876322907,
-        54.90778940454837
-      ],
-      [
-        52.25835435718693,
-        54.90786241280006
-      ],
-      [
-        52.25800265255219,
-        54.907934624351384
-      ],
-      [
-        52.25749603039969,
-        54.90811755970091
-      ],
-      [
-        52.2531582409122,
-        54.910151250964816
-      ],
-      [
-        52.25313400274206,
-        54.91019305162732
-      ]
+          [
+            52.25313753954276,
+            54.91019261186716
+          ],
+          [
+            52.25740231579181,
+            54.908198966180294
+          ],
+          [
+            52.257582200745446,
+            54.90812140580678
+          ],
+          [
+            52.25803191312792,
+            54.9079611138952
+          ],
+          [
+            52.258391683033636,
+            54.90788872379048
+          ],
+          [
+            52.26180402544054,
+            54.90765604338691
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm10/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm10/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm10/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm10/4.jpg"
     ],
-    "photos": ["../static/images/empty.jpg"],
     "source": "Velojol",
-    "date": "13.06.24"
+    "date": "26.01.24"
   },
   {
     "id": "alm11",
     "name": "Гафиатуллина улица",
-    "distance": 2170,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "distance": 660,
+    "safetyLevel": 4,
+    "description": "Велопешеходная дорожка, физически обособленная. Есть размтека",
     "coordinates": [
-      [
-        52.285226282889624,
-        54.90564028346898
-      ],
-      [
-        52.284903709637206,
-        54.9057462578059
-      ],
-      [
-        52.28183944830104,
-        54.90600840169594
-      ],
-      [
-        52.28095830236535,
-        54.906058273385554
-      ],
-      [
-        52.277914280896226,
-        54.906275898342386
-      ],
-      [
-        52.27519057846095,
-        54.90644516229227
-      ],
-      [
-        52.27465432018124,
-        54.90649654592144
-      ],
-      [
-        52.272800537232825,
-        54.906629577415714
-      ],
-      [
-        52.272364170202025,
-        54.906653757844396
-      ],
-      [
-        52.272132843100366,
-        54.9066870059105
-      ],
-      [
-        52.27136525772005,
-        54.906747456868686
-      ],
-      [
-        52.269105533981985,
-        54.90691194196083
-      ],
-      [
-        52.26640446496157,
-        54.90712256104976
-      ],
-      [
-        52.26424159497293,
-        54.907295140983734
-      ],
-      [
-        52.26262926073801,
-        54.90741790389967
-      ],
-      [
-        52.262390998865214,
-        54.90741558226233
-      ],
-      [
-        52.26195968377769,
-        54.90743901511249
-      ],
-      [
-        52.26176584360914,
-        54.90745990983021
-      ],
-      [
-        52.25929060377405,
-        54.90758807452801
-      ],
-      [
-        52.25822405915281,
-        54.907661879798894
-      ],
-      [
-        52.2575080910822,
-        54.90785490885659
-      ],
-      [
-        52.25562711547059,
-        54.90871628269406
-      ],
-      [
-        52.25476414284549,
-        54.9091326934724
-      ],
-      [
-        52.25382772814146,
-        54.90957079287932
-      ],
-      [
-        52.25294027234352,
-        54.909990042459185
-      ],
-      [
-        52.25287982936999,
-        54.910000659414806
-      ]
+          [
+            52.25288782392005,
+            54.90999834171711
+          ],
+          [
+            52.25294039106109,
+            54.909990283349146
+          ],
+          [
+            52.255635328937075,
+            54.90872308740481
+          ],
+          [
+            52.25719131286377,
+            54.90799982212474
+          ],
+          [
+            52.25751722913739,
+            54.90785476405421
+          ],
+          [
+            52.257608345514456,
+            54.90782454355727
+          ],
+          [
+            52.258004351309495,
+            54.907705676048266
+          ],
+          [
+            52.258288213870486,
+            54.907665381898
+          ],
+          [
+            52.25925544992924,
+            54.907594866438785
+          ],
+          [
+            52.26179217147106,
+            54.9074588251446
+          ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm11/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm11/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm11/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm11/4.jpg"
+    ],
     "source": "Velojol",
-    "date": "13.06.24"
+    "date": "26.01.25"
   },
   {
     "id": "alm12",
     "name": "микрорайон 1Б",
     "distance": 388,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная односторонняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.280856305208744,
@@ -803,7 +699,11 @@
         54.89517475199625
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+     "https://velojol.kz/src/almetevsk/alm12/1.jpg",
+     "https://velojol.kz/src/almetevsk/alm12/2.jpg",
+     "https://velojol.kz/src/almetevsk/alm12/3.jpg"
+    ],
     "source": "Velojol",
     "date": "14.06.24"
   },
@@ -855,8 +755,8 @@
     "id": "alm18",
     "name": "Пушкина улица",
     "distance": 243,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Частично обособленная одностороняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.30537174947597,
@@ -867,7 +767,11 @@
         54.90392029456302
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm18/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm18/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm18/3.jpg"
+    ],
     "source": "Velojol",
     "date": "16.06.24"
   },
@@ -875,8 +779,8 @@
     "id": "alm19",
     "name": "Пушкина улица",
     "distance": 243,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Частично обособленная одностороняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.30526253241615,
@@ -887,7 +791,11 @@
         54.90383936061562
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm19/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm19/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm19/3.jpg"
+    ],
     "source": "Velojol",
     "date": "16.06.24"
   },
@@ -1159,8 +1067,8 @@
     "id": "alm24",
     "name": "Шевченко улица",
     "distance": 1610,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Велодорожка частино двухполосная. Есть разметка и знаки",
     "coordinates": [
       [
         52.24592541954294,
@@ -1247,107 +1155,65 @@
         54.89519173239262
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm24/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm24/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm24/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm24/4.jpg"
+    ],
     "source": "Velojol",
     "date": "22.06.24"
   },
   {
     "id": "alm25",
     "name": "Шевченко улица",
-    "distance": 1580,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "distance": 791,
+    "safetyLevel": 5,
+    "description": "Частично обособленная велодорожка c односторонним движением. Знаки и разметка есть",
     "coordinates": [
-      [
-        52.24527330965674,
-        54.90444655920635
-      ],
-      [
-        52.24524248542613,
-        54.90432447318179
-      ],
-      [
-        52.245315650426335,
-        54.90410097892476
-      ],
-      [
-        52.24543209752443,
-        54.903896187496116
-      ],
-      [
-        52.24563074268147,
-        54.90368548750166
-      ],
-      [
-        52.245986933804176,
-        54.903431464587584
-      ],
-      [
-        52.24680781634433,
-        54.903027019033715
-      ],
-      [
-        52.248693394582034,
-        54.902117905959784
-      ],
-      [
-        52.25100662858546,
-        54.90103438425737
-      ],
-      [
-        52.251089789028555,
-        54.90102527635827
-      ],
-      [
-        52.25286387826446,
-        54.9002328813923
-      ],
-      [
-        52.25428462367012,
-        54.899616324148894
-      ],
-      [
-        52.255272944907915,
-        54.89919115883038
-      ],
-      [
-        52.25541956037105,
-        54.89915700314407
-      ],
-      [
-        52.2574633403874,
-        54.898217253932614
-      ],
-      [
-        52.25972450750649,
-        54.89714698860885
-      ],
-      [
-        52.26139016574507,
-        54.89631675515264
-      ],
-      [
-        52.26285072675043,
-        54.895970594448215
-      ],
-      [
-        52.263478850391635,
-        54.895994375030284
-      ],
-      [
-        52.263675618139416,
-        54.89596608658465
-      ],
-      [
-        52.2639010811815,
-        54.89571620445312
-      ],
-      [
-        52.26391172643329,
-        54.89571016692216
-      ]
+          [
+            52.24528641907355,
+            54.90431465222633
+          ],
+          [
+            52.24542363969047,
+            54.90389981971026
+          ],
+          [
+            52.24562283090842,
+            54.90369112934414
+          ],
+          [
+            52.24599022804517,
+            54.903436627433365
+          ],
+          [
+            52.2487087179675,
+            54.902114971986435
+          ],
+          [
+            52.250994712560384,
+            54.901035935984
+          ],
+          [
+            52.25112750670661,
+            54.90101811972744
+          ],
+          [
+            52.25286353146603,
+            54.90023684428249
+          ],
+          [
+            52.254286106047374,
+            54.89961709215561
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm25/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm25/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm25/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm25/4.jpg"
     ],
-    "photos": ["../static/images/empty.jpg"],
     "source": "Velojol",
     "date": "22.06.24"
   },
@@ -1355,8 +1221,8 @@
     "id": "alm26",
     "name": "Зифы Балакиной улица",
     "distance": 500,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 4,
+    "description": "Обособленная бордюром велопешеходная дорожка. Есть разметка и знаки.",
     "coordinates": [
       [
         52.263389134084576,
@@ -1387,7 +1253,12 @@
         54.899773180126516
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm26/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm26/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm26/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm26/1.jpg"
+    ],
     "source": "Velojol",
     "date": "22.06.24"
   },
@@ -1395,8 +1266,8 @@
     "id": "alm27",
     "name": "Аминова улица",
     "distance": 1120,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Физически обособленная велодорожка. Есть разметка. Знаков нет. Покрытие хорошее, разметка частично стерта",
     "coordinates": [
       [
         52.25449966538147,
@@ -1447,7 +1318,14 @@
         54.90741581767702
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm27/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm27/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm27/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm27/4.jpg",
+      "https://velojol.kz/src/almetevsk/alm27/5.jpg",
+      "https://velojol.kz/src/almetevsk/alm27/6.jpg"
+    ],
     "source": "Velojol",
     "date": "22.06.24"
   },
@@ -1455,8 +1333,8 @@
     "id": "alm28",
     "name": "Бигаш улица",
     "distance": 655,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Физически обособленная велодорожка. Есть разметка. Знаков нет. Покрытие хорошее",
     "coordinates": [
       [
         52.2630395077488,
@@ -1503,7 +1381,16 @@
         54.91016679186313
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+            "https://velojol.kz/src/almetevsk/alm28/1.jpg",
+            "https://velojol.kz/src/almetevsk/alm28/2.jpg",
+		        "https://velojol.kz/src/almetevsk/alm28/3.jpg",
+            "https://velojol.kz/src/almetevsk/alm28/4.jpg",
+            "https://velojol.kz/src/almetevsk/alm28/5.jpg",
+            "https://velojol.kz/src/almetevsk/alm28/6.jpg",
+		        "https://velojol.kz/src/almetevsk/alm28/7.jpg"
+        ],
+
     "source": "Velojol",
     "date": "23.06.24"
   },
@@ -1607,8 +1494,8 @@
     "id": "alm31",
     "name": "Шевченко улица",
     "distance": 512,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 4,
+    "description": "Обособленная односторонняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.27207467727561,
@@ -1623,7 +1510,11 @@
         54.89483235777365
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm31/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm31/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm31/3.jpg"
+    ],
     "source": "Velojol",
     "date": "03.07.24"
   },
@@ -1631,8 +1522,8 @@
     "id": "alm32",
     "name": "Шевченко улица",
     "distance": 749,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная одностороняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.27011109150294,
@@ -1647,16 +1538,20 @@
         54.89517530390975
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm32/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm32/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm32/3.jpg"
+    ],
     "source": "Velojol",
     "date": "03.07.24"
   },
   {
     "id": "alm33",
-    "name": "Шевченко улица",
+    "name": "Изаила Зарипова проспект",
     "distance": 488,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Велодорожка разделеная от пешеходной дорожки бордюром, частично обособлена. Есть разметка и знаки",
     "coordinates": [
       [
         52.2452625917486,
@@ -1707,8 +1602,8 @@
     "id": "alm34",
     "name": "Кирова улица",
     "distance": 148,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 4,
+    "description": "Физически обособленная велосипедно-пешеходная дорожка. Есть разметка, знаки и светофоры",
     "coordinates": [
       [
         52.30347559391305,
@@ -1719,7 +1614,9 @@
         54.90010592137597
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm34/1.jpg"
+    ],
     "source": "Velojol",
     "date": "03.07.24"
   },
@@ -1727,8 +1624,8 @@
     "id": "alm35",
     "name": "Ленина улица",
     "distance": 745,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная односторонняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.250236176325785,
@@ -1747,7 +1644,12 @@
         54.903507563276406
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm35/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm35/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm35/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm35/1.jpg"
+    ],
     "source": "Velojol",
     "date": "03.07.24"
   },
@@ -1755,8 +1657,8 @@
     "id": "alm36",
     "name": "Ленина улица",
     "distance": 764,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Частично обособленная велодорожка c односторонним движением. Есть разметка и знаки",
     "coordinates": [
       [
         52.25108086665446,
@@ -1779,7 +1681,11 @@
         54.903753506949585
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm36/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm36/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm36/3.jpg"
+    ],
     "source": "Velojol",
     "date": "03.07.24"
   },
@@ -1787,8 +1693,8 @@
     "id": "alm37",
     "name": "Ленина улица",
     "distance": 791,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная односторонняяя велодорожка. Есть разметка и знаки.",
     "coordinates": [
       [
         52.260309511439914,
@@ -1831,7 +1737,12 @@
         54.899173457614665
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm37/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm37/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm37/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm37/4.jpg"
+    ],
     "source": "Velojol",
     "date": "03.07.24"
   },
@@ -1839,8 +1750,8 @@
     "id": "alm38",
     "name": "Ленина улица",
     "distance": 819,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная велодорожка. Есть знаки и разметки",
     "coordinates": [
       [
         52.25998552439708,
@@ -1911,7 +1822,12 @@
         54.89866675346073
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm38/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm38/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm38/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm38/4.jpg"
+    ],
     "source": "Velojol",
     "date": "03.07.24"
   },
@@ -1919,8 +1835,8 @@
     "id": "alm39",
     "name": "Строителей проспект",
     "distance": 1270,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная велодорожка. Знаков нет. Разметка стерлась.",
     "coordinates": [
       [
         52.2720871979636,
@@ -1987,7 +1903,12 @@
         54.89917500862529
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm39/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm39/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm39/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm39/4.jpg"
+    ],
     "source": "Velojol",
     "date": "03.07.24"
   },
@@ -1995,8 +1916,8 @@
     "id": "alm40",
     "name": "Аминова улица",
     "distance": 453,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 4,
+    "description": "Частично обособленная велодорожка. Знаков нет. Разметка стерлась.",
     "coordinates": [
       [
         52.25428072717162,
@@ -2031,8 +1952,8 @@
     "id": "alm41",
     "name": "Аминова улица",
     "distance": 544,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Физически обособленная велодорожка. Есть разметка. Знаков нет. Покрытие хорошее, разметка частично стерта",
     "coordinates": [
       [
         52.26248723941575,
@@ -2079,7 +2000,17 @@
         54.90371796320596
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm41/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm41/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm41/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm41/4.jpg",
+      "https://velojol.kz/src/almetevsk/alm41/5.jpg",
+      "https://velojol.kz/src/almetevsk/alm41/6.jpg",
+      "https://velojol.kz/src/almetevsk/alm41/7.jpg",
+      "https://velojol.kz/src/almetevsk/alm41/8.jpg",
+      "https://velojol.kz/src/almetevsk/alm41/9.jpg"
+    ],
     "source": "Velojol",
     "date": "31.07.24"
   },
@@ -2182,8 +2113,8 @@
     "id": "alm44",
     "name": "Тимирязева улица",
     "distance": 1480,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Частично обособленная велодорожка c односторонним движением. Есть знаки и разметка",
     "coordinates": [
       [
         52.29649357402951,
@@ -2234,7 +2165,12 @@
         54.90180660213656
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm44/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm44/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm44/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm44/4.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2242,8 +2178,8 @@
     "id": "alm45",
     "name": "Тимирязева улица",
     "distance": 1470,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Частично обособленная велодорожка c односторонним движением. Есть знаки и разметка",
     "coordinates": [
       [
         52.296566445086995,
@@ -2258,7 +2194,12 @@
         54.901665932604374
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm45/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm45/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm45/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm45/4.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2266,8 +2207,8 @@
     "id": "alm46",
     "name": "Кирова улица",
     "distance": 224,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная односторонняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.30552429386313,
@@ -2278,7 +2219,9 @@
         54.89997443337643
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm46/1.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2286,8 +2229,8 @@
     "id": "alm47",
     "name": "Кирова улица",
     "distance": 515,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 4,
+    "description": "Физически обособленная велосипедно-пешеходная дорожка. Есть разметка, знаки и светофоры",
     "coordinates": [
       [
         52.30937996804906,
@@ -2302,7 +2245,9 @@
         54.89970015115546
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      ""
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2310,8 +2255,8 @@
     "id": "alm48",
     "name": "Лермонтова улица",
     "distance": 407,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Физически обособленная велопешеходная дорожка. Одностороняя, есть разметка и знаки",
     "coordinates": [
       [
         52.298201836735785,
@@ -2322,7 +2267,11 @@
         54.89613901494886
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm48/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm48/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm48/3.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2330,8 +2279,8 @@
     "id": "alm49",
     "name": "Лермонтова улица",
     "distance": 407,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Физически обособленная одностороняя велодорожка. Есть знаки и светофоры. Покрытие хорошее, разметка частично стерта",
     "coordinates": [
       [
         52.29822774146254,
@@ -2342,7 +2291,10 @@
         54.89602838845258
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm49/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm49/2.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2350,8 +2302,8 @@
     "id": "alm50",
     "name": "Чапаева улица",
     "distance": 433,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная одностороняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.30006644852418,
@@ -2366,7 +2318,11 @@
         54.908789287769764
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm50/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm50/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm50/3.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2374,8 +2330,8 @@
     "id": "alm51",
     "name": "Чапаева улица",
     "distance": 87,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная одностороняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.299785443891295,
@@ -2386,7 +2342,11 @@
         54.90814000658895
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm51/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm51/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm51/3.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2394,8 +2354,8 @@
     "id": "alm52",
     "name": "Кирова улица",
     "distance": 911,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 4,
+    "description": "Обособленная односторонняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.30358456795449,
@@ -2422,7 +2382,11 @@
         54.899602122355105
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm52/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm52/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm52/3.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   },
@@ -2430,8 +2394,8 @@
     "id": "alm53",
     "name": "Чапева улица",
     "distance": 526,
-    "safetyLevel": 0,
-    "description": "Пока нет информации",
+    "safetyLevel": 5,
+    "description": "Обособленная одностороняя велодорожка. Есть разметка и знаки",
     "coordinates": [
       [
         52.30026338699156,
@@ -2446,7 +2410,694 @@
         54.90807786318365
       ]
     ],
-    "photos": ["../static/images/empty.jpg"],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm53/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm53/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm53/3.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm54",
+    "name": "Заслонова улица",
+    "distance": 467,
+    "safetyLevel": 4,
+    "description": "Обособленная бордюром велодорожка. Разметки и знаков нет",
+    "coordinates": [
+          [
+            52.29048154453329,
+            54.89864795634108
+          ],
+          [
+            52.291059233971765,
+            54.8981379504919
+          ],
+          [
+            52.29072134496613,
+            54.89455033906887
+          ]
+      ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm54/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm54/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm54/3.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm55",
+    "name": "Заслонова улица",
+    "distance": 454,
+    "safetyLevel": 4,
+    "description": "Обособленная бордюром велодорожка. Разметки и знаков нет",
+    "coordinates": [
+          [
+            52.290183522103234,
+            54.8985262293148
+          ],
+          [
+            52.2907312071774,
+            54.8980401052398
+          ],
+          [
+            52.290738024834155,
+            54.89796431117247
+          ],
+          [
+            52.290359215756695,
+            54.89468899686591
+          ],
+          [
+            52.29032786319078,
+            54.894548761204646
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm55/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm55/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm55/3.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm56",
+    "name": "Стройтелей проспект",
+    "distance": 454,
+    "safetyLevel": 5,
+    "description": "Обособленная бордюром велодорожка. Есть разметка и знаки.",
+    "coordinates": [
+          [
+            52.26998809030016,
+            54.89862408082652
+          ],
+          [
+            52.27019269765097,
+            54.89840474933561
+          ],
+          [
+            52.26948852009312,
+            54.895279211640826
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm56/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm56/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm56/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm56/4.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm57",
+    "name": "Стройтелей проспект",
+    "distance": 352,
+    "safetyLevel": 5,
+    "description": "Обособленная бордюром велодорожка. Знаков нет. Разметка стерлась",
+    "coordinates": [
+          [
+            52.2705805663756,
+            54.89840079455092
+          ],
+          [
+            52.27041432284537,
+            54.89821612254957
+          ],
+          [
+            52.270083713401675,
+            54.896804920875184
+          ],
+          [
+            52.26981106399438,
+            54.895603782351344
+          ],
+          [
+            52.26989421149284,
+            54.89546255967423
+          ],
+          [
+            52.270034087090295,
+            54.895376885503396
+          ],
+          [
+            52.270110926463644,
+            54.895345012095504
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm57/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm57/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm57/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm57/4.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm58",
+    "name": "Стройтелей проспект",
+    "distance": 1390,
+    "safetyLevel": 5,
+    "description": "Обособленная бордюром велодорожка. Знаков нет. Разметка стерлась",
+    "coordinates": [
+          [
+            52.27392022913642,
+            54.9103003390054
+          ],
+          [
+            52.27361720894123,
+            54.910223799306635
+          ],
+          [
+            52.273479472488475,
+            54.91013670223086
+          ],
+          [
+            52.27342437790762,
+            54.91000209728864
+          ],
+          [
+            52.27340601304786,
+            54.90982262333176
+          ],
+          [
+            52.27358966165011,
+            54.90976455805725
+          ],
+          [
+            52.272945520069186,
+            54.90749724131345
+          ],
+          [
+            52.27283073969187,
+            54.907080201117196
+          ],
+          [
+            52.27281696604632,
+            54.90674762166148
+          ],
+          [
+            52.27159941252276,
+            54.901414569698886
+          ],
+          [
+            52.271502997006706,
+            54.901311614246
+          ],
+          [
+            52.27144790242593,
+            54.90105290450907
+          ],
+          [
+            52.27125845986589,
+            54.9007565426179
+          ],
+          [
+            52.27102401325274,
+            54.89947315420153
+          ],
+          [
+            52.27143263139382,
+            54.89896362956512
+          ],
+          [
+            52.272078220761955,
+            54.898743231525685
+          ],
+          [
+            52.27258789345041,
+            54.89865856572439
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm58/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm58/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm58/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm58/4.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm59",
+    "name": "сквер Яльшлек",
+    "distance": 427,
+    "safetyLevel": 5,
+    "description": "Двухополосная велодорожка в сквере",
+    "coordinates": [
+          [
+            52.249500524585216,
+            54.90462540644734
+          ],
+          [
+            52.25034470131885,
+            54.90468398316452
+          ],
+          [
+            52.2504562878994,
+            54.90472861298741
+          ],
+          [
+            52.25068431264839,
+            54.904829029908086
+          ],
+          [
+            52.2511015494257,
+            54.905147015170286
+          ],
+          [
+            52.251116104197365,
+            54.905289270921884
+          ],
+          [
+            52.251057885112374,
+            54.90542873685715
+          ],
+          [
+            52.25089293103784,
+            54.90551241618621
+          ],
+          [
+            52.25070371901111,
+            54.90554030925742
+          ],
+          [
+            52.25062124197393,
+            54.905537519951224
+          ],
+          [
+            52.250446584718816,
+            54.90550404826135
+          ],
+          [
+            52.25029618541444,
+            54.905442683424155
+          ],
+          [
+            52.2501506377026,
+            54.905342268034445
+          ],
+          [
+            52.25000023839823,
+            54.905280902950665
+          ],
+          [
+            52.249876919224334,
+            54.9052549360961
+          ],
+          [
+            52.24969598343506,
+            54.905260715287625
+          ],
+          [
+            52.24953515162079,
+            54.905285758440556
+          ],
+          [
+            52.24930395588967,
+            54.90539748924118
+          ],
+          [
+            52.24919003335515,
+            54.905432164254165
+          ],
+          [
+            52.24904595485489,
+            54.90542638508754
+          ],
+          [
+            52.24898229226224,
+            54.90541290036194
+          ],
+          [
+            52.24887507105311,
+            54.90533584470006
+          ],
+          [
+            52.24886501906454,
+            54.90530502239395
+          ],
+          [
+            52.248891824367064,
+            54.90522796652556
+          ],
+          [
+            52.24900574690156,
+            54.905104676829126
+          ],
+          [
+            52.24909286413464,
+            54.904677012768985
+          ],
+          [
+            52.2492034360059,
+            54.9046076614124
+          ],
+          [
+            52.24949829433078,
+            54.90462114640769
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm59/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/4.jpg"
+
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm60",
+    "name": "сквер Яльшлек",
+    "distance": 380,
+    "safetyLevel": 5,
+    "description": "Двухополосная велодорожка в сквере",
+    "coordinates": [
+          [
+            52.25067437736237,
+            54.90482727316973
+          ],
+          [
+            52.25065762404955,
+            54.90469242370315
+          ],
+          [
+            52.25071123465355,
+            54.90457105879673
+          ],
+          [
+            52.2507849492348,
+            54.904476663616975
+          ],
+          [
+            52.25287849781867,
+            54.90351688163017
+          ],
+          [
+            52.252968965712824,
+            54.903503396264966
+          ],
+          [
+            52.253076186921874,
+            54.90352651403117
+          ],
+          [
+            52.253123096201676,
+            54.90355926417726
+          ],
+          [
+            52.25314990150312,
+            54.903603573156005
+          ],
+          [
+            52.25314320017782,
+            54.90367677918809
+          ],
+          [
+            52.2521246079186,
+            54.90419114138692
+          ],
+          [
+            52.25196712676757,
+            54.9042431554538
+          ],
+          [
+            52.25174933368717,
+            54.904260493461265
+          ],
+          [
+            52.251364007467146,
+            54.9042142587582
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm59/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/4.jpg"
+
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm61",
+    "name": "сквер Яльшлек",
+    "distance": 380,
+    "safetyLevel": 5,
+    "description": "Двухополосная велодорожка в сквере",
+    "coordinates": [
+          [
+            52.249508842639955,
+            54.904613781242034
+          ],
+          [
+            52.2498575547379,
+            54.90279410218696
+          ],
+          [
+            52.24979099242145,
+            54.9027277656881
+          ],
+          [
+            52.24964899281326,
+            54.902717560063024
+          ],
+          [
+            52.24949811822984,
+            54.90275838254735
+          ],
+          [
+            52.24943155591481,
+            54.9028119619953
+          ],
+          [
+            52.24906522609902,
+            54.904504627967526
+          ],
+          [
+            52.249200417426295,
+            54.9046057963516
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm59/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm59/4.jpg"
+
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm61",
+    "name": "парк Комсомолец",
+    "distance": 983,
+    "safetyLevel": 5,
+    "description": "Двухополосная велодорожка в парке. Без разметки и знаков",
+    "coordinates": [
+      [
+        52.30681551963113,
+        54.91230490687386
+      ],
+      [
+        52.30686684140821,
+        54.91236980962216
+      ],
+      [
+        52.30710805376012,
+        54.91245241296855
+      ],
+      [
+        52.30744164530944,
+        54.912478964008386
+      ],
+      [
+        52.309837138839015,
+        54.91241430007622
+      ],
+      [
+        52.309934650214785,
+        54.91235234752352
+      ],
+      [
+        52.31059670113663,
+        54.91233759690164
+      ],
+      [
+        52.310663419447195,
+        54.91238774899372
+      ],
+      [
+        52.3137776920822,
+        54.912326278088756
+      ],
+      [
+        52.31388033563633,
+        54.91229087656441
+      ],
+      [
+        52.31393678959009,
+        54.91216992112143
+      ],
+      [
+        52.31411128363149,
+        54.91216402084626
+      ],
+      [
+        52.31410615145478,
+        54.9120902673383
+      ],
+      [
+        52.3139419217685,
+        54.91209911776613
+      ],
+      [
+        52.31392139305669,
+        54.91200766324863
+      ],
+      [
+        52.31381874950418,
+        54.91196931129193
+      ],
+      [
+        52.30697955629017,
+        54.91221081329627
+      ],
+      [
+        52.306825590958965,
+        54.91223736449547
+      ],
+      [
+        52.306815326603925,
+        54.912302267352686
+      ]
+    ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm61/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm61/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm61/3.jpg",
+      "https://velojol.kz/src/almetevsk/alm61/4.jpg"
+
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm62",
+    "name": "улица 8 марта",
+    "distance": 581,
+    "safetyLevel": 5,
+    "description": "Одностороняя велодорожка. Есть разметка и знаки",
+    "coordinates": [
+          [
+            52.31856287697681,
+            54.905875253354594
+          ],
+          [
+            52.327637551880656,
+            54.90563429864292
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm62/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm62/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm62/3.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm63",
+    "name": "улица 8 марта",
+    "distance": 598,
+    "safetyLevel": 5,
+    "description": "Одностороняя обособленная велодорожка. Есть разметка и знаки",
+    "coordinates": [
+      [
+        52.31830714464613,
+        54.905973315829755
+      ],
+      [
+        52.323330371650115,
+        54.905844627972414
+      ],
+      [
+        52.323431754485256,
+        54.9058845963192
+      ],
+      [
+        52.32764544758706,
+        54.90575387462215
+      ]
+    ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm63/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm63/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm63/3.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm64",
+    "name": "улица 8 марта",
+    "distance": 507,
+    "safetyLevel": 4,
+    "description": "Велопешеходна дорожка. Обособлена бордюром, имееть разметку",
+    "coordinates": [
+          [
+            52.32808176268915,
+            54.905727644384854
+          ],
+          [
+            52.33285541987328,
+            54.90560872309766
+          ],
+          [
+            52.33601166398762,
+            54.90549635383414
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm64/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm64/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm64/3.jpg"
+    ],
+    "source": "Velojol",
+    "date": "03.08.24"
+  },
+  {
+    "id": "alm65",
+    "name": "улица 8 марта",
+    "distance": 507,
+    "safetyLevel": 4,
+    "description": "Велопешеходна дорожка. Обособлена бордюром, имееть разметку",
+    "coordinates": [
+          [
+            52.32806254056396,
+            54.90559154189708
+          ],
+          [
+            52.331598522507306,
+            54.905512847916384
+          ],
+          [
+            52.33598466343304,
+            54.905390222706046
+          ]
+        ],
+    "photos": [
+      "https://velojol.kz/src/almetevsk/alm65/1.jpg",
+      "https://velojol.kz/src/almetevsk/alm65/2.jpg",
+      "https://velojol.kz/src/almetevsk/alm65/3.jpg"
+    ],
     "source": "Velojol",
     "date": "03.08.24"
   }

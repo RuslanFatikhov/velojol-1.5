@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заключение и следующие шаги</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/coursemeta.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7C2FWEP4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2M7C2FWEP4');
+    </script>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+     
+        ym(95219611, "init", {
+             clickmap:true,
+             trackLinks:true,
+             accurateTrackBounce:true,
+             webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/95219611" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</head>
+<body>
+
+
+    <!--Course-menu-->
+    <div class="course-menu fs">
+        <a href="{{ url_for('course') }}" class="button fs">
+            
+            <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+            <img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
+            <p class="dark-prime-invert-100">Назад</p>
+        </a>
+
+        <hr>
+
+        <span class="column gap2">
+
+            <a href="#one" class="button fs dark-prime-invert-400">
+                <p class="dark-prime-invert-100">Выводы</p>
+            </a>
+
+            <a href="#two" class="button fs dark-prime-invert-400">
+                <p class="dark-prime-invert-100">Советы для дальнейшего развития как велосипедиста</p>
+            </a>
+
+            <a href="#three" class="button fs dark-prime-invert-400">
+                <p class="dark-prime-invert-100">Экзамен</p>
+            </a>
+
+        </span>
+
+    </div>
+
+    <!--Navbar-->
+    <div class="navbar row bgprime100 aic">
+        <a style="position: absolute; left: 16px;" href="{{ url_for('course') }}" class="button fs">
+            
+            <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+            <img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
+
+        </a>
+
+        <p style="margin-left: auto; margin-right: auto;" class="dark-prime-invert-100 center bold">Заключение и следующие шаги</p>
+    </div>
+
+    <main class="course-main">
+
+         
+
+        <!--Cover-->
+        <div class="course-cover bgprime10">
+
+            <!--Badges-->
+            <span class="gap8 row">
+                <p class="badge_m dark-prime-invert-100 bgprime200">14 минут на чтение</p>
+            </span>
+
+            <h1 class="dark-prime-invert-100 mt16 mb8 center">Заключение и следующие шаги</h1>
+            <p class="dark-prime-invert-200 mb16"></p>
+
+            <img src="{{ url_for('static', filename='/img/course/10cover.png') }}" alt="cover">
+        </div>    
+        
+        <p class="p1 dark-prime-invert-100">Надеюсь, что курс был вам полезен и освоили правила дорожного движения и изучили важные аспекты безопасности. Вы также погрузились в велосипедную культуру, научились вовлекаться в местное велосипедное сообщество и вы определили какое место в вашей повседневности может занимать велосипед. </p>
+
+        <h3 id="one" class="dark-prime-invert-100 mt48 mb16">Выводы</h3>
+
+        <span class="gap16 column">
+            <p class="p1 dark-prime-invert-100">Велосипед – это не просто средство передвижения, но и стиль жизни, который обогатит вас физически и духовно</p>
+            <p class="p1 dark-prime-invert-100">Велосипед может стать отличной альтернативой автомобилю, способствуя здоровью планеты и вашему кошельку</p>
+            <p class="p1 dark-prime-invert-100">Важно следовать правилам дорожного движения и всегда думать о безопасности себя и окружающих</p>
+            <p class="p1 dark-prime-invert-100">Вовлечение в велосипедное сообщество приносит не только новых друзей, но и бесценный опыт и удовольствие</p>
+        </span>
+
+        <hr>
+
+        <h3 id="two" class="dark-prime-invert-100 mt48">Советы для дальнейшего развития как велосипедиста</h3>
+
+        <ul class="gap8 column mt48 mb48">
+            <li class="li-callout">
+                <p class="p1 dark-prime-invert-100">
+                    <b>Продолжайте обучение</b><br>
+                    В мире велосипеда всегда есть что нового узнать. Изучайте техники езды, поддерживайте свои знания в актуальности, следите за инновациями в велосипедной индустрии</p>
+            </li>
+
+            <li class="li-callout">
+                <p class="p1 dark-prime-invert-100">
+                    <b>Поддерживайте физическую активность</b><br>
+                    Велосипед отлично подходит для поддержания физической формы. Устанавливайте себе новые цели, участвуйте в соревнованиях, исследуйте новые трассы</p>
+            </li>
+
+            <li class="li-callout">
+                <p class="p1 dark-prime-invert-100">
+                    <b>Развивайте велосипедное сообщество</b><br>
+                    Станьте активным участником местного велосипедного сообщества, организуйте мероприятия, сотрудничайте с другими велосипедистами для улучшения условий велопередвижения в вашем регионе</p>
+            </li>
+
+            <li class="li-callout">
+                <p class="p1 dark-prime-invert-100">
+                    <b>Ставьте перед собой новые цели</b><br>
+                    Это может быть участие в гонке, покорение нового маршрута или даже организация своего вело-события.</p>
+            </li>
+        </ul>
+
+
+        <p class="p1 dark-prime-invert-100"></p>
+
+        <!--div class="pdfbanner mt24 bgaccent200 mt48">
+            <h3 class="dark-prime-200">На этом все</h3>
+            <p class="dark-prime-200 mt16 mb32">Предлагаем вам пройти экзамен для оценки ваших знаний и навыков, полученных в ходе этого курса. Экзамен будет включать вопросы и практические задания по темам, рассмотренным в уроках</p>
+            <a style="max-width: 200px;" class="button bgprime100" href=""><p class="p2 accent200">Пройти экзамен</p></a>
+        </div-->
+
+
+        <p class="p1 dark-prime-invert-100 mt48">Благодарим вас за участие в нашем курсе и желаем вам множество увлекательных велосипедных приключений, друзей на дороге и отличных покатушек. Помните, что велосипед – это не просто средство передвижения, но и источник радости и свободы на двух колесах.<br><br>
+
+            <b>Удачи на дорогах! 🚴‍♂️🌟🚴‍♀️</b></p>
+
+
+        <!--Next lessons-->
+        <div id="three" class="next-lesson bgprimeinvert300 row">
+            <span class="column" style="width: 100%;">
+                <p style="text-transform: uppercase;" class="p1 dark-prime-50">Финальный экзамен</p>
+                <h4 class="dark-prime-100 mt8 mb16">Финальный экзамен</h4>
+                <a href="https://velojol.kz/index.wsgi/course/exam" style="max-width: 240px;" class="button bgprime100 center"><p class="p1 dark-prime-invert-100">Пройти экзамен</p>
+
+                    <img class="theme-icon dark" src="../static/img/icon/arrow-right-white.svg" alt="Go back">
+            <img class="theme-icon light" src="../static/img/icon/arrow-right-black.svg" alt="Go back">
+                </a>
+            </span>
+
+        <img style="width: 115px; height: 115px; object-fit: contain;" src="{{ url_for('static', filename='/img/course/id-11.png') }}" alt="next-cover">
+        </div> 
+    </main>
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</body>
+</html>

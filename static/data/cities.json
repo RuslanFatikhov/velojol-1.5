@@ -41,9 +41,36 @@
             51.1282839046317
         ],
         "sharing":[
-           
+            {
+                "name": "Astana bike",
+                "logo": "astanabike.jpg",
+                "status": true,
+                "float": 700
+            }
         ],
-        "rating": 0
+        "rating": 2
+    },
+    {
+        "id": "almetevsk",
+        "city": "Альметьевск",
+        "country": "Россия",
+        "coat": "almetevsk.png",
+        "cover": "almetevsk.jpg",
+        "distance": 20.0,
+        "zoom": 12,
+        "coordinates": [
+            52.296806252495315,
+            54.90127384383425
+        ],
+        "sharing":[
+            {
+                "name": "Go Bike",
+                "logo": "gobike.jpg",
+                "status": true,
+                "float": 30
+            }
+        ],
+        "rating": 4.5
     },
     {
         "id": "innopolis",
@@ -60,7 +87,7 @@
         "sharing":[
            
         ],
-        "rating": 0
+        "rating": 2
     },
     {
         "id": "kazan",
@@ -75,7 +102,12 @@
             55.78235028276288
         ],
         "sharing":[
-           
+            {
+                "name": "Зеленый город",
+                "logo": "greencity.jpg",
+                "status": true,
+                "float": 30
+            }
         ],
         "rating": 2.76,
         "url": "Kazan"
@@ -93,9 +125,26 @@
             55.75411381726224
         ],
         "sharing":[
-           
+            {
+                "name": "Velobike.ru",
+                "logo": "velobike.ru.jpg",
+                "status": true,
+                "float": 11000
+            },
+            {
+                "name": "Whoosh",
+                "logo": "whoosh.jpg",
+                "status": true,
+                "float": 20
+            },
+            {
+                "name": "МТС Юрент",
+                "logo": "urent.jpg",
+                "status": true,
+                "float": 20
+            }
         ],
-        "rating": 0
+        "rating": 2
     },
     {
         "id": "pavlodar",
@@ -110,9 +159,9 @@
             52.275521803599815
         ],
         "sharing":[
-           
+            
         ],
-        "rating": 0,
+        "rating": 2,
         "url": "Pavlodar"
     },
     {
@@ -128,9 +177,14 @@
             42.314688628509856
         ],
         "sharing":[
-           
+            {
+                "name": "Shymkent bike",
+                "logo": "shymkentbike.jpg",
+                "status": false,
+                "float": 20
+            }
         ],
-        "rating": 0
+        "rating": 2
     },
     {
         "id": "tumen",
@@ -145,9 +199,26 @@
             57.15341521265273
         ],
         "sharing":[
-           
+            {
+                "name": "Velobike.ru",
+                "logo": "velobike.ru.jpg",
+                "status": true,
+                "float": 30
+            },
+            {
+                "name": "Whoosh",
+                "logo": "whoosh.jpg",
+                "status": true,
+                "float": 10
+            },
+            {
+                "name": "МТС Юрент",
+                "logo": "urent.jpg",
+                "status": true,
+                "float": 10
+            }
         ],
-        "rating": 0
+        "rating": 2
     },
     {
         "id": "saintpetersburg",
@@ -162,25 +233,35 @@
             59.93872534983453
         ],
         "sharing":[
-           
+            {
+                "name": "Velobike.ru",
+                "logo": "velobike.ru.jpg",
+                "status": false,
+                "float": 30
+            }
         ],
-        "rating": 0
+        "rating": 2
     },
     {
-        "id": "almetevsk",
-        "city": "Альметьевск",
+        "id": "ufa",
+        "city": "Уфа",
         "country": "Россия",
-        "coat": "almetevsk.png",
-        "cover": "almetevsk.jpg",
-        "distance": 20.0,
+        "coat": "ufa.png",
+        "cover": "ufa.jpg",
+        "distance": 46.5,
         "zoom": 12,
         "coordinates": [
-            52.296806252495315,
-            54.90127384383425
+            55.94129404669721,
+            54.72794407016539
         ],
         "sharing":[
-           
+            {
+                "name": "Velobike.ru",
+                "logo": "velobike.ru.jpg",
+                "status": false,
+                "float": 30
+            }
         ],
-        "rating": 0.0
+        "rating": 3.5
     }
 ]

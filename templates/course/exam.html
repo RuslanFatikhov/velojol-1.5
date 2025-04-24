@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Экзамен</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/coursemeta.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7C2FWEP4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2M7C2FWEP4');
+    </script>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+     
+        ym(95219611, "init", {
+             clickmap:true,
+             trackLinks:true,
+             accurateTrackBounce:true,
+             webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/95219611" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <script async src="https://tally.so/widgets/embed.js"></script>
+
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <div class="navbar row bgprime100 aic">
+        <a style="position: absolute; left: 16px;" href="{{ url_for('course') }}" class="button fs">
+            
+            <img src="{{ url_for('static', filename='/img/icon/arrow-left-black.svg') }}" alt="back">
+
+        </a>
+
+        <p style="margin-left: auto; margin-right: auto;" class="dark-prime-invert-100 center bold">Экзамен</p>
+    </div>
+
+    <!--Course-menu-->
+    <div class="course-menu fs">
+        <a href="{{ url_for('course') }}" class="button fs">
+            
+            <img src="{{ url_for('static', filename='/img/icon/arrow-left-black.svg') }}" alt="back">
+            <p class="dark-prime-invert-100">Назад</p>
+        </a>
+    </div>
+
+    <main class="course-main">
+
+        <!--Cover-->
+        <div class="course-cover bgprime10">
+
+            <!--Badges-->
+            <h1 class="dark-prime-invert-100 mt16 mb8">Экзамен</h1>
+
+            <img src="{{ url_for('static', filename='/img/course/11cover.png') }}" alt="cover">
+        </div>
+
+        <!--Quiz-->
+        <div id="quiz-container" class="block bgprime100 column aic">
+            <p class="badge_m dark-prime-invert-100 bgprime200" id="question-counter"></p>
+            <!-- Здесь будут отображаться вопросы -->
+        </div>
+          
+        
+
+        <!--Results-->
+        <div id="result-container" style="display: none;" class="block bgprime100 column aic">
+            <p class="dark-prime-invert-100" id="result-text"></p>
+
+            <span class="column mt24">
+                <button data-tally-open="3yEKBx" data-tally-width="370" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="button w100 bgaccent100" id="share-button">Поделиться</button>
+
+                <!--Sharebuttons-->
+                <div class="column gap4 mt4 gap4 mb16" id="social-share-buttons"  style="display: none;">
+                  <button class="social-button row gap4 button w100 bgprime10" data-network="vk">
+                        <img class="theme-icon dark" src="../static/img/icon/vk-white.svg" alt="Go back">
+                        <img class="theme-icon light" src="../static/img/icon/vk-black.svg" alt="Go back">
+                    VK</button>
+                  
+                  <button class="social-button row gap4 button w100 bgprime10" data-network="telegram">
+                        <img class="theme-icon dark" src="../static/img/icon/telegram-white.svg" alt="Go back">
+                        <img class="theme-icon light" src="../static/img/icon/telegram-black.svg" alt="Go back">
+                    Telegram</button>
+
+                  
+                  <button class="row gap4 button w100 bgprime10" id="download-button">
+                        <img class="theme-icon dark" src="../static/img/icon/instagram-white.svg" alt="Go back">
+                        <img class="theme-icon light" src="../static/img/icon/instagram-black.svg" alt="Go back">
+                    Instagram</button>
+                </div>
+                
+                <button class="button w100 mt8 bgprimve200" id="restart-button">Начать заново</button>
+            </span>
+         </div>
+        
+          <!-- Exam.js -->
+          <script src="{{ url_for('static', filename='js/exam.js') }}"></script>
+          <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+        
+    </main>
+</body>
+</html>

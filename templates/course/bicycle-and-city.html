@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Велосипед и город</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/img/landing/coursemeta.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7C2FWEP4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2M7C2FWEP4');
+    </script>
+
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+     
+        ym(95219611, "init", {
+             clickmap:true,
+             trackLinks:true,
+             accurateTrackBounce:true,
+             webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/95219611" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <div class="navbar row bgprime100 aic">
+        <a style="position: absolute; left: 16px;" href="{{ url_for('course') }}" class="button fs">
+            
+            <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+            <img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
+
+        </a>
+
+        <p style="margin-left: auto; margin-right: auto;" class="dark-prime-invert-100 center bold">Велосипед и город</p>
+    </div>
+
+    <!--Course-menu-->
+    <div class="course-menu fs">
+        <a href="{{ url_for('course') }}" class="button fs">
+            
+            <img class="theme-icon dark" src="../static/img/icon/left-arrow-white.svg" alt="Go back">
+            <img class="theme-icon light" src="../static/img/icon/left-arrow-black.svg" alt="Go back">
+            <p class="dark-prime-invert-100">Назад</p>
+        </a>
+
+        <hr>
+
+        <span class="column gap2">
+
+            <a href="#one" class="button fs dark-prime-invert-400">
+                <p class="dark-prime-invert-100">Велосипед в городе</p>
+            </a>
+
+            <a href="#two" class="button fs dark-prime-invert-400">
+                <p class="dark-prime-invert-100">Какой велосипед подойдет?</p>
+            </a>
+
+            <a href="#three" class="button fs dark-prime-invert-400">
+                <p class="dark-prime-invert-100">Как подобрать велосипед?</p>
+            </a>
+
+
+        </span>
+
+    </div>
+
+    <main class="course-main">
+
+        <!--Cover-->
+        <div class="course-cover bgprime10">
+
+            <!--Badges-->
+            <span class="gap8 row">
+                <p class="badge_m dark-prime-invert-100 bgprime200">1 урок из 8</p>
+                <p class="badge_m dark-prime-invert-100 bgprime200">14 минут на чтение</p>
+            </span>
+
+            <h1 class="dark-prime-invert-100 mt16 mb8">Велосипед и город</h1>
+
+            <img src="{{ url_for('static', filename='/img/course/2cover.png') }}" alt="cover">
+        </div>
+
+
+
+        <h3 class="dark-prime-invert-200 mb16" id="one">Почему нужно пересаживаться на велосипед в современном городе?</h3>
+        <p class="p1 dark-prime-invert-200">Когда речь заходит о городской жизни, часто обсуждаются проблемы дорожных заторов, загрязнения и постоянного стресса. Например, <a href="https://tengrinews.kz/article/60-chasov-mesyats-tratim-probki-almatintsyi-predlagayut-1918/" target="_blank">жители города Алматы тратят в среднем до 60 часов в месяц в дорожных пробках</a>. Это существенное время, которое можно использовать более продуктивно, занимаясь физической активностью, любимыми хобби или просто наслаждаясь временем в кругу семьи и друзей. Урбанисты предлагают множество решений для этих проблем, и одним из самых простых и эффективных является использование велосипеда в качестве основного транспортного средства. Невозможно полностью избавить город от заторов, но использование велосипеда в качестве средства передвижения может существенно сократить это время.<br><br>Проведем сравнение автомобиля и велосипеда в городской среде, чтобы выделить преимущества велосипеда. Несмотря на то, что автомобиль обеспечивает удобства в перевозке грузов и может быть более комфортным в зимний период, давайте проанализируем положительные стороны велосипеда в современном городском образе жизни.
+        </p>
+
+        <ul class="gap8 column mt48 mb48">
+                <li class="coursecard bgprime100">
+                    <p class="p1 dark-prime-invert-100"><b>Ответственность</b></p>
+                    <p class="p1 dark-prime-invert-100">Автомобиль, часто ассоциируемый с символом свободы, на самом деле может стать громоздкой ношей, способствующей появлению дорожных заторов и вызывающей недовольство у жителей города. В то время как велосипед упрощает передвижение, избавляя от необходимости иметь дело со сложными бумажными формальностями и лицензиями.</p>
+                </li>
+
+                <li class="coursecard bgprime100">
+                    <p class="p1 dark-prime-invert-100"><b>Порог для входа</b></p>
+                    <p class="p1 dark-prime-invert-100">Управление велосипедом не требует специального водительского удостоверения, поскольку велосипеды менее опасны для окружающих и не представляют такую угрозу обществу, несмотря на необходимость соблюдения правил дорожного движения</p>
+                </li>
+
+                <li class="coursecard bgprime100">
+                    <p class="p1 dark-prime-invert-100"><b>Дорожное движение</b></p>
+                    <p class="p1 dark-prime-invert-100">Велосипедисты выделяются своей способностью избегать дорожных заторов. Независимо от наличия транспортных преград, велосипедисты легко маневрируют, обеспечивая себе свободу передвижения и быстрый проезд по улицам. Кроме того, велосипеды редко становятся причиной дорожно-транспортных происшествий, что делает их средством передвижения, обеспечивающим безопасность и уменьшающим риск тяжких последствий на дороге</p>
+                </li>
+
+                <li class="coursecard bgprime100">
+                    <p class="p1 dark-prime-invert-100"><b>Без необходимости специальной парковки</b></p>
+                    <p class="p1 dark-prime-invert-100">Парковка велосипедов не требует значительных затрат и специальных мест. Велосипед можно оставить практически в любом удобном месте, и нет необходимости в дорогостоящей инфраструктуре для парковки</p>
+                </li>
+
+                <li class="coursecard bgprime100">
+                    <p class="p1 dark-prime-invert-100"><b>Стоит недорого</b></p>
+                    <p class="p1 dark-prime-invert-100">В сравнении с автомобилями, велосипеды доступны практически каждому. За небольшую сумму, от 20 до 30 тысяч рублей, можно приобрести хороший велосипед, что делает их более доступными для широкой аудитории</p>
+                </li>
+
+                <li class="coursecard bgprime100">
+                    <p class="p1 dark-prime-invert-100"><b>Забота о себе и планете</b></p>
+                    <p class="p1 dark-prime-invert-100">Регулярная езда на велосипеде – ключ к улучшению физической формы и психического состояния. На фоне повышенного стресса современной жизни, велосипед способен не только снижать негативное воздействие, но и повышать уровень концентрации внимания, способствуя общему благополучию. Велосипеды, с минимальным углеродным следом, оказывают гораздо меньшее воздействие на окружающую среду по сравнению с автомобилями, способствуя экологической устойчивости</p>
+                </li>
+            
+        </ul>
+
+        <p class="p1 dark-prime-invert-100">
+                    Преобразование городской инфраструктуры в пользу велосипедов подразумевает улучшение велосипедных дорожек, создание удобных велопарков и другие меры, направленные на повышение комфорта для велосипедистов.
+<br><br>
+Ведь велосипед – это не только эффективное транспортное средство, но и источник удовольствия и свободы. Вспомните, как в детстве первое катание на велосипеде приносило восторг от свободы передвижения и ветра в волосах.
+<br><br>
+Почему бы не внести эту радость и свободу в нашу взрослую жизнь? Использование велосипеда в городе не только содействует эффективному перемещению, но и приносит удовольствие. Например, забота о здоровье, возможность наслаждаться окружающей природой в пути – все это придает велосипедному опыту особый шарм.
+<br><br>
+Мы предлагаем вам пересмотреть ваш взгляд на велосипед, обнаружив его преимущества. Надеемся, что наш курс поможет вам научиться рассматривать велосипед не только как средство передвижения, но и как источник радости и ярких впечатлений в вашей повседневной городской жизни.
+        </p>
+
+
+
+
+        
+           
+
+            <span class="li-callout mt32 mb24">
+                <p class="p1 dark-prime-invert-200">Вернитесь в дни вашего детства или юности и вспомните ваш первый опыт катания на велосипеде. Каково это было? Кто был рядом с вами в этот момент? Вспомните ощущения, которые вы испытали, когда впервые сели на седло, ваши падения и моменты триумфа, когда вам удалось продолжить движение. Какие чувства и воспоминания вызывает этот опыт сейчас? </p>
+            </span>
+
+
+            <h3 class="dark-prime-invert-100 mt48 mb16" id="two">Какой именно велосипед подойдёт для городских условий?</h3>
+            <p class="p1 dark-prime-invert-100">Перейдем к приятному: выбору велосипеда. Внедрение велосипедов в городскую среду создало потребность в разных типах велосипедов, каждый из которых решает свои специфические задачи. Понимание основных типов велосипедов и их особенностей поможет вам выбрать идеальный байк для своих повседневных потребностей. Давайте углубимся в изучение ключевых моделей велосипедов, которые приобрели популярность среди пользователей.</p>
+
+            <p class="p1 dark-prime-invert-100 mt32 mb8"><b>Основные типы велосипедов</b></p>
+
+            <div class="cards-grid-2 mt16 mb24">
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b11.jpg') }}" alt="cover">
+
+                        <b>Городской велосипед</b><br>
+        
+                        Эти велосипеды созданы для комфортных поездок по городским улицам, будь то поход в магазин, на работу или просто прогулка. Они также подойдут для коротких вылазок за город. Такие велосипеды отличаются простотой и функциональностью, и часто у них отсутствуют многоскоростные переключатели. Их конструкция обычно включает высокий руль и удобное сиденье
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b10.jpg') }}" alt="cover">
+
+                        <b>Шоссейный велосипед</b><br>
+        
+                        Эти велосипеды стали символом многих велосипедных гонок. Однако помимо гонок, они также идеально подходят для быстрой езды по городу, при этом уровень комфорта может быть несколько уступающим из-за акцента на скорость. Конструктивные особенности шоссейников включают узкие колеса, специальную тормозную систему и руль в форме "бараньих рогов". Также их отличает легкость и жесткость короткой рамы, а отсутствие амортизации делает их наилучшим выбором для ровных дорог
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b9.jpg') }}" alt="cover">
+
+                        <b>Фэтбайк</b><br>
+        
+                        Это ультрасовременные модели, разработанные для легкого преодоления самых сложных препятствий. Они идеально подходят для передвижения по снегу, грязи, песку, гравию и другим сложным участкам. В зимний период они наиболее востребованы. Стоит учитывать, что из-за своей конструкции фэтбайки довольно тяжелые. Вес одного колеса может составлять до 3 кг
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b8.jpg') }}" alt="cover">
+
+                        <b>Горный велосипед (МТБ)</b><br>
+        
+                        Это одна из самых популярных категорий велосипедов, выбор как профессионалов, так и обычных любителей. Эти велосипеды изначально разрабатывались для бездорожья, но сегодня они часто видны на городских дорогах. У низ хорошая амортизация смягчает удар при съезде с бордюров
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b7.jpg') }}" alt="cover">
+
+                        <b>Туринговые и гибридные велосипеды</b><br>
+        
+                        Такие велосипеды выбирают велопутешественники. Туринговые имеют жесткую вилку, а гибридные — амортизационную, сочетая черты горных и шоссейных. На них можно установить багажники и велосумки, а геометрия рамы обеспечивает комфорт и правильное распределение нагрузки
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b6.jpg') }}" alt="cover">
+
+                        <b>Электробайк</b><br>
+        
+                        Электронный привод упрощает процесс вращения педалей, уменьшая физическое усилие во время езды. Для функционирования механизма в системе встроен аккумулятор и устройство управления. Для управления таким велосипедом не требуется специальных навыков или прав
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b5.jpg') }}" alt="cover">
+
+                        <b>Велосипед для трюков и фристайла</b><br>
+        
+                        К этой категории можно отнести BMX и триал. Триальные байки легко узнать по их длинным, низким и лёгким рамам, протяженному выносу и широкому рулю. Обычно заднее колесо шире переднего, что позволяет легко сохранять равновесие и выполнять трюки. BMX-велосипеды отличаются своими низкими рамами и 20-дюймовыми колеса. На таких велосипедах можно свободно вращать руль, не опасаясь запутать тросы, что активно используется при выполнении трюков
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b4.jpg') }}" alt="cover">
+
+                        <b>Складной велосипед</b><br>
+        
+                        Идеален для городских поездок. Благодаря небольшому размеру колес, его можно легко сложить и взять с собой. При этом скорость, удобство и управляемость остаются на приемлемом уровне из-за его компактности. Хотя такой велосипед может не обладать высокой динамикой, он идеален для коротких городских поездок
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b3.jpg') }}" alt="cover">
+
+                        <b>Велосипеды для женщин</b><br>
+        
+                        Женские модели велосипедов обладают особенностями в дизайне. Основные отличия часто касаются геометрии рамы, а также сокращенного расстояния между седлом и рулем. Седло создано с учетом женской физиологии
+                    </p>
+                </span>
+
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b2.jpg') }}" alt="cover">
+
+                        <b>Детский велосипед</b><br>
+        
+                        Этих велосипедов множество разновидностей: от двухколесных до моделей с четырьмя колесами. Они обычно имеют одну передачу и педальный тормоз. Однако некоторые производители укомплектовывают детские модели многими скоростями и различными тормозами, делая их похожими на модели для взрослых
+                    </p>
+                </span>
+
+                <span class="coursecard bgprime100">
+                    <p class="dark-prime-invert-200">
+                        <img class="course-img" src="{{ url_for('static', filename='/img/course/b1.jpg') }}" alt="cover">
+
+                        <b>Трехколесные велосипеды </b><br>
+        
+                        Взрослые трехколесные велосипеды подходят для тех, кому трудно управлять двухколесным велосипедом из-за проблем с равновесием или физическими ограничениями. Они устойчивы и легко управляемы, но менее маневренны и требуют больше места на дороге. Такие велосипеды также используются для грузоперевозок
+                    </p>
+                </span>
+    
+            </div>
+
+            <hr>
+
+            <h3 class="dark-prime-invert-100 mt32 mb16" id="three">Как правильно подобрать велосипед для себя?</h3>
+            <p class="p1 dark-prime-invert-100">
+                Выбор велосипеда – это не только дело вкуса, но и внимательное рассмотрение ряда важных факторов. Если вы все еще в раздумьях относительно того, какой велосипед идеально подойдет именно вам, давайте рассмотрим несколько ключевых аспектов этого выбора.<br><br>Во-первых, нужно учитывать основные характеристики велосипедиста: пол, возраст, вес, рост, а также цели эксплуатации и условия окружающей среды.<br><br>Традиционные мужские велосипеды обычно обладают высокой рамой, в то время как женские – более низкой рамой для удобства посадки. Детские байки характеризуются сокращенной рамой и меньшим диаметром колес, не превышающим 26 дюймов. А модели унисекс подойдут и мужчинам, и женщинам благодаря среднего размера раме.
+            </p>
+
+            <p class="p1 dark-prime-invert-100 mt48">Помимо этого, при покупке стоит уделить внимание таким факторам, как:</p>
+
+
+            <span class="gap8 column mt16 mb48">
+                
+                <p class="p1 dark-prime-invert-200 coursecard bgprime100"><b>Вес.</b><br>Он зависит от материалов изготовления рамы.<br>
+                    Алюминий: легкий, прочный, но дороже.<br>
+                    Сталь: тяжелее алюминия, но более устойчив и дешевле.<br>
+                    Карбон: очень легкий и прочный, но дорогой.
+                </p>
+
+                <p class="p1 dark-prime-invert-200 coursecard bgprime100"><b>Количество передач скоростей</b><br>Есть как варианты с одной скоростью, так и с множеством режимов.
+                </p>
+
+                <p class="p1 dark-prime-invert-200 coursecard bgprime100"><b>Тип тормозной системы.</b><br>
+                    Базовые модели могут иметь барабанный тормоз, активируемый педалями назад. Более современные – ободные или дисковые. Ободные: дешевле и проще в обслуживании, но менее эффективны в дождливую погоду.<br>Дисковые: эффективны при любых погодных условиях, но требуют больше ухода.
+                </p>
+
+                <p class="p1 dark-prime-invert-200 coursecard bgprime100"><b>Бюджет.</b><br>Определите, сколько вы готовы потратить на велосипед. Качественный велосипед может стоить дороже, но он прослужит вам долго и надежно.
+                </p>
+            </span>
+
+            <p class="p1 dark-prime-invert-100">Во-вторых, выбрать велосипед стоит исходя из условий городской среды. Городские дороги и тротуары имеют свои особенности, которые важно учитывать при выборе велосипеда.</p>
+
+            <span class="gap8 column mt16 mb48">
+                
+                <p class="p1 dark-prime-invert-200 coursecard bgprime100"><b>Дорога.</b><br>Городские дороги могут быть асфальтированными, мощенными или бетонными. Выбирайте модель с универсальными покрышками. На велосипеде с быстрым тормозным откликом будет проще остановиться перед пешеходным переходом или на светофоре. Во время пробок велосипеды с высокой маневренностью позволят легко передвигаться между машинами в условиях городского трафика.
+                </p>
+
+                <p class="p1 dark-prime-invert-200 coursecard bgprime100"><b>Парковка.</b><br>Если в вашем городе мало мест для парковки велосипедов, рассмотрите возможность покупки складного велосипеда, который можно легко унести с собой.
+                </p>
+
+                <p class="p1 dark-prime-invert-200 coursecard bgprime100"><b> Кражи.</b><br><br>
+                    В городских условиях кража велосипеда – реальная угроза. Рассмотрите модели с встроенными замками или приобретите надежный замок отдельно.
+                </p>
+
+                <p class="p1 dark-prime-invert-200 coursecard bgprime100"><b>Погода.</b><br>Велосипеды с крыльями будут более практичными в условиях переменчивой городской погоды.
+                </p>
+            </span>
+
+            <p class="p1 dark-prime-invert-100 mb24">Также стоит обратить внимание на дополнительное оборудование: крылья, чехлы на цепь, осветительные устройства, крепления для бутылок с водой и комплекты для экстренного ремонта.</p>
+
+            <hr>
+
+            <p class="p1 dark-prime-invert-100 mt32">Переход на велосипед может потребовать некоторого времени и усилий, но преимущества такого выбора оправдывают вложенные ресурсы. Это отличный способ улучшить здоровье, экономить и вносить вклад в экологию. Понимаем, что полностью пересесть на велосипед может быть непросто. Ведь мешающими факторами могут стать погодные условия, дальние расстояния или другие обстоятельства. Однако, даже если вы решите проводить на велосипеде хотя бы один день в неделю, такие перемены в повседневной жизни могут принести заметные позитивные изменения.</p>
+
+
+            <!--Next lessons-->
+            <div class="next-lesson bgprimeinvert300 row">
+                    <span class="column" style="width: 100%;">
+                        <p style="text-transform: uppercase;" class="p1 dark-prime-100">СЛЕДУЮЩИЙ УРОК</p>
+                        <h4 class="dark-prime-100 mt8 mb16">Основы технического обслуживания</h4>
+                        <a href="https://velojol.kz/index.wsgi/course/maintenance-basics" style="max-width: 150px;" class="button bgprime100 center"><p class="p1 dark-prime-invert-100">Перейти</p>
+
+                            <img class="theme-icon dark" src="../static/img/icon/arrow-right-white.svg" alt="Go back">
+                            <img class="theme-icon light" src="../static/img/icon/arrow-right-black.svg" alt="Go back">
+                        </a>
+                    </span>
+
+                    <img style="width: 115px; height: 115px; object-fit: contain;" src="{{ url_for('static', filename='/img/course/id-3.png') }}" alt="cover">
+            </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>

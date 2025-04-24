@@ -51,7 +51,10 @@
 
 </head>
     <body class="bgprime200">
-    
+        
+    <!-- loader -->
+    {% include 'loader.html' %}
+
     <!-- header -->
     {% include 'header.html' %} 
 
@@ -112,7 +115,7 @@
                     </a>
 
 
-                    <div id="service_side" class="column gap8" style="min-width: 160px;">
+                    <div id="service_side" class="column gap8">
                         {% if routes_count > 0 %}
                         <!--Routes-->
                         <a href="{{ url_for('city_routes', city_id=city.id) }}" class="column size_l bgprime300" style="height: 100%; padding: 16px; border-radius: 16px; width: 100%;">
@@ -177,7 +180,7 @@
                                 </span>
                             {% endfor %}
                         {% else %}
-                            <p>Нет данных о шеринг-сервисах.</p>
+                            <p style="padding: 24px 16px;" class="dark-prime-invert-400 center">Нет данных о шеринг-сервисах</p>
                         {% endif %}
 
                                 

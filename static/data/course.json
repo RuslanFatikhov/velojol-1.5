@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "title": "Введение",
+    "subtitle": "",
+    "image": "static/img/course/id-1.png",
+    "url": "introduction"
+  },
+  {
+    "id": 2,
+    "title": "Велосипед и город",
+    "subtitle": "1-ый урок",
+    "image": "static/img/course/id-2.png",
+    "url": "bicycle-and-city"
+  },
+  {
+    "id": 3,
+    "title": "Основы технического обслуживания",
+    "subtitle": "2-ой урок",
+    "image": "static/img/course/id-3.png",
+    "url": "maintenance-basics"
+  },
+  {
+    "id": 4,
+    "title": "Безопасность велосипедиста",
+    "subtitle": "3-ий урок",
+    "image": "static/img/course/id-4.png",
+    "url": "cyclist-safety"
+  },
+  {
+    "id": 5,
+    "title": "Правила дорожного движения для велосипедистов",
+    "subtitle": "4-ый урок",
+    "image": "static/img/course/id-5.png",
+    "url": "cycling-traffic-rules"
+  },
+  {
+    "id": 6,
+    "title": "Взаимодействие на дороге",
+    "subtitle": "5-ый урок",
+    "image": "static/img/course/id-6.png",
+    "url": "road-interaction"
+  },
+  {
+    "id": 7,
+    "title": "Эффективное перемещение по городу",
+    "subtitle": "6-ой урок",
+    "image": "static/img/course/id-7.png",
+    "url": "efficient-city-movement"
+  },
+  {
+    "id": 8,
+    "title": "Велосипед как элемент образа жизни",
+    "subtitle": "7-ой урок",
+    "image": "static/img/course/id-8.png",
+    "url": "bicycle-as-lifestyle"
+  },
+  {
+    "id": 9,
+    "title": "Велосипедная культура и сообщество",
+    "subtitle": "8-ой урок",
+    "image": "static/img/course/id-9.png",
+    "url": "bicycle-culture-and-community"
+  },
+  {
+    "id": 10,
+    "title": "Заключение и следующие шаги",
+    "subtitle": "",
+    "image": "static/img/course/id-10.png",
+    "url": "conclusion-and-next-steps"
+  },
+  {
+    "id": 11,
+    "title": "Экзамен",
+    "subtitle": "",
+    "image": "static/img/course/id-11.png",
+    "url": "exam"
+  }
+]

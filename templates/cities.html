@@ -11,10 +11,10 @@
     <meta name="language" content="Russian">
     
     <!-- Фавиконы и мета-данные -->
-    <link rel="apple-touch-icon" sizes="180x180" href="static/images/fav/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="static/images/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="static/images/fav/favicon-16x16.png">
-    <link rel="mask-icon" href="static/images/fav/safari-pinned-tab.svg" color="#121212">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">
+    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#121212">
     <meta name="msapplication-TileColor" content="#121212">
     <meta name="theme-color" content="#121212">
     
@@ -81,9 +81,16 @@
     </div>
 
     <body class="bgprime200">
+        <!-- loader -->
+        {% include 'loader.html' %}
+
         <main class="pt100">
         <!-- Список городов -->
         <!-- Сделать группировку по странам-->
+        <a href="https://tally.so/r/3lO0pV" target="_blank" class="w100 mb16" id="cities">
+            <img class="w100 desktop" style="border-radius: 16px;" src="{{ url_for('static', filename='img/landing/cities_banner_desktop.jpg') }}" alt="about">
+            <img class="w100 mobile" style="border-radius: 16px;" src="{{ url_for('static', filename='img/landing/cities_banner_mobile.jpg') }}" alt="about">
+        </a>
 
         <div id="cities" class="w100">
             <ul class="citygrid">

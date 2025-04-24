@@ -45,6 +45,10 @@
     bottom: 16px;
 }
 
+#service_side a{
+    min-width: 160px;
+}
+
 
 #service_side a:hover{
     transform: scale(0.99);

@@ -1,0 +1,36 @@
+<div class="bgprime100" id="loader" style="
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000000000;
+">
+  <img src="/static/img/landing/loader.svg" alt="Загрузка" style="
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+  " />
+</div>
+
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    loader.style.transition = "opacity 0.4s ease";
+    loader.style.opacity = "0";
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 400); // таймер совпадает с transition
+  });
+</script>
+
+<style>
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
