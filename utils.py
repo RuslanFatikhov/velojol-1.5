@@ -1,63 +1,94 @@
+# utils.py
 import json
 import os
+from typing import Any, Optional
 
-def pluralize_stores(count):
+
+# ──────────────────────────────────────────────────────────────────────────
+#  Настройки путей
+# ──────────────────────────────────────────────────────────────────────────
+# Абсолютный путь к каталогу, где лежит utils.py  →  /home/.../public_html
+BASE_DIR: str = os.path.dirname(os.path.abspath(__file__))
+
+
+def abs_path(rel_path: str) -> str:
     """
-    Возвращает строку с правильным окончанием для слова 'магазин' в зависимости от числа.
+    Преобразует путь вида 'static/…' в абсолютный,
+    чтобы код одинаково работал и локально, и под WSGI.
     """
+    return os.path.join(BASE_DIR, rel_path)
+
+
+# ──────────────────────────────────────────────────────────────────────────
+#  Локализация числительных
+# ──────────────────────────────────────────────────────────────────────────
+def pluralize_stores(count: int) -> str:
     if count % 10 == 1 and count % 100 != 11:
         return f"{count} магазин"
-    elif count % 10 in [2, 3, 4] and count % 100 not in [12, 13, 14]:
+    elif count % 10 in (2, 3, 4) and count % 100 not in (12, 13, 14):
         return f"{count} магазина"
-    else:
-        return f"{count} магазинов"
+    return f"{count} магазинов"
 
-def pluralize_routes(count):
-    """
-    Возвращает строку с правильным окончанием для слова 'маршрут' в зависимости от числа.
-    """
+
+def pluralize_routes(count: int) -> str:
     if count % 10 == 1 and count % 100 != 11:
         return f"{count} маршрут"
-    elif count % 10 in [2, 3, 4] and count % 100 not in [12, 13, 14]:
+    elif count % 10 in (2, 3, 4) and count % 100 not in (12, 13, 14):
         return f"{count} маршрута"
-    else:
-        return f"{count} маршрутов"
+    return f"{count} маршрутов"
 
-def load_json(file_path):
+
+# ──────────────────────────────────────────────────────────────────────────
+#  Работа с JSON-файлами  (исправленная версия)
+# ──────────────────────────────────────────────────────────────────────────
+def load_json(rel_path: str, *, default=None):
     """
-    Загружает данные из указанного JSON-файла.
-    Возвращает None, если файл не найден или поврежден.
+    Безопасно читает JSON.
+    • rel_path — путь относительно public_html.
+    • default  — что вернуть, если файла нет или он битый
+                 (по умолчанию [] — пустой список).
     """
+    if default is None:
+        default = []          # чаще всего нам нужен именно пустой список
+
+    full_path = abs_path(rel_path)
+
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(full_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"Ошибка загрузки {file_path}: {e}")
-        return None
+        # Логируем, но НЕ бросаем исключение
+        print(f"[load_json] {full_path} – {e}")
+        return default
 
-def load_data_count(city_id, data_type):
-    """
-    Загружает количество объектов из JSON-файла по указанному типу (парковки или велостанции).
-    Возвращает 0, если файл не найден или поврежден.
-    """
-    file_path = f"static/data/cities/{city_id}-{data_type}.geojson"
-    if os.path.exists(file_path):
-        try:
-            with open(file_path, encoding="utf-8") as f:
-                data = json.load(f)
-                return len(data.get("features", []))
-        except (json.JSONDecodeError, FileNotFoundError) as e:
-            print(f"Ошибка при загрузке JSON ({data_type}): {e}")
-            return 0
-    return 0
 
-def load_routes_count(city_id):
+def load_data_count(city_id: str, data_type: str) -> int:
     """
-    Загружает количество маршрутов для города из файла static/data/routes/{city_id}_routes.json.
-    Возвращает 0, если файл не найден или повреждён.
+    Считает количество объектов в GeoJSON
+    static/data/cities/{city_id}-{data_type}.geojson
     """
-    file_path = f"static/data/routes/{city_id}_routes.json"
-    routes_data = load_json(file_path)
+    rel_path = f"static/data/cities/{city_id}-{data_type}.geojson"
+    full_path = abs_path(rel_path)
+
+    if not os.path.exists(full_path):
+        return 0
+
+    try:
+        with open(full_path, encoding="utf-8") as f:
+            data = json.load(f)
+            return len(data.get("features", []))
+    except (json.JSONDecodeError, FileNotFoundError) as e:
+        print(f"Ошибка при загрузке JSON ({data_type}): {e}")
+        return 0
+
+
+def load_routes_count(city_id: str) -> int:
+    """
+    Считает количество маршрутов в
+    static/data/routes/{city_id}_routes.json
+    """
+    rel_path = f"static/data/routes/{city_id}_routes.json"
+    routes_data = load_json(rel_path)
     if routes_data is None:
         return 0
     return len(routes_data)

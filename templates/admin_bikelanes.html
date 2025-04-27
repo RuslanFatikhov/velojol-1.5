@@ -35,7 +35,6 @@
                     <td><input type="number" min="1" max="5" class="form-control" name="safetyLevel_{{ loop.index }}" value="{{ lane.safetyLevel }}"></td>
                     <td><textarea class="form-control" name="description_{{ loop.index }}">{{ lane.description }}</textarea></td>
                     <td><textarea class="form-control" name="coordinates_{{ loop.index }}" placeholder="Введите массив координат...">{{ lane.coordinates }}</textarea></td>
-                    <td><textarea class="form-control" name="photos_{{ loop.index }}" placeholder="Введите ссылки на фото через запятую...">{{ lane.photos | join(", ") }}</textarea></td>
                     <td><input type="text" class="form-control" name="source_{{ loop.index }}" value="{{ lane.source }}" placeholder="Источник"></td>
                     <td><input type="text" class="form-control" name="date_{{ loop.index }}" value="{{ lane.date }}" placeholder="Введите дату (например, 04.10.23)"></td>
                     <td>
@@ -84,12 +83,11 @@
             const safetyLevel = parseInt(row.querySelector('input[name^="safetyLevel"]').value) || 0;
             const description = row.querySelector('textarea[name^="description"]').value;
             const coordinates = JSON.parse(row.querySelector('textarea[name^="coordinates"]').value || "[]");
-            const photos = row.querySelector('textarea[name^="photos"]').value.split(",").map(photo => photo.trim());
             const source = row.querySelector('input[name^="source"]').value;
             const date = row.querySelector('input[name^="date"]').value;
 
             if (id && name) { // Проверяем, что ID и имя заполнены
-                bikelanes.push({ id, name, distance, safetyLevel, description, coordinates, photos, source, date });
+                bikelanes.push({ id, name, distance, safetyLevel, description, coordinates, source, date });
             }
         });
 

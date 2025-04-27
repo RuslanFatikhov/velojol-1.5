@@ -98,20 +98,20 @@ function showResult() {
 
   if (correctAnswersCount <= 3) {
     performance = 'Плохо';
-    performance_image = '/static/img/course/bad.png';
+    performance_image = '/static/images/course/bad.png';
   } else if (correctAnswersCount <= 6) {
     performance = 'Удовлетворительно';
-    performance_image = '/static/img/course/average.png';
+    performance_image = '/static/images/course/average.png';
   } else if (correctAnswersCount <= 9) {
     performance = 'Хорошо';
-    performance_image = '/static/img/course/good.png';
+    performance_image = '/static/images/course/good.png';
   } else {
     performance = 'Отлично';
-    performance_image = '/static/img/course/excellent.png';
+    performance_image = '/static/images/course/excellent.png';
   }
 
   // Определяем изображение для истории в зависимости от количества правильных ответов
-  story_image = `/static/img/course/stories/result_${correctAnswersCount}.jpg`;
+  story_image = `/static/images/course/stories/result_${correctAnswersCount}.jpg`;
 
   // Обновляем содержимое контейнера с результатом
   resultText.innerHTML = `

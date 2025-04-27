@@ -1,0 +1,28 @@
+RewriteCond %{HTTP_HOST} ^velojol\.ru$ [NC]
+RewriteRule ^(.*)$ https://velojol.kz/$1 [R=301,L]
+
+Options +ExecCGI
+AddHandler wsgi-script .wsgi
+
+
+RewriteEngine On
+
+# STOP дальнейших циклов, если уже внутри index.wsgi
+RewriteRule ^index\.wsgi/ - [L]
+
+# 1-a) реальные файлы картинок
+RewriteRule ^photos/([^/]+)/([^/]+)/(.+\.(?:jpe?g|png|gif|webp))$ /static/img/bikelanes/$1/$2/$3 [L]
+
+# 1-b) JSON-эндпоинт /photos/<city>/<lane>
+RewriteRule ^photos/([^/]+)/([^/]+)/?$ index.wsgi/photos/$1/$2 [QSA,PT,END]
+
+# 2) внутренняя статика из index.wsgi
+RewriteRule ^index\.wsgi/(static/.*)$ /$1 [L]
+
+# 3) если файл существует — отдаём
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# 4) остальное — во Flask
+RewriteRule ^(.*)$ index.wsgi/$1 [QSA,PT,END]
+

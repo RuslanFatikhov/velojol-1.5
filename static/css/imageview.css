@@ -4,7 +4,7 @@
     visibility: hidden; /* Скрыто, но занимает пространство в layout */
     transition: visibility 0s linear 0.15s, opacity 0.15s linear; /* Плавный переход для opacity и visibility */
     position: fixed;
-    z-index: 1000;
+    z-index: 100000000000;
     left: 0;
     top: 0;
     width: 100%;

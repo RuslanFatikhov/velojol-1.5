@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
 </head>
 <body>
+    {% if not session.admin_logged_in %}
+    <div class="container mt-4">
+        <h1>Вход в админ-панель</h1>
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <form method="post" action="{{ url_for('admin_login') }}">
+            <div class="mb-3">
+                <label for="username" class="form-label">Логин</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Пароль</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+    </div>
+    {% else %}
     <div class="container mt-4">
         <h1>Админ-панель</h1>
 
@@ -44,5 +63,7 @@
         </div>
         
     </div>
+    {% endif %}
+
 </body>
 </html>

@@ -1,8 +1,10 @@
 from flask import Flask, request, redirect
 from routes import init_routes
 from admin import init_admin_routes
+from config import Config  # ← добавляем это
 
 app = Flask(__name__)
+app.config.from_object(Config)  # ← добавляем это
 
 @app.before_request
 def redirect_www():
@@ -18,4 +20,4 @@ init_routes(app)
 init_admin_routes(app)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5027)
+    app.run(debug=True, port=5028)

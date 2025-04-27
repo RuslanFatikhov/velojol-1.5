@@ -11,6 +11,10 @@ main{
     flex-direction: row;
 }
 
+#routePhotosContainer{
+    display: none;
+}
+
 #map{
     display: block;
     box-sizing: border-box;
@@ -46,16 +50,17 @@ main{
 
 .bike-lane-item{
     padding: 12px;
-    border-radius: 8px;
+    
     cursor: pointer;
     width: 100%;
     display: flex;
     flex-direction: row;
-
+    border-radius: 8px;
     gap: 10px;
     position: relative;
     color: var(--dark-prime-invert-200);
     transition: 0.15s ease-in-out;
+
 }
 
 .bike-route-item{
@@ -446,6 +451,7 @@ input[type="text" i] {
         z-index: 200000;
         background-color: var(--dark-prime-300) !important;
         padding-bottom: 100px;
+        filter: drop-shadow(0px -40px 200px #121212);
     }
 
     .photogrid img{
@@ -523,9 +529,11 @@ input[type="text" i] {
     }
 
     .absolute_rt{
-        position: fixed;
-        right: 8px;
-        top: 34vh;
+        background-color: var(--dark-prime-200);
+        padding: 8px;
+        border-radius: 16px;
+        width: 48px !important;
+        height: 48px !important;
     }
 
     .popup_mobile{

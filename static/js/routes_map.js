@@ -339,7 +339,7 @@ async function populateRoutesList(data) {
         item.innerHTML = `
             <div class="vstack_important">
                 <span class="hstack_important gap12">
-                    <img src="${photoUrl}" alt="${route.name}" class="route-thumbnail">
+                    <!--img src="${photoUrl}" alt="${route.name}" class="route-thumbnail"-->
                     <span class="vstack_important">
                         <h6 class="dark-prime-invert-100" style="margin-bottom:4px;">${route.name}</h6>
                         <p style="height:20px; padding: 4px 8px; border-radius:8px; display: flex; align-items:center; justify-content: center; max-width: 80px;" class="bgprimeinvert50 dark-prime-100 mb16">${route.difficulty || 'N/A'}</p>
