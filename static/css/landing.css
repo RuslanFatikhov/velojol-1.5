@@ -244,6 +244,7 @@ footer{
     .route_banner{
         height: 180px;
         background-image: url('/static/img/landing/route-banner-mobile.jpg');
+        background-position: left center;
     }
 
 }

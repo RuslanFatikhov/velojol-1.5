@@ -20,8 +20,6 @@ def redirect_www():
 init_routes(app)
 init_admin_routes(app)
 app.register_blueprint(calendar_bp)  # ← НОВОЕ!
-from routes.admin_events import admin_events_bp
-app.register_blueprint(admin_events_bp)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5029)
+    app.run(debug=True, port=5028)

@@ -136,11 +136,7 @@ main{
     border-radius: 4px;;
 }
 
-.absolute_rt{
-    position: absolute;
-    top: -4px;
-    right: -4px;
-}
+
 
 .photogrid{
     width: 100%;
@@ -528,13 +524,6 @@ input[type="text" i] {
         display: none;
     }
 
-    .absolute_rt{
-        background-color: var(--dark-prime-200);
-        padding: 8px;
-        border-radius: 16px;
-        width: 48px !important;
-        height: 48px !important;
-    }
 
     .popup_mobile{
         display: flex;

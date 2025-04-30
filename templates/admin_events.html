@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Админ-панель</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    </head>
+<body
+    <div class="admin-events-container">
+    <h1>Модерация событий</h1>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <ul class="flashes">
+            {% for category, msg in messages %}
+            <li class="flash {{ category }}">{{ msg }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Pending Events -->
+    <section>
+        <h2>Ожидающие одобрения</h2>
+        {% if pending %}
+        <table class="admin-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Дата и время</th>
+                <th>Город</th>
+                <th>Тип</th>
+                <th>Организатор</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for evt in pending %}
+                <tr>
+                <td>{{ evt.id }}</td>
+                <td>{{ evt.title }}</td>
+                <td>{{ evt.datetime }}</td>
+                <td>{{ evt.city }}</td>
+                <td>{{ evt.type }}</td>
+                <td>{{ evt.organizer }}</td>
+                <td class="actions">
+                    <form method="post" action="{{ url_for('admin_events.approve_event', event_id=evt.id) }}" style="display:inline;">
+                    <button type="submit" class="button approve">Одобрить</button>
+                    </form>
+                    <form method="post" action="{{ url_for('admin_events.delete_event', event_id=evt.id) }}" style="display:inline; margin-left:8px;">
+                    <button type="submit" class="button delete">Удалить</button>
+                    </form>
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Нет событий на модерацию.</p>
+        {% endif %}
+    </section>
+
+    <!-- Approved Events -->
+    <section style="margin-top:32px;">
+        <h2>Одобренные события</h2>
+        {% if approved %}
+        <table class="admin-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Дата и время</th>
+                <th>Город</th>
+                <th>Тип</th>
+                <th>Организатор</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for evt in approved %}
+                <tr>
+                <td>{{ evt.id }}</td>
+                <td>{{ evt.title }}</td>
+                <td>{{ evt.datetime }}</td>
+                <td>{{ evt.city }}</td>
+                <td>{{ evt.type }}</td>
+                <td>{{ evt.organizer }}</td>
+                <td class="actions">
+                    <form method="post" action="{{ url_for('admin_events.delete_event', event_id=evt.id) }}">
+                    <button type="submit" class="button delete">Удалить</button>
+                    </form>
+                </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Пока нет одобренных событий.</p>
+        {% endif %}
+    </section>
+    </div>
+</body
+</html>

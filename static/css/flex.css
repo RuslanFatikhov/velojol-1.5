@@ -12,6 +12,10 @@
     align-items: flex-start;
 }
 
+.gap0{
+    gap: 0px;
+}
+
 .gap2{
     gap: 2px;
 }
@@ -172,6 +176,12 @@
     display: none !important;
 }
 
+.absolute_rt{
+    position: absolute;
+    top: -4px;
+    right: -4px;
+}
+
 @media screen and (max-width: 768px) {
 
     .desktop{
@@ -180,5 +190,13 @@
 
     .mobile{
         display: flex !important;
+    }
+
+    .absolute_rt{
+        background-color: var(--dark-prime-200);
+        padding: 8px;
+        border-radius: 16px;
+        width: 48px !important;
+        height: 48px !important;
     }
 }

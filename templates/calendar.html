@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Календарь | Velojol</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Подробная карта велодорожек и велополос города">
+    <meta name="keywords" content="Карта, велодорожки, город, велодорожка, велополоса, велосипед">
+    <meta name="author" content="Velojol">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="Russian">
+    
+    <!-- Фавиконы и мета-данные -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/fav/favicon-16x16.png">
+    <link rel="mask-icon" href="static/images/fav/safari-pinned-tab.svg" color="#121212">
+    <meta name="msapplication-TileColor" content="#121212">
+    <meta name="theme-color" content="#121212">
+    
+    <!-- Open Graph мета-данные -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velojol.kz">
+    <meta property="og:title" content="VELOJOL">
+    <meta property="og:description" content="Подробная карта велодорожек и велополос города">
+    <meta property="og:image" content="static/images/landing/meta.jpg">
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flex.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <!-- Подключение тем -->
+    <link id="theme-link" rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+
+</head>
+<body>
+    <!-- header -->
+    {% include 'header.html' %} 
+
+    <main>
+
+        <div class="about_calendar">
+
+        </div>
+
+        <div class="calendar-container">
+            <div class="hstack sb" style="margin-bottom: 16px;">
+
+                <span class="hstack_important gap8" id="monthSelector">
+                    <button id="prevmonth" class="size_s">
+                        <img class="theme-icon light" src="static/img/icon/chevron_left-dark.svg">
+                        <img class="theme-icon dark" src="static/img/icon/chevron_left-light.svg">
+                    </button>
+                    <h4 class="dark-prime-invert-100" style="min-width: 210px; text-align: center;">Май 2025</h4>
+
+                    <button id="nextmonth" class="size_s">
+                        <img class="theme-icon light" src="static/img/icon/chevron_right-dark.svg">
+                        <img class="theme-icon dark" src="static/img/icon/chevron_right-light.svg">
+                    </button>
+                </span>
+
+                <!-- Фильтры -->
+                <div class="hstack_important gap8" id="filterContainer">
+                        <select id="cityFilter">
+                            <option value="">Все города</option>
+                            {% for event in events|unique(attribute='city') %}
+                                <option value="{{ event.city }}">{{ event.city }}</option>
+                            {% endfor %}
+                        </select>
+                
+                        <select id="typeFilter">
+                            <option value="">Все типы</option>
+                            {% for event in events|unique(attribute='type') %}
+                                <option value="{{ event.type }}">{{ event.type }}</option>
+                            {% endfor %}
+                        </select>
+            
+                    <button id="addEventButton" class="button bgprimeinvert300">
+                        <p class="dark-prime-300">Добавить событие</p>
+                    </button>
+                </div>
+            </div>
+        
+            <div class="week hstack_important gap0">
+                <p class="day">ПН</p>
+                <p class="day">ВТ</p>
+                <p class="day">СР</p>
+                <p class="day">ЧТ</p>
+                <p class="day">ПТ</p>
+                <p class="day">СБ</p>
+                <p class="day">ВС</p>
+            </div>
+        
+            <!-- Сетка календаря -->
+            <div id="calendarGrid" class="calendar-grid">
+                <!-- Дни будут подгружаться через JS -->
+            </div>
+        
+            <!-- Модалка событий -->
+            <div id="eventModal" class="calendarmodal" style="display:none;">
+                <div class="modal-content" style="position: relative;">
+
+                    <span class="size_s calendar-close-button absolute_rt" style="top: 8px; right: 8px; background-color: var(--dark-prime-200);">
+                        <img src="static/img/icon/close-light.svg" class="icon icon-inactive theme-icon light" alt="home">
+                        <img src="static/img/icon/close-dark.svg" class="icon icon-inactive theme-icon dark" alt="home">
+                    </span>
+
+
+                    <div id="eventList"></div>
+                </div>
+            </div>
+        
+            <!-- Модалка добавления события -->
+            <div id="addEventModal" class="calendarmodal" style="display:none;">
+                <div class="modal-content">
+                    
+                    <!--Header-->
+                    <span class="modal_header">
+                        <h4 class="dark-prime-invert-100 bold">Добавить событие</h4>
+                        <span class="size_s calendar-close-button">
+                            <img src="static/img/icon/close-light.svg" class="icon icon-inactive theme-icon light" alt="home">
+                            <img src="static/img/icon/close-dark.svg" class="icon icon-inactive theme-icon dark" alt="home">
+                        </span>
+                    </span>
+
+
+                    <form id="addEventForm">
+                        <!--Image-->
+                        <label class="tac">Загрузите обложку (JPG/PNG, до 10 МБ):</label>
+                        <input type="file" class="file_input" name="cover_image" accept="image/jpeg,image/png">
+
+                        <input type="text" name="title" placeholder="Название события" >
+                        <textarea name="description" placeholder="Описание" ></textarea>
+
+                        <span class="calendar_form_stack gap8">
+                            
+                            <input type="datetime-local" name="datetime" >
+
+                            <!--City-->
+                            <select class="form-select" name="city" required>
+                                <option value="">Выберите город</option>
+                              
+                                {# — Фиксированный город — #}
+                                <option value="Алматы">Алматы</option>
+                              
+                                {# — Остальные города из events, кроме Алматы — #}
+                                {% for city in events|map(attribute='city')|unique if city != 'Алматы' %}
+                                  <option value="{{ city }}">{{ city }}</option>
+                                {% endfor %}
+                              </select>
+                              
+                            <!--Type-->
+                            <select class="form-select" name="type" required>
+                                <option value="">Выберите тип</option>
+                              
+                                {# — Фиксированные типы — #}
+                                <option value="Гонка">Гонка</option>
+                                <option value="Марафон">Марафон</option>
+                                <option value="Тренировка">Тренировка</option>
+                                <option value="Прогулка">Прогулка</option>
+                              
+                                {# — Динамические опции из events — #}
+                                {% for t in events|map(attribute='type')|unique %}
+                                  <option value="{{ t }}">{{ t }}</option>
+                                {% endfor %}
+                            </select>
+                    
+                        </span>
+                        
+                        
+                        <input type="url" name="link" placeholder="Ссылка на мероприятие" >
+                        <input type="url" name="route_link" placeholder="Ссылка на маршрут (Komoot/Strava)" >
+                        <input type="text" name="organizer" placeholder="Организатор" >
+
+
+                        <button class="button bgprimeinvert300 size_l" type="submit">
+                            <p class="p2 dark-prime-300">Добавить событие</p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+        <!-- footer -->
+        {% include 'footer.html' %}
+    
+
+    <script>
+        const eventsData = {{ events|tojson }};
+    </script>
+    <script src="/static/js/calendar.js"></script>  
+
+
+    <!--Scripts-->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+</html>

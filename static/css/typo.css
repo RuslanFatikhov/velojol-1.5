@@ -4,7 +4,7 @@
 
 
 
-h1, h2, h3, h4, h5, h6,p, .checkbox-label {
+h1, h2, h3, h4, h5, h6,p,a, .checkbox-label, input, textarea, .event-tag, label{
     font-family: 'Inter Tight', sans-serif;
     font-style: normal;
     font-weight: 500;

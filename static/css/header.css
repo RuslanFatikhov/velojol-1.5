@@ -33,7 +33,7 @@ header {
     bottom: 0;
     left: 0;
     width: 100vw;
-    z-index: 10000;
+    z-index: 9999;
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 4px;

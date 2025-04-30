@@ -110,6 +110,7 @@ button{
     border-radius: 8px;
     overflow: hidden;
     transition: 0.15s ease-in-out;
+    cursor: pointer;
 }
 
 .size_l{
@@ -145,6 +146,10 @@ button{
         border-radius: 8px;
         overflow: hidden;
         transition: 0.15s ease-in-out;
+    }
+
+    .size_l{
+        min-height: 48px !important;
     }
 
 }
